@@ -3,11 +3,19 @@ import { Product } from '../../types/product';
 import staticProducts from '../../staticData.json';
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
+
   useEffect(() => {
-    async function fetchProducts() {
-      const data = staticProducts.products as Product[];
-      setProducts(data);
-    }
+    const fetchProducts = async () => {
+      const productCollection = collection(db, 'products');
+      const data = await getDocs(productCollection);
+
+      const formattedData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      })) as Product[];
+
+      setProducts(formattedData);
+    };
     fetchProducts();
   }, []);
 
@@ -15,15 +23,11 @@ export default function Home() {
     <div>
       {products.map((product) => (
         <div key={product.id}>
-          <img src={product.image} alt={product.title} />
-          <strong>{product.title}</strong>
+          <img src={product.image} alt={product.description} />
+          <strong>{product.description}</strong>
           <span>{product.price}</span>
-          <button
-            type="button"
-            onClick={() => {
-              console.log('Added to cart');
-            }}
-          >
+          <span>Stock{product.stock}</span>
+          <button type="button" onClick={() => {}}>
             Add to cart
           </button>
         </div>
