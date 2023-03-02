@@ -23,7 +23,7 @@ function Content() {
             Card(product.data.image,
                 product.data.product,
                 product.data.description,
-                product.data.price
+                product.data.price.toFixed(2).toString().replace('.', ',')
                 )
          ))}
       </div>
