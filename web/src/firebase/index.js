@@ -1,10 +1,5 @@
 import { initializeApp } from 'firebase/app';
 import { collection, getFirestore } from 'firebase/firestore';
-import { envs } from '../envs';
-
-// DOTENV não estava funcionando 
-// Para configurar o Firestore, crie o arquivo envs.js 
-// e coloque as variáveis nele, seguindo a estrutura abaixo:
 
 const {
   REACT_APP_API_KEY,
@@ -13,7 +8,7 @@ const {
   REACT_APP_STORAGE_BUCKET,
   REACT_APP_MESSAGING_SENDER_ID,
   REACT_APP_APP_ID,
-} = envs;
+} = process.env;
 
 const firebaseConfig = {
   apiKey: REACT_APP_API_KEY,
@@ -23,6 +18,8 @@ const firebaseConfig = {
   messagingSenderId: REACT_APP_MESSAGING_SENDER_ID,
   appId: REACT_APP_APP_ID,
 };
+
+console.log(firebaseConfig);
 
 const app = initializeApp(firebaseConfig);
 
