@@ -4,13 +4,12 @@ type FormatCurrencyProps = {
   currency?: string;
 };
 
-export const formatCurrency = ({
+export const currencyFormatter = ({
   value,
   locale = 'pt-BR',
   currency = 'BRL',
-}: FormatCurrencyProps) => {
-  return new Intl.NumberFormat(locale, {
+}: FormatCurrencyProps): string =>
+  new Intl.NumberFormat(locale, {
     style: 'currency',
-    currency: currency,
+    currency,
   }).format(value);
-};
