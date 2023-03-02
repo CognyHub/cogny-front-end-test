@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
-import {db} from "../api/firebase";
+import { db } from "../api/firebase";
 import { Card, Spinner, Button } from "react-bootstrap";
+import { add } from '../features/cart/cartSlice';
+import { useDispatch } from "react-redux";
 const Products = () => {
     const [products, setProducts] = useState([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const q = collection(db, "produtos");
@@ -17,7 +20,7 @@ const Products = () => {
     return (
         <>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-            {products.length !== 0 ? products.map(({descricao, preco, url_imagem}, index) => (
+            {products.length !== 0 ? products.map(({ descricao, preco, url_imagem }, index) => (
                 <Card style={{
                     display: "flex",
                     flexWrap: "wrap",
@@ -30,7 +33,11 @@ const Products = () => {
                     <Card.Body>
                         <Card.Title>{ descricao }</Card.Title>
                         <Card.Text>R$ { preco }</Card.Text>
-                        <Button variant="danger">Adicionar ao carrinho</Button>
+                        <Button
+                            variant="danger"
+                            onClick={() => dispatch(add({id: index + 1, descricao, preco, url_imagem}))}>
+                            Adicionar ao carrinho
+                        </Button>
                     </Card.Body>
                 </Card>
             )) : <Spinner animation="border" role="status">
