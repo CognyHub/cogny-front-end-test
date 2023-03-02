@@ -5,7 +5,7 @@ import CartItemsContext from '../Context/CartItemsContext';
 function CartItems() {
   const { cartItems } = useContext(CartItemsContext);
   return (
-    <Link to="/cart">
+    <Link to="/cart" className="cart-items">
       <p>Meu Carrinho</p>
       <p>{`${cartItems} item(s)`}</p>
     </Link>
