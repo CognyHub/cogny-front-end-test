@@ -1,6 +1,6 @@
 import { useCart } from '../../../context/CartProvider';
 import { Product } from '../../../types/product';
-import { formatCurrency } from '../../../utils/currencyFormatter';
+import { currencyFormatter } from '../../../utils/currencyFormatter';
 import { StyledProductCard, StyledProductCardButton } from './styles';
 
 type ProductCardProps = {
@@ -23,7 +23,7 @@ export function ProductCard({ product }: ProductCardProps) {
     <StyledProductCard>
       <img src={product.image} alt={product.description} />
       <strong>{product.description}</strong>
-      <span>{formatCurrency({ value: product.price })}</span>
+      <span>{currencyFormatter({ value: product.price })}</span>
       <StyledProductCardButton
         type="button"
         onClick={() => addProduct(product.id)}>
