@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import Context from '../../../../context';
-import { Title } from '../../../atoms/global/Menu'
-import BasketStatus from '../../../molecules/global/Menu/BasketStatus'
-import * as S from './styles'
+import { Title } from '../../../atoms/global/Menu';
+import BasketStatus from '../../../molecules/global/Menu/BasketStatus';
+import * as S from './styles';
 
 export default function Menu() {
   const { productsSelected } = useContext(Context);
@@ -10,9 +10,9 @@ export default function Menu() {
   return (
     <S.Container>
       <S.Wrapper>
-        <Title name="COGNYSHOES" />
+        <Title />
         <BasketStatus qtd={productsSelected.length} />
       </S.Wrapper>
     </S.Container>
-  )
+  );
 }
