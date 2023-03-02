@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Header, ShoeCard } from '../components';
 import * as shoesServices from '../services/firebase/shoes.services';
-import * as cartServices from '../services/firebase/cart.services';
+import { useLocalStorage } from '../hooks';
 
 export default function Home() {
+  const [cart, setCart] = useLocalStorage('cart', [])
+
   const [shoes, setShoes] = useState([]);
   const [cartLength, setCartLength] = useState(0);
   const [addingToCart, setAddingToCart] = useState(false);
@@ -12,19 +14,19 @@ export default function Home() {
     console.log('Adicionando ao carrinho: ' + id);
     setAddingToCart(true);
 
-    await cartServices.addToCart(id);
+    setCart([...cart, id]);
 
     setAddingToCart(false);
   }
 
   useEffect(() => {
     document.title = 'Cognyshoes - Home';
+
     shoesServices.getShoes()
       .then((shoes) => setShoes(shoes));
 
-    cartServices.getCart()
-      .then((cart) => setCartLength(cart.length));
-  }, [addingToCart]);
+    setCartLength(cart.length);
+  }, [cart]);
 
   return (
     <div>
