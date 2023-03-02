@@ -45,10 +45,13 @@ function ProductCard({ id, title, price, imgUrl }) {
       <img src={imgUrl} alt={title} style={{ width: 200, height: 120 }} />
       <h4>{title}</h4>
       <h3>{`R$${price.toFixed(2).replace('.', ',')}`}</h3>
-      <>
+      <div className="card-button-container">
         <select
           value={quantityInput}
-          onChange={(e) => setQuantityInput(e.target.value)}>
+          onChange={(e) => setQuantityInput(e.target.value)}
+          style={{ backgroundColor: isInLocalStorage && '#d02525' }}
+          disabled={isInLocalStorage}
+        >
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((opt) => (
             <option key={opt}>{opt}</option>
           ))}
@@ -56,11 +59,11 @@ function ProductCard({ id, title, price, imgUrl }) {
         <button
           type="button"
           onClick={addToCart}
-          style={{ border: isInLocalStorage && '2px solid green' }}
+          style={{ backgroundColor: isInLocalStorage && '#f24747' }}
         >
-          ADICIONAR AO CARRINHO
+          {isInLocalStorage ? 'remover do carrinho' : 'adicionar ao carrinho'}
         </button>
-      </>
+      </div>
     </div>
   );
 }
