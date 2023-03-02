@@ -4,6 +4,16 @@ function ProductCard({ id, title, price, imgUrl, setCartItems }) {
   const [quantityInput, setQuantityInput] = useState(1);
   const [isInLocalStorage, setIsInLocalStorage] = useState(false);
 
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    cart.forEach((item) => {
+      if (item.id == id) {
+        setIsInLocalStorage(true);
+        setQuantityInput(item.quantity);
+      }
+    });
+  }, []);
+
   const addToCart = () => {
     const cart = JSON.parse(localStorage.getItem('cart'));
 
