@@ -1,34 +1,18 @@
-import { useEffect, useState } from 'react';
-import { collection, query, onSnapshot } from "firebase/firestore";
-import { db } from '../connection/firebaseConnection';
-import '../style/Content.css'
-import Card from './Card';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home from '../page/Home';
 
 function Content() {
-    const[products, setProducts] = useState([]);
 
-    useEffect(() =>{
-        const response = query(collection(db, 'lojaDB'));
-        onSnapshot(response,(querySnapshot) => {
-            setProducts(querySnapshot.docs.map(doc=>( {
-                data: doc.data()
-            })))
-        })
-    },[]);
+return (
+  <BrowserRouter>
+    <Switch>
+      <Route path='/'>
+        <Home />
+      </Route>
+    </Switch>
+  </BrowserRouter>
 
-    return (
-      <div className='main'>
+  );
+}
 
-         {products.map((product) => (
-            Card(product.data.image,
-                product.data.product,
-                product.data.description,
-                product.data.price.toFixed(2).toString().replace('.', ',')
-                )
-         ))}
-      </div>
-    );
-  }
-  
-  export default Content;
-  
+export default Content;
