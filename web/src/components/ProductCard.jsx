@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import CartItemsContext from '../Context/CartItemsContext';
 
-function ProductCard({ id, title, price, imgUrl, setCartItems }) {
+function ProductCard({ id, title, price, imgUrl }) {
   const [quantityInput, setQuantityInput] = useState(1);
   const [isInLocalStorage, setIsInLocalStorage] = useState(false);
+  const { setCartItems } = useContext(CartItemsContext);
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem('cart'));

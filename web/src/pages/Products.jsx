@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import getProductsFromFirestore from '../firebase/getProductsFromFirestore';
 
-function Products({ setCartItems }) {
+function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    setCartItems(JSON.parse(localStorage.getItem('cart')).length);
     const getProducts = async () => {
       try {
         const productsFromFirestore = await getProductsFromFirestore();
@@ -27,7 +26,6 @@ function Products({ setCartItems }) {
           title={title}
           price={price}
           imgUrl={imgUrl}
-          setCartItems={setCartItems}
         />
       ))}
     </div>
