@@ -17,7 +17,7 @@ function Home() {
     },[]);
 
     return (
-      <div className='main'>
+      <section className='main'>
 
          {products.map((product) => (
             Card(product.data.image,
@@ -26,7 +26,7 @@ function Home() {
                 product.data.price.toFixed(2).toString().replace('.', ',')
                 )
          ))}
-      </div>
+      </section>
     );
   }
   
