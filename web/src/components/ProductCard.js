@@ -27,7 +27,29 @@ function ProductCard({ id, title, price, imgUrl, setCartItems }) {
 
 
   return (
-    <h1>card</h1>
+    <div
+      className="product-card"
+      style={{ width: 300, height: 442, borderRadius: 4 }}>
+      <img src={imgUrl} alt={title} style={{ width: 200, height: 120 }} />
+      <h4>{title}</h4>
+      <h3>{`R$${price}`}</h3>
+      <>
+        <select
+          value={quantityInput}
+          onChange={(e) => setQuantityInput(e.target.value)}>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((opt) => (
+            <option key={opt}>{opt}</option>
+          ))}
+        </select>
+        <button
+          type="button"
+          onClick={addToCart}
+          style={{ border: isInLocalStorage && '2px solid green' }}
+        >
+          ADICIONAR AO CARRINHO
+        </button>
+      </>
+    </div>
   );
 }
 
