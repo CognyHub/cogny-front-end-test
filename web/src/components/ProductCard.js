@@ -42,7 +42,7 @@ function ProductCard({ id, title, price, imgUrl, setCartItems }) {
       style={{ width: 300, height: 442, borderRadius: 4 }}>
       <img src={imgUrl} alt={title} style={{ width: 200, height: 120 }} />
       <h4>{title}</h4>
-      <h3>{`R$${price}`}</h3>
+      <h3>{`R$${price.toFixed(2).replace('.', ',')}`}</h3>
       <>
         <select
           value={quantityInput}
