@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -10,6 +10,8 @@ export default createGlobalStyle`
   }
 
   body {
+    max-width: 1440px;
+    margin: 0 auto;
     background: #191920;
     -webkit-font-smoothing: antialiased;
   }
@@ -19,7 +21,7 @@ export default createGlobalStyle`
   }
 
   #root {
-    max-width: 1020px;
+    max-width: 980px;
     margin: 0 auto;
     padding: 0 20px 50px;
   }
