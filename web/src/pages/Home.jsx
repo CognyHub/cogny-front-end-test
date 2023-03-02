@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { ShoeCard } from '../components';
 import { getShoes } from '../services/firebase/shoes.services';
 
 export default function Home() {
@@ -12,6 +13,9 @@ export default function Home() {
   return (
     <div>
       Home
+      {shoes.length === 0
+        ? <p>Loading...</p>
+        : shoes.map((shoe) => <ShoeCard key={shoe.id} {...shoe} />) }
     </div>
   )
 }
