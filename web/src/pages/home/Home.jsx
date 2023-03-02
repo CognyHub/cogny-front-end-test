@@ -30,14 +30,17 @@ useEffect(()=>{
     const getProducts = async () => {
         const data = await getDocs(produtosCollectionRef);
         const MapData = data.docs.map((doc) => ({...doc.data(),id:doc.id}));
-        console.log(MapData);
+        setProducts(MapData);
     }
     getProducts();
 },[])
 
 return (
     <div>
-        <h1>pagina de listagem</h1>
+        <h1>listagem</h1>
+        <ul>
+            { products && <img src={products[0].url} />}
+        </ul>
     </div>
 );
 }
