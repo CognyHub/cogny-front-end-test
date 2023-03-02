@@ -5,7 +5,7 @@ import ProductsTable from '../components/ProductsTable';
 import TotalPrice from '../components/TotalPrice';
 
 function Cart() {
-  const [cart] = useState(JSON.parse(localStorage.getItem('cart')));
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
   const [cartTotalPrice, setCartTotalPrice] = useState(0);
   const { setCartItems } = useContext(CartItemsContext);
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function Cart() {
         <h1>Você não tem itens no carrinho ainda.</h1>
       ) : (
         <>
-          <ProductsTable products={cart} />
+          <ProductsTable products={cart} setProducts={setCart} />
           <TotalPrice price={cartTotalPrice} />
           <button
             type="button"
