@@ -1,6 +1,18 @@
 import React from 'react';
 
-function ProductsTable({ products }) {
+function ProductsTable({ products, setProducts }) {
+  const handleQuantities = (e, id) => {
+    const { value } = e.target;
+    const updatedProducts = products.map((product) => {
+      if (product.id === id) {
+        product.quantity = Number(value);
+      }
+      return product;
+    });
+    localStorage.setItem('cart', JSON.stringify(updatedProducts));
+    setProducts(updatedProducts);
+  };
+
   return (
     <table>
       <thead>
@@ -13,11 +25,25 @@ function ProductsTable({ products }) {
         </tr>
       </thead>
       <tbody>
-        {products.map(({ title, price, quantity, imgUrl }) => (
-          <tr>
+        {products.map(({ id, title, price, quantity, imgUrl }) => (
+          <tr key={id}>
             <td><img src={imgUrl} alt={title} style={{ width: 100, height: 60 }} /></td>
             <td>{title}</td>
-            <td>{quantity}</td>
+            <td>
+              <select
+                value={quantity}
+                onChange={(e) => handleQuantities(e, id)}
+              >
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((opt) => (
+                  <option
+                    key={opt}
+                  >
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </td>
+            {/* <td>{quantity}</td> */}
             <td>{`R$${price.toFixed(2).replace('.', ',')}`}</td>
             <td>{`R$${(price * quantity).toFixed(2).replace('.', ',')}`}</td>
           </tr>
