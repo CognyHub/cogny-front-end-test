@@ -14,11 +14,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export function getProducts() {
-  return new Promise(async(resolve, reject) => {
+  return new Promise((resolve, reject) => {
     try {
       const db = getFirestore(app);
       const collectionRef = collection(db, 'products');
-      const data = await getDocs(collectionRef);
+      const data = getDocs(collectionRef);
       resolve(data);
       return;
     } catch (error) {
