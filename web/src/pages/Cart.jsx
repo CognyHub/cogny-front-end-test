@@ -28,7 +28,7 @@ function Cart() {
   return (
     <div className="cart-container">
       {!cart.length ? (
-        <div className=".no-items-in-cart">
+        <div className="no-items-in-cart-container">
           <h1 className="no-items-in-cart">Você não tem itens no carrinho ainda.</h1>
           <img src={emptyCart} alt="Empty cart" />
         </div>
