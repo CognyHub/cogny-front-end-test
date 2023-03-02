@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.shoe-card {
+  width: 300px;
+  height: 442px;
+  background-color: #FFFFFF;
+  padding: 20px;
+}
+
+.shoe-image {
+  width: 260px;
+  margin: auto;
+}
