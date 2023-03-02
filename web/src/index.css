@@ -42,7 +42,6 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 15px;
-  margin: 0 auto;
 }
 
 .header-container .logo-container {
@@ -180,4 +179,88 @@ body {
 
 .product-card .card-button-container select:disabled {
   color: black;
+}
+
+.cart-container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 4px;
+  width: 940px;
+  min-height: 560px;
+}
+
+.card-button-container .no-items-in-cart {
+  text-align: center;
+}
+
+.table-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.table-container td {
+  width: 300px;
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: #333333;
+
+}
+
+.table-container thead {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 19px;
+  color: #999999;
+}
+
+.final-cart-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.total-price h3 {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #999999;
+}
+
+.total-price h2 {
+  font-family: 'Lexend Deca';
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: right;
+  letter-spacing: -1.6px;
+  color: #000000;
+}
+
+.final-cart-info button {
+  font-family: 'Lexend Deca';
+  border-radius: 4px;
+  width: 220px;
+  height: 42px;
+  background-color: #7159C1;
+  color: #ffffff;
+  border: none;
+  font-size: 15px;
+  margin-right: 25px;
 }
