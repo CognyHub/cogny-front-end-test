@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const ScreenButtonStyled = styled(Link)`
   display: flex;
@@ -17,4 +17,4 @@ export const ScreenButtonStyled = styled(Link)`
   border-radius: 4px;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.lightPink};
-`
+`;

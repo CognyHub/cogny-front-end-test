@@ -17,5 +17,5 @@ export default function InfoScreen({
       <ScreenImage link={image} />
       <ScreenButton link={link} name="VOLTAR" />
     </S.Container>
-  )
-};
+  );
+}

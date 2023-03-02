@@ -2,7 +2,7 @@ import {
   Button,
   Description,
   TotalText
-} from '../../../../atoms/ShoppingCart/TableCart'
+} from '../../../../atoms/ShoppingCart/TableCart';
 import * as S from './styles';
 
 export default function Footer({ total }) {
@@ -18,4 +18,4 @@ export default function Footer({ total }) {
       </S.Wrapper>
     </S.Container>
   );
-};
+}

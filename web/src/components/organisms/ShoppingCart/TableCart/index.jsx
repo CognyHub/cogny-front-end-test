@@ -17,7 +17,7 @@ export default function TableCart() {
       if (amount) {
         total += Number(amount) * Number(product.price);
       }
-    })
+    });
 
     return total;
   }
@@ -25,11 +25,11 @@ export default function TableCart() {
   const total = calculateTotal();
 
   function removeItem(id) {
-    const list = productsSelected
+    const list = productsSelected;
 
-    list.splice(list.indexOf(id), 1)
+    list.splice(list.indexOf(id), 1);
 
-    setProductsSelected([...list])
+    setProductsSelected([...list]);
   }
 
   return (
@@ -69,5 +69,5 @@ export default function TableCart() {
         <Footer total={total} />
       </S.Wrapper>
     </S.Container>
-  )
+  );
 }
