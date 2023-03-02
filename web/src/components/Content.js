@@ -23,7 +23,7 @@ function Content() {
             alt={`Imagem do tenis ${produtos[0]?.data?.product}`}
         />
          <p className='text-card'>{ produtos[0]?.data?.description }</p>
-         <p className='text-card price'>{ produtos[0]?.data?.price }</p>
+         <p className='text-card price'>{ produtos[0]?.data?.price.toString().replace(".", ",") }</p>
          <div className='button-container'>
          <div className='quantity'>
             <span>1</span>
