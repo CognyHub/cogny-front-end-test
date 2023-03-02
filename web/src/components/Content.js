@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from '../connection/firebaseConnection';
+import '../style/CardProduct.css'
 
 function Content() {
-
     const[produtos, setProdutos] = useState([]);
 
     useEffect(() =>{
@@ -13,19 +13,23 @@ function Content() {
                 data: doc.data()
             })))
         })
-        console.log(produtos);
     },[]);
 
     return (
-      <div className="Content">
+      <div className='card'>
          <img 
             src={produtos[0]?.data?.image} 
-            width='150px' 
+            width='100%' 
             alt={`Imagem do tenis ${produtos[0]?.data?.product}`}
         />
-         <p>{ produtos[0]?.data?.description }</p>
-         <p>{ produtos[0]?.data?.price }</p>
-         <button >Adicionar ao Carrinho</button>
+         <p className='text-card'>{ produtos[0]?.data?.description }</p>
+         <p className='text-card price'>{ produtos[0]?.data?.price }</p>
+         <div className='button-container'>
+         <div className='quantity'>
+            <span>1</span>
+        </div>
+         <button className='button'>Adicionar ao Carrinho</button>
+         </div>
       </div>
     );
   }
