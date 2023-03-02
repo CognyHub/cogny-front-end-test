@@ -17,8 +17,15 @@ function Content() {
     },[]);
 
     return (
-      <div className="App">
-         <p>{ produtos[0]?.data?.Produto }</p>
+      <div className="Content">
+         <img 
+            src={produtos[0]?.data?.image} 
+            width='150px' 
+            alt={`Imagem do tenis ${produtos[0]?.data?.product}`}
+        />
+         <p>{ produtos[0]?.data?.description }</p>
+         <p>{ produtos[0]?.data?.price }</p>
+         <button >Adicionar ao Carrinho</button>
       </div>
     );
   }
