@@ -6,21 +6,24 @@ export const StyledProductCard = styled.li`
   flex-direction: column;
   background: #fff;
   border-radius: 4px;
+
   padding: 20px;
   height: 442px;
   width: 300px;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 260px;
+    height: 260px;
     object-fit: contain;
   }
 
   > strong {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 21px;
     color: #333;
     margin-top: 5px;
+    max-height: 42px;
+    overflow: hidden;
   }
 
   > span {
@@ -37,6 +40,7 @@ export const StyledProductCardButton = styled.button`
   border-radius: 4px;
   overflow: hidden;
   margin-top: auto;
+  max-height: 42px;
 
   display: flex;
   align-items: center;
