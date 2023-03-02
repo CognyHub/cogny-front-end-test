@@ -1,9 +1,11 @@
 import { MdAddShoppingCart } from 'react-icons/md';
 
 import { StyledCart, StyledUserCart } from './styles';
+import { useCart } from '../../context/CartProvider';
 
 export function UserCart() {
-  const cartSize = new Array(3).length;
+  const { cart } = useCart();
+  const cartSize = cart.length;
 
   return (
     <StyledUserCart to="/cart">
