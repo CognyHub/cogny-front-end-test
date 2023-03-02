@@ -14,7 +14,7 @@ function ProductsTable({ products, setProducts }) {
   };
 
   return (
-    <table>
+    <table className="table-container">
       <thead>
         <tr>
           <th></th>
@@ -43,7 +43,6 @@ function ProductsTable({ products, setProducts }) {
                 ))}
               </select>
             </td>
-            {/* <td>{quantity}</td> */}
             <td>{`R$${price.toFixed(2).replace('.', ',')}`}</td>
             <td>{`R$${(price * quantity).toFixed(2).replace('.', ',')}`}</td>
           </tr>

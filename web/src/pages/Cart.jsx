@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import CartItemsContext from '../Context/CartItemsContext';
 import ProductsTable from '../components/ProductsTable';
 import TotalPrice from '../components/TotalPrice';
+import emptyCart from '../assets/emptyCart.svg';
 
 function Cart() {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
@@ -25,23 +26,28 @@ function Cart() {
   };
 
   return (
-    <>
+    <div className="cart-container">
       {!cart.length ? (
-        <h1>Você não tem itens no carrinho ainda.</h1>
+        <div className=".no-items-in-cart">
+          <h1 className="no-items-in-cart">Você não tem itens no carrinho ainda.</h1>
+          <img src={emptyCart} alt="Empty cart" />
+        </div>
       ) : (
-        <>
+        <div className="cart-item">
           <ProductsTable products={cart} setProducts={setCart} />
-          <TotalPrice price={cartTotalPrice} />
-          <button
-            type="button"
-            onClick={finishShopping}
-          >
-            FINALIZAR PEDIDO
-          </button>
-        </>
+          <div className="final-cart-info">
+            <TotalPrice price={cartTotalPrice} />
+            <button
+              type="button"
+              onClick={finishShopping}
+            >
+              FINALIZAR PEDIDO
+            </button>
+          </div>
+        </div>
       )}
 
-    </>
+    </div>
   );
 }
 
