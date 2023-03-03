@@ -1,3 +1,4 @@
+import './home.css'
 import { useEffect, useState } from 'react'
 import { Header, ShoeCard } from '../components';
 import * as shoesServices from '../services/firebase/shoes.services';
@@ -37,16 +38,20 @@ export default function Home() {
   return (
     <div>
       <Header cartLength={cartLength} />
-      {shoes.length === 0
-        ? <p>Loading...</p>
-        : shoes.map((shoe) => (
-          <ShoeCard
-            key={shoe.id}
-            addShoeToCart={addShoeToCart}
-            addingToCart={addingToCart}
-            {...shoe}
-          />)
-        ) }
+      <div className="shoes-section-wrapper">
+        <section className="shoes-section-grid">
+        {shoes.length === 0
+          ? <p>Loading...</p>
+          : shoes.map((shoe) => (
+            <ShoeCard
+              key={shoe.id}
+              addShoeToCart={addShoeToCart}
+              addingToCart={addingToCart}
+              {...shoe}
+            />)
+          ) }
+        </section>
+      </div>
     </div>
   )
 }
