@@ -18,19 +18,23 @@ export default function Cart({ shoes, ids, setCart }) {
         <span className="cart-row-qtd">QTD</span>
         <span className="cart-row-price">PREÇO</span>
       </div>
-      {shoes.map((shoe) => <ShoeCheckoutCard key={shoe.description} {...shoe} />)}
-      <button
-        className="finishe-order-btn"
-        onClick={finishOrderOnClick}
-      >
-          FINALIZAR PEDIDO
-      </button>
 
-      <section className="total-price-wrapper">
-        <span>
+      {shoes.map((shoe) => <ShoeCheckoutCard key={shoe.description} {...shoe} />)}
+
+      <section className="cart-final-row">
+        <div className="btn-wrapper">
+          <button
+            className="finish-order-btn"
+            onClick={finishOrderOnClick}
+          >
+              FINALIZAR PEDIDO
+          </button>
+        </div>
+
+        <span className="total-text">
           TOTAL
         </span>
-        <span>
+        <span className="total-price">
           {transformPrice(shoes.reduce((acc, curr) => acc + curr.price, 0))}
         </span>
       </section>
