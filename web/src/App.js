@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { db } from './firebase';
+import { collection, query, onSnapshot } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const q = query(collection(db, 'shoes'));
+    onSnapshot(q, (snapshot) => {
+      setData(snapshot.docs.map(doc => doc.data()));
+    });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>Estou na página</div>
+      <div>
+        {data.map((item, index) => (
+          <div key={index}>
+            <div>{item.description}</div>
+            <img width="100" src={item.image} alt={item.description} />
+            <p>{item.price}</p>
+          </div>
+            ))}
+      </div>
     </div>
   );
 }
