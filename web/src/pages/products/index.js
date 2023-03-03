@@ -22,7 +22,7 @@ export default function Products() {
           <div key={index}>
             <img width="300" src={item.image} alt={item.description} />
             <div>{item.description}</div>
-            <div>{item.price}</div>
+            <div>R$ {item.price.toFixed(2).replace('.', ',')}</div>
             <button>ADICIONAR AO CARRINHO</button>
           </div>
         ))}
