@@ -1,3 +1,4 @@
+import './checkout.css';
 import { Cart, Header } from '../components';
 import { useEffect, useState } from 'react';
 import * as shoesServices from '../services/firebase/shoes.services';
