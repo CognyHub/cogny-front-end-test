@@ -1,5 +1,5 @@
 import './header.css';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({ cartLength }) {
   const navigate = useNavigate();
@@ -8,9 +8,16 @@ export default function Header({ cartLength }) {
     navigate('/cart');
   }
 
+  const onLogoClick = () => {
+    navigate('/');
+  }
+
   return (
     <header>
-      <h1>Cognyshoes</h1>
+      <div onClick={onLogoClick}>
+        <h1>Cognyshoes</h1>
+        <img src="/logo.png" alt="Cognyshoes" />
+      </div>
 
       <section onClick={onCartClick}>
         <p>Meu carrinho</p>
