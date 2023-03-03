@@ -1,0 +1,72 @@
+{
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-param-reassign": "off",
+    "import/no-unresolved": "off",
+    "func-names": "off",
+    "arrow-body-style": "off",
+    "no-console": "off",
+    "indent": [
+      "error",
+      2
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "object-curly-newline": "off",
+    "max-params": [
+      "error",
+      4
+    ],
+    "max-lines": [
+      "error",
+      250
+    ],
+    "max-lines-per-function": [
+      "error",
+      {
+        "max": 120,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "max-len": [
+      "error",
+      100,
+      {
+        "ignoreComments": true
+      }
+    ],
+    "complexity": [
+      "error",
+      12
+    ],
+    "import/no-extraneous-dependencies": [
+      "off"
+    ]
+  }
+}
