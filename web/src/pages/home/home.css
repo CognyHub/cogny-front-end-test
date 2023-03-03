@@ -1,0 +1,15 @@
+.main-home {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-cards {
+    margin-top: 10%;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}

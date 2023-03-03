@@ -1,0 +1,89 @@
+.card {
+    background-color: #FFF;
+    width: 300px;
+    height: 442px;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.card-img {
+    width: 250px;
+    height: 250px;
+    align-self: center;
+    margin-top: 20px;
+
+}
+
+.name-card {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #333333;
+    text-align: left;
+    margin: 2px 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.value-card {
+    margin: 2px 10px;
+    padding-bottom: 20px;
+    color: #000;
+    font-weight: 900;
+    font-size: 17pt;
+}
+
+.button-card {
+    width: 260px;
+    height: 42px;
+    align-self: center;
+    border-radius: 5px;
+    background-color: #7159C1;
+    border: 1px solid #7159C1;
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 12pt;
+    font-family: 'Roboto', 'sans-serif';
+    
+  }
+  
+  .button-card span {
+    font-weight: 900;
+    margin-left: 30px;
+  }
+  
+  .button-card:hover {
+    background-color: #5d3fc0;
+  }
+  
+  .box-button-card {
+    background-color: #5a37cc;
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .box-button-card span {
+    color: #FFF;
+    margin-right: 5px;
+  }
+  
+
+/*
+cor de fundo : #141419
+cor do nome Produto: #333333
+cor do botão claro: #7159C1
+
+images 260 por 260
+CARD 300 por 442
+*/

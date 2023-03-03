@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDocs, getFirestore,collection } from 'firebase/firestore'
+import Card from '../../components/card/Card';
+import "./home.css"
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiAuthDomain = process.env.REACT_APP_AUTH_DOMAIN;
@@ -34,14 +36,23 @@ useEffect(()=>{
     }
     getProducts();
 },[])
-
+if (products === []) {
+    return (
+        <h1>Carregando</h1>
+    )
+}
 return (
-    <div>
-        <h1>listagem</h1>
-        <ul>
-            { products && <img src={products[0].url} />}
+    
+
+    <div className='main-home'>
+        <ul className='container-cards'> 
+         {products.map((product) => {
+             return ( <Card key={product.id} url={product.url} name={product.nome} preco={product.preco}  />)
+            })}
         </ul>
+           
     </div>
+
 );
 }
 
