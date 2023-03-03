@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../Logo.svg';
 import { useNavigate } from 'react-router-dom';
+import { initializeApp } from 'firebase/app';
 import getLocalStoreValue from '../../helpers/getLocalStoreValue';
 import saveLocalStore from '../../helpers/saveLocalStore';
 import './styleCart.css';
+import { getFirestore,collection, addDoc, Timestamp } from 'firebase/firestore';
 
 
 
@@ -12,7 +14,28 @@ function ListCart() {
   const [precoTotal , setPrecoTotal] = useState(0)
   const itens  = getLocalStoreValue();
   const navigate = useNavigate();
+  const agora = Timestamp.now();
 
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiAuthDomain = process.env.REACT_APP_AUTH_DOMAIN;
+  const apiProjectId = process.env.REACT_APP_PROJECT_ID;
+  const apiStorageBucket = process.env.REACT_APP_STORAGE_BUCKET;
+  const messagingSenderId = process.env.REACT_APP_MESSAGING_SENDER_ID;
+  const appId = process.env.REACT_APP_APP_ID;
+  const measurementId = process.env.REACT_APP_MEASUREMENT_ID;
+
+  const firebaseApp = initializeApp ({
+    apiKey: apiKey,
+    authDomain: apiAuthDomain,
+    projectId: apiProjectId,
+    storageBucket: apiStorageBucket,
+    messagingSenderId: messagingSenderId,
+    appId: appId,
+    measurementId: measurementId,
+  }) ;
+
+  const db = getFirestore(firebaseApp)
+  const comprasCollectionRef = collection(db, "compras");
   
   function returWhithCartIsEmpty() 
   {
@@ -27,7 +50,7 @@ function ListCart() {
     let novaQuantidade = Number(element);
     console.log(e.target.value);
     if (e.target.value < 1) {
-      console.log("atingiu 0");
+      
       e.target.value = 1;
       return
     }
@@ -40,12 +63,13 @@ function ListCart() {
     saveLocalStore("itens", item);
   }
   
-
-  function buyCart()
+  
+  async function buyCart()
   {
+    await addDoc(comprasCollectionRef, {dia: agora.toDate(), preco: precoTotal , })
+
     localStorage.removeItem("itens");
     alert("compra realizada");
-   
     navigate("/")
   }
   function updatePrecoTotal() 
