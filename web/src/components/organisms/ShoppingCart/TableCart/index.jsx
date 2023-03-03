@@ -1,7 +1,7 @@
 import Footer from '../../../molecules/ShoppingCart/TableCart/Footer';
 import Header from '../../../molecules/ShoppingCart/TableCart/Header';
 import Item from '../../../molecules/ShoppingCart/TableCart/Item';
-import { useShoppingCart } from '../../../../hooks/shoppingCart';
+import { useShoppingCart } from '../../../../hook/shoppingCart';
 import * as S from './styles';
 
 export default function TableCart() {

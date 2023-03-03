@@ -4,12 +4,12 @@ import Card from '../../molecules/home/Card';
 import * as S from './styled';
 
 export default function HomeOrganisms() {
-  const { products, setProductsSelected, productsSelected } = useContext(Context);
+  const { products, setProductsSelected, productsSelected, loading } = useContext(Context);
 
   return (
     <S.Container>
       <S.Wrapper>
-        {products?.map((product) => (
+        {!loading ? products?.map((product) => (
           <Card
             key={product.id}
             link={product.imageUrl}
@@ -24,7 +24,7 @@ export default function HomeOrganisms() {
             }
             qtd={productsSelected.filter((el) => el === product.id).length}
           />
-        ))}
+        )) : <S.Loading>Loading...</S.Loading>}
       </S.Wrapper>
     </S.Container>
   );

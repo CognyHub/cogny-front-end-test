@@ -14,3 +14,12 @@ export const Wrapper = styled.div`
   max-width: 978px;
   margin: 0px -8px;
 `;
+
+export const Loading = styled.h1`
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  width: 100%;
+  margin-top: 150px;
+  color: ${({ theme }) => theme.colors.white};
+`;

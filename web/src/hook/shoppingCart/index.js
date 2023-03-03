@@ -17,14 +17,5 @@ export function useShoppingCart() {
 
     return total;
   }
-
-  function removeItem(id) {
-    const list = productsSelected;
-
-    list.splice(list.indexOf(id), 1);
-
-    setProductsSelected([...list]);
-  }
-
-  return { calculateTotal, removeItem, products, productsSelected, setProductsSelected };
+  return { calculateTotal, products, productsSelected, setProductsSelected };
 }
