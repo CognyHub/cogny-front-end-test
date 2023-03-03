@@ -52,7 +52,7 @@ return (
     <div className='main-home'>
         <ul className='container-cards'> 
          {products.map((product) => {
-             return ( <Card Cart={itens} setCart={setItens} key={product.id} url={product.url} name={product.nome} preco={product.preco}  />)
+             return ( <Card id={product.id} Cart={itens} setCart={setItens} key={product.id} url={product.url} name={product.nome} preco={product.preco}  />)
             })}
         </ul>
            

@@ -1,9 +1,11 @@
 import React from 'react';
-
+import NavBar from '../../components/navbar/NavBar';
+import ListCart from '../../components/listCart/ListCart';
 function cart() {
 return (
     <div>
-        <h1>pagina de carrinho</h1>
+        <NavBar />
+        <ListCart />
     </div>
 );
 }

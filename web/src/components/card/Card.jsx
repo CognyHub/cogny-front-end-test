@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styleCard.css';
 
-function card({ Cart ,setCart ,url , name , preco}) {
+function card({ id ,Cart ,setCart ,url , name , preco}) {
 
   function verifyDuplicate(itens,newItem)
   {
@@ -19,6 +19,8 @@ function card({ Cart ,setCart ,url , name , preco}) {
       name,
       url,
       preco,
+      id,
+      quantidade: 1
     }
     let itens = [];
 
