@@ -9,8 +9,8 @@ export default function ShoeCard({ id, description, price, imageurl, addShoeToCa
       <h3 className="shoe-price">{transformPrice(price)}</h3>
 
       <button onClick={() => addShoeToCart(id)} className="add-to-cart-btn">
-        <p>1</p>
-        <p>{ addingToCart ? 'CARREGANDO...' : 'ADICIONAR AO CARRINHO' }</p>
+        <p className="item-quant">1</p>
+        <p className="add-to-cart-text">{ addingToCart ? 'CARREGANDO...' : 'ADICIONAR AO CARRINHO' }</p>
       </button>
     </div>
   )
