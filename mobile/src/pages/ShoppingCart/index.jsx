@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',
     height: '100%',
+    paddingTop: 60
   },
 });
 
