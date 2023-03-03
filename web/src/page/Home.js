@@ -6,6 +6,7 @@ import Card from '../components/Card';
 
 function Home() {
     const[products, setProducts] = useState([]);
+    const[orders, setOrders] = useState([]);
 
     useEffect(() =>{
         const response = query(collection(db, 'lojaDB'));
@@ -16,6 +17,12 @@ function Home() {
         })
     },[]);
 
+    const handleClick = (product) =>{
+        if (!(orders.some((x)=> x.product === product.product))){
+           setOrders((old)=> [...old, {...product, quantity: 1}])
+        } 
+    }
+ 
     return (
       <section className='main'>
 
@@ -23,7 +30,8 @@ function Home() {
             Card(product.data.image,
                 product.data.product,
                 product.data.description,
-                product.data.price.toFixed(2).toString().replace('.', ',')
+                product.data.price.toFixed(2).toString().replace('.', ','),
+                () => handleClick(product.data, product.data.product)
                 )
          ))}
       </section>

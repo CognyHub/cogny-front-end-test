@@ -1,6 +1,6 @@
 import '../style/CardProduct.css'
 
-function Card(img, product, description, price) {
+function Card(img, product, description, price, click) {
   return (
    <div className='card'>
          <img 
@@ -14,7 +14,7 @@ function Card(img, product, description, price) {
          <div className='quantity'>
             <span>1</span>
         </div>
-         <button className='button'>Adicionar ao Carrinho</button>
+         <button className='button' onClick={click}>Adicionar ao Carrinho</button>
          </div>
       </div>
   );
