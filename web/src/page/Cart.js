@@ -1,7 +1,21 @@
-function Cart(img, product, description, price) {
+import { useContext, useState,useEffect } from 'react';
+import CartCard from '../components/CartCard';
+import CartContext from '../context/CartContext';
+
+function Cart() {
+  const { orders,setOrders } = useContext(CartContext);
+
   return (
    <section className='cart-container'>
-    <h2>Carrinho</h2>
+      {orders?.map((x)=> (
+        CartCard(x.image,
+          x.product,
+          x.description,
+          x.price,
+          x.quantity
+          ) 
+      )
+      )}
    </section>
   );
 }
