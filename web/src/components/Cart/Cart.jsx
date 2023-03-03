@@ -1,3 +1,4 @@
+import './cart.css';
 import { ShoeCheckoutCard } from '../';
 import * as checkoutServices from '../../services/firebase/checkout.services';
 import { transformPrice } from '../../utils/transformPrice';
@@ -10,7 +11,13 @@ export default function Cart({ shoes, ids, setCart }) {
   }
 
   return (
-    <div>
+    <div className="cart">
+      <div className="cart-row">
+        <span className="cart-row-space"></span>
+        <span className="cart-row-product">PRODUTO</span>
+        <span className="cart-row-qtd">QTD</span>
+        <span className="cart-row-price">PREÇO</span>
+      </div>
       {shoes.map((shoe) => <ShoeCheckoutCard key={shoe.description} {...shoe} />)}
       <button
         className="finishe-order-btn"
