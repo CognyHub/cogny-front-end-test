@@ -1,0 +1,54 @@
+.navbar {
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+
+.li{
+    list-style: none;
+    background-color: aliceblue;
+    font-family: 'Courier New', Courier, monospace; 
+    height: 100%;
+}
+
+.div{
+    display: flex;
+    max-width: 70rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+
+}
+
+
+
+.img {
+    padding-left: 3em;
+    width: 250px;
+    height: 100;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+a{
+    margin: 0px;
+    text-decoration: none;
+}
+
+.div p {
+ color: white;
+ text-decoration: none;
+ margin: 0px;
+}
+
+.div > div{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+}
