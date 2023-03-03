@@ -14,13 +14,19 @@ export default function Home() {
     console.log('Adicionando ao carrinho: ' + id);
     setAddingToCart(true);
 
+    if (cart.includes(id)) {
+      setAddingToCart(false);
+      alert('Este produto já está no carrinho!');
+      return;
+    }
+
     setCart([...cart, id]);
 
     setAddingToCart(false);
   }
 
   useEffect(() => {
-    document.title = 'Cognyshoes - Home';
+    document.title = 'Home - Cognyshoes';
 
     shoesServices.getShoes()
       .then((shoes) => setShoes(shoes));
