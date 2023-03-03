@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const PriceStyled = styled.p`
   font-weight: 700;
@@ -9,4 +9,4 @@ export const PriceStyled = styled.p`
   justify-content: start;
   margin-top: 2px;
   color: ${({ theme }) => theme.colors.darkBlue};
-`
+`;

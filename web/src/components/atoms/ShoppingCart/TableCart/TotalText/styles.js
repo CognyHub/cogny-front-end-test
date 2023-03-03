@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const TotalTextStyled = styled.p`
   font-weight: 700;
@@ -13,4 +13,4 @@ export const TotalTextStyled = styled.p`
   @media (max-width: 590px) {
     margin: 0px 0px 0px 16px;
   }
-`
+`;

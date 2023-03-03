@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ScreenTitleStyled = styled.p`
   font-weight: 700;
@@ -9,4 +9,4 @@ export const ScreenTitleStyled = styled.p`
   text-align: center;
   color: ${({ theme }) => theme.colors.darkBlue};
 
-`
+`;

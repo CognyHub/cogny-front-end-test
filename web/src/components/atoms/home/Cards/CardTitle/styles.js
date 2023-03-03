@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const TitleStyled = styled.p`
   font-weight: 700;
@@ -7,4 +7,4 @@ export const TitleStyled = styled.p`
   text-align: center;
   margin-top: 7px;
   color: ${({ theme }) => theme.colors.darkGray};
-`
+`;

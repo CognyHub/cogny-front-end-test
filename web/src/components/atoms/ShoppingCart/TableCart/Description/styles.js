@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const DescriptionStyled = styled.p`
   font-weight: 700;
@@ -7,4 +7,4 @@ export const DescriptionStyled = styled.p`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.colors.gray};
-`
+`;

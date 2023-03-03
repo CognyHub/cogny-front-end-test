@@ -7,9 +7,9 @@ export default function CardButton({
   name
 }) {
   return (
-    <S.ButtonStyled selected={selected} type="button" onClick={onClick}>
+    <S.ButtonStyled disabled={selected} selected={selected} type="button" onClick={onClick}>
       <p>{number}</p>
       <p>{name}</p>
     </S.ButtonStyled>
-  )
+  );
 }

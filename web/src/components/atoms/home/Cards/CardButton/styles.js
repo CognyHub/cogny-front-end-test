@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ButtonStyled = styled.button`
   display: flex;
@@ -20,4 +20,5 @@ export const ButtonStyled = styled.button`
     selected ? theme.colors.gradientPink : theme.colors.lightPink};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 4px;
+  cursor: ${({ selected }) => selected && 'not-allowed'};;
 `;

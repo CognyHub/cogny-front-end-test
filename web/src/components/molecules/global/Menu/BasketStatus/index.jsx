@@ -13,4 +13,4 @@ export default function BasketStatus({ qtd }) {
       </S.Wrapper>
     </S.GoCartLink>
   );
-};
+}

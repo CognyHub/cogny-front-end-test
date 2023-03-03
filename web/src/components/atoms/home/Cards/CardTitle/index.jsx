@@ -1,5 +1,5 @@
-import * as S from './styles'
+import * as S from './styles';
 
 export default function CardTitle({ name }) {
-  return <S.TitleStyled id="title">{name}</S.TitleStyled>
+  return <S.TitleStyled id="title">{name}</S.TitleStyled>;
 }

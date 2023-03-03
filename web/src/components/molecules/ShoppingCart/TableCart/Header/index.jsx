@@ -18,5 +18,5 @@ export default function Header() {
         </th>
       </tr>
     </thead>
-  )
-};
+  );
+}

@@ -1,5 +1,5 @@
-import ScreenButton from './ScreenButton'
-import ScreenImage from './ScreenImage'
-import ScreenTitle from './ScreenTitle'
+import ScreenButton from './ScreenButton';
+import ScreenImage from './ScreenImage';
+import ScreenTitle from './ScreenTitle';
 
-export { ScreenButton, ScreenImage, ScreenTitle }
+export { ScreenButton, ScreenImage, ScreenTitle };

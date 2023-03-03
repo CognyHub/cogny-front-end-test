@@ -1,10 +1,10 @@
-import Card from '../../molecules/home/Card';
-import * as S from './styled';
 import { useContext } from 'react';
 import Context from '../../../context';
+import Card from '../../molecules/home/Card';
+import * as S from './styled';
 
 export default function HomeOrganisms() {
-  const { products, productsSelected, setProductsSelected } = useContext(Context);
+  const { products, setProductsSelected, productsSelected } = useContext(Context);
 
   return (
     <S.Container>

@@ -28,5 +28,5 @@ export default function Card({
         selected={selected}
       />
     </S.Container>
-  )
+  );
 }

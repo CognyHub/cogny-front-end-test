@@ -3,7 +3,7 @@ import { getProducts } from '../services';
 import Context from './';
 
 const Provider = ({ children }) => {
-  const [productsSelected, setProductsSelected] = useState([]);
+  const [productsSelected, setProductsSelected] = useState(JSON.parse(localStorage.getItem('productsSelect')) || []);
   const [products, setPorducts] = useState([]);
 
   useEffect(() => {
@@ -13,7 +13,6 @@ const Provider = ({ children }) => {
       })
       .catch((error) => console.error(error));
   }, []);
-  
 
   return (
     <Context.Provider value={{ products, productsSelected, setProductsSelected }}>

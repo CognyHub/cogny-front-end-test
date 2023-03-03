@@ -11,7 +11,7 @@ export default function Menu() {
     <S.Container>
       <S.Wrapper>
         <Title />
-        <BasketStatus qtd={productsSelected.length} />
+        <BasketStatus qtd={productsSelected?.length} />
       </S.Wrapper>
     </S.Container>
   );

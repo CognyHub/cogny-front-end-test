@@ -7,4 +7,4 @@ export const theme = {
     lightPink: '#F8375D',
     gradientPink: '#DDA0DD'
   }
-}
+};

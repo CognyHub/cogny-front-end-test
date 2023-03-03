@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 42px;
-`
+`;
 
 export const MobileContainer = styled.div`
   max-height: 100%;
@@ -15,7 +15,7 @@ export const MobileContainer = styled.div`
   @media (max-width: 571px) {
     height: 69vh;
   }
-`
+`;
 
 export const Wrapper = styled.div`
   width: 950px;
@@ -23,4 +23,4 @@ export const Wrapper = styled.div`
   padding: 24px;
   margin: 0px 16px;
   border-radius: 4px;
-`
+`;

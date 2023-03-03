@@ -12,5 +12,5 @@ export default function Product({ image, title, price }) {
         <CardPrice number={price} />
       </S.DescriptionContainer>
     </S.Container>
-  )
-};
+  );
+}

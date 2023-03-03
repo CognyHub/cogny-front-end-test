@@ -16,4 +16,4 @@ export const GlobalStyle = createGlobalStyle`
     font-family:  'Roboto', 'Open Sans', sans-serif;
     font-style: normal;
   }
-`
+`;

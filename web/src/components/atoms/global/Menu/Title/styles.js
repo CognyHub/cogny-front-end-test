@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const TitleStyled = styled(Link)`
   font-weight: 700;
@@ -7,4 +7,4 @@ export const TitleStyled = styled(Link)`
   line-height: 27px;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
-`
+`;
