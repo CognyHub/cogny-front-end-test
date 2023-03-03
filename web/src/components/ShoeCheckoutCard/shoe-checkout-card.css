@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.shoe-checkout-card {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #EEE;
+}
+
+.shoe-checkout-card img {
+  width: 17%;
+  margin-right: 3%;
+}
+
+.description-price-wrapper {
+  flex-basis: 53%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.description {
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.qtd-wrapper {
+  flex-basis: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qtd {
+  width: 50%;
+  height: 20%;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #DDD;
+}
+
+.final-price-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 17%;
+}
+
+.final-price {
+  font-size: 20px;
+  font-weight: 700;
+}
+
