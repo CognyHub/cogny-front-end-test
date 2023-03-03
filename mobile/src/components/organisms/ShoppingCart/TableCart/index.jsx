@@ -1,26 +1,11 @@
-import { useContext } from 'react';
-import Context from '../../../../context';
+
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useShoppingCart } from '../../../../hook/shoppingCart';
 
 export default function TableCart() {
-  const { products, productsSelected, setProductsSelected } = useContext(Context);
+  const { calculateTotal, products, setProductsSelected, productsSelected } = useShoppingCart();
   const navigation = useNavigation();
-
-  function calculateTotal() {
-    let total = 0;
-    
-    products?.forEach((product) => {
-      const amount = productsSelected.filter((el) => el === product.id).length;
-      
-      if (amount) {
-        total += Number(amount) * Number(product.price);
-      }
-    });
-
-    return total;
-  }
-
   const total = calculateTotal();
 
   return (
@@ -39,8 +24,8 @@ export default function TableCart() {
                     </Text>
 
                     <Text style={styles.quantity}>
-                      {`R$ - ${Number(productsSelected.filter((el) => el === product.id)
-                        .length) * product.price}`}
+                      {`R$ ${(Number(productsSelected.filter((el) => el === product.id)
+                        .length) * product.price).toFixed(2).replace('.', ',')}`}
                     </Text>
 
 
@@ -62,9 +47,9 @@ export default function TableCart() {
           )
         })}
 
-        <View style={styles.wapperButton}>
+        <View style={styles.wapperButtonFinesh}>
           <Text style={styles.quantity}>
-            {`R$${total}`}
+            {`R$ ${total.toFixed(2).replace('.', ',')}`}
           </Text>
           <TouchableOpacity
             style={styles.touchabled}
@@ -143,7 +128,14 @@ const styles = StyleSheet.create({
   wapperButton: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 20
+  },
+  wapperButtonFinesh: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 160
   }
 });
 

@@ -13,5 +13,7 @@ export const Wrapper = styled(View)`
   justify-content: center;
   flex-wrap: wrap;
   max-width: 978px;
-  margin: 0px -8px;
+  margin: 0px 0px;
+  padding-top: 20px;
+  padding-bottom: 160px;
 `

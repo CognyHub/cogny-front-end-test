@@ -2,7 +2,7 @@ import Card from '../../molecules/home/Card';
 import * as S from './styles';
 import { useContext } from 'react';
 import Context from '../../../context';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Menu from '../global/Menu';
 
 export default function HomeOrganisms() {
