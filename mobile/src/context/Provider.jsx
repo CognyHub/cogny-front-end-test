@@ -11,8 +11,13 @@ const Provider = ({ children }) => {
     setLoading(true);
     getProducts()
       .then(({docs}) => {
-        setPorducts(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        setLoading(false);
+        const result = docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        if(result.length > 0) {
+          setPorducts(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+          setLoading(false);
+          return;
+        }
+        setLoading(true);
       })
       .catch((error) => {
         console.error(error);
