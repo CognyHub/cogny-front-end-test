@@ -41,7 +41,7 @@ export default function Home() {
       <div className="shoes-section-wrapper">
         <section className="shoes-section-grid">
         {shoes.length === 0
-          ? <p>Loading...</p>
+          ? <p className="loading">Carregando...</p>
           : shoes.map((shoe) => (
             <ShoeCard
               key={shoe.id}
