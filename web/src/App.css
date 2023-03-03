@@ -1,38 +1,157 @@
 .App {
+  background-color: #141419;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  padding: 2rem 7rem;
+  width: 100wh;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 2rem;
+  height: 100%;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+  padding: 1rem;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  background-color: white;
+  border: 1px solid black;
+  height:23rem;
+  gap: 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card-img {
+  width: 15rem
+}
+
+.card p {
+  width: 100%;
+  text-align: start
+}
+
+.card span {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: start;
+  width: 100%;
+}
+
+.card button {
+  margin-top: 3px;
+  width: 100%;
+  padding: 10px 0px;
+  border-radius: 2px;
+  background-color: #7159C1;
+  color :aliceblue;
+  border: none;
+  font-weight: bold
+
+}
+
+@media screen and (max-width: 1300px)  {
+  .card-img {
+    width: 12rem
   }
-  to {
-    transform: rotate(360deg);
+  .card{
+    width: 30%;
+    height:27rem;
+  }
+
+.card button {
+  margin-top: 2rem;
+ }
+}
+
+@media screen and (max-width: 880px)  {
+  .card-img {
+    width: 9rem
+  }
+  .card{
+    width: 30%;
+    height:21rem;
   }
 }
+
+
+@media screen and (max-width: 700px)  {
+  .card-img {
+    width: 6rem
+  }
+  .card{
+    width: 30%;
+    height:19rem;
+  }
+}
+
+@media screen and (max-width: 550px)  {
+  .card-img {
+    width: 9rem
+  }
+  .card{
+    width: 40%;
+    height:20rem;
+  }
+  .App {
+
+    gap: 0.8rem;
+    justify-content: space-between;
+    padding: 3rem 3rem;
+    width: 100wh;
+  }
+
+}
+
+
+@media screen and (max-width: 510px)  {
+  .card-img {
+    width: 8rem
+  }
+  .card{
+    width: 35%;
+    height:20rem;
+  }
+
+}
+
+@media screen and (max-width: 410px)  {
+  .card-img {
+    width: 6rem
+  }
+  .card{
+    width: 35%;
+    height:18rem;
+  }
+  .App {
+
+    gap: 0.5rem;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+    width: 100wh;
+  }
+
+}
+
+@media screen and (max-width: 330px)  {
+  .card-img {
+    width: 7rem
+  }
+  .card{
+    width: 60%;
+    height:18rem;
+  }
+  .App {
+
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 2rem 1rem;
+    width: 100wh;
+  }
+
+}
+
+
+
