@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDocs, getFirestore,collection } from 'firebase/firestore'
 import Card from '../../components/card/Card';
+import NavBar from '../../components/navbar/NavBar';
 import "./home.css"
 
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -42,8 +43,8 @@ if (products === []) {
     )
 }
 return (
-    
-
+    <>
+        <NavBar />
     <div className='main-home'>
         <ul className='container-cards'> 
          {products.map((product) => {
@@ -52,6 +53,7 @@ return (
         </ul>
            
     </div>
+    </>
 
 );
 }
