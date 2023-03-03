@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from '../connection/firebaseConnection';
+import CartContext from '../context/CartContext';
 import '../style/Home.css'
 import Card from '../components/Card';
 
 function Home() {
     const[products, setProducts] = useState([]);
-    const[orders, setOrders] = useState([]);
+    const { orders, setOrders } = useContext(CartContext);
 
     useEffect(() =>{
         const response = query(collection(db, 'lojaDB'));
@@ -19,13 +20,12 @@ function Home() {
 
     const handleClick = (product) =>{
         if (!(orders.some((x)=> x.product === product.product))){
-           setOrders((old)=> [...old, {...product, quantity: 1}])
-        } 
+            setOrders((old)=> [...old, {...product, quantity: 1}])
+         } 
     }
  
     return (
       <section className='main'>
-
          {products.map((product) => (
             Card(product.data.image,
                 product.data.product,
