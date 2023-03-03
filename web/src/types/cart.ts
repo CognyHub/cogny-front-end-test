@@ -8,4 +8,5 @@ export type CartProviderProps = {
 export type CartContextData = {
   cart: ProductCart[];
   addProduct: (productId: string) => Promise<void>;
+  setCart: (cart: ProductCart[]) => void;
 };

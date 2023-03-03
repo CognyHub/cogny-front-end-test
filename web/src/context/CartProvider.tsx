@@ -67,7 +67,7 @@ export function CartProvider({ children }: CartProviderProps) {
   };
 
   return (
-    <CartProviderContext.Provider value={{ cart, addProduct }}>
+    <CartProviderContext.Provider value={{ cart, addProduct, setCart }}>
       {children}
     </CartProviderContext.Provider>
   );
