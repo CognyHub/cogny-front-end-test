@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { collection, query, onSnapshot } from 'firebase/firestore';
+import Navbar from '../../components/navbar';
 
 export default function Products() {
 
@@ -15,7 +16,7 @@ export default function Products() {
 
   return (
     <div>
-      <div>Página de Produtos</div>
+      <div><Navbar/></div>
       <div>
         {data.map((item, index) => (
           <div key={index}>
