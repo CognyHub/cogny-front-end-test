@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useLocalStorage from '../../helpers/useLocalStorage';
 import { initializeApp } from 'firebase/app';
 import { getDocs, getFirestore,collection } from 'firebase/firestore'
 import Card from '../../components/card/Card';
@@ -25,6 +26,8 @@ const firebaseApp = initializeApp ({
 
 function Home() {
 const [products, setProducts] = useState([]);
+let [itens, setItens] = useLocalStorage("itens", []);
+
 
 const db = getFirestore(firebaseApp);
 const produtosCollectionRef = collection(db,"produtos");
@@ -36,6 +39,7 @@ useEffect(()=>{
         setProducts(MapData);
     }
     getProducts();
+    
 },[])
 if (products === []) {
     return (
@@ -44,11 +48,11 @@ if (products === []) {
 }
 return (
     <>
-        <NavBar />
+        <NavBar qtdCart={0} />
     <div className='main-home'>
         <ul className='container-cards'> 
          {products.map((product) => {
-             return ( <Card key={product.id} url={product.url} name={product.nome} preco={product.preco}  />)
+             return ( <Card Cart={itens} setCart={setItens} key={product.id} url={product.url} name={product.nome} preco={product.preco}  />)
             })}
         </ul>
            
