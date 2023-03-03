@@ -7,9 +7,13 @@ export default function CardButton({
   name
 }) {
   return (
-    <S.ButtonStyled disabled={selected} selected={selected} type="button" onClick={onClick}>
-      <p>{number}</p>
-      <p>{name}</p>
-    </S.ButtonStyled>
+    <div style={{ display: 'flex' }}>
+      <S.ButtonStyledNumber >
+        <S.Quantity>{number}</S.Quantity>
+      </S.ButtonStyledNumber>
+      <S.ButtonStyled disabled={selected} selected={selected} type="button" onClick={onClick}>
+        <S.Text>{name}</S.Text>
+      </S.ButtonStyled>
+    </div>
   );
 }

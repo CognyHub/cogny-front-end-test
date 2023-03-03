@@ -5,6 +5,6 @@ export const theme = {
     darkGray: '#333333',
     darkBlue: '#2F2E41',
     lightPink: '#F8375D',
-    gradientPink: '#DDA0DD'
+    gradientPink: '#DB7093'
   }
 };
