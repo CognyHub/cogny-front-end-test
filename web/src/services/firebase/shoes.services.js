@@ -1,4 +1,4 @@
-import { getFirestore, getDocs, collection } from 'firebase/firestore';
+import { getFirestore, getDocs, collection, getDoc, doc } from 'firebase/firestore';
 import firebaseApp from './app';
 import { firebaseMapper } from './helpers/firebase.mapper';
 
@@ -11,4 +11,15 @@ const getShoes = async () => {
   return firebaseMapper(data);
 }
 
-export { getShoes };
+const getShoeById = async (id) => {
+  const docRef = doc(shoesCollection, id);
+  const docSnapshot = await getDoc(docRef);
+  return docSnapshot.data()
+}
+
+const getShoesByIds = async (ids) => {
+  const shoes = await Promise.all(ids.map((id) => getShoeById(id)));
+  return shoes;
+}
+
+export { getShoes, getShoesByIds };
