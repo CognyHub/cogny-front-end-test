@@ -3,7 +3,7 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { Card, Spinner, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
-import { db } from '../api/firebase';
+import db from '../api/firebase';
 import { add } from '../features/cart/cartSlice';
 
 function Products() {
@@ -11,15 +11,15 @@ function Products() {
   const productsInCart = useSelector(
     (state) => state.cart.product,
   );
-  const notify = () => toast('Produto já existe no carrinho');
+  const notify = () => toast.error('Produto já existe no carrinho');
   const dispatch = useDispatch();
 
   const handleAddToCart = (descricao, preco, url_imagem, index) => {
-    if (productsInCart[index]) {
+    if (productsInCart[index]?.quantity > 1) {
       return notify();
     }
     return dispatch(add({
-      id: index + 1, descricao, preco, url_imagem, quantity: 0,
+      id: index + 1, descricao, preco, url_imagem, quantity: 1,
     }));
   };
 
