@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Table, Button, Alert } from 'reactstrap';
+import { useNavigate } from 'react-router-dom';
+import { Container, Table, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import EmptyCard from './components/EmptyCart';
 import NavBar from '../products/components/NavBar';
+import { cartCleaner } from '../../Redux/actions';
 import MakeCheckout from './components/MakeCheckout';
 
 function CheckOut(props) {
-  const [complete, setComplete] = useState(false);
-  const { /*  dispacth, */ cartState } = props;
-  console.log(cartState);
+  const { dispatch, cartState } = props;
+  const redirect = useNavigate();
+
+  const isComplete = () => {
+    redirect('/products');
+    dispatch(cartCleaner());
+    return alert('CompraFinalizada!');
+  };
 
   const totalHandler = (cart) => {
     const total = [];
@@ -28,11 +35,6 @@ function CheckOut(props) {
       return sum;
     }
   };
-
-  const warning = (
-    <Alert>
-      Compra Finalizada!
-    </Alert>);
 
   return (
     <main className="bg-dark">
@@ -77,13 +79,12 @@ function CheckOut(props) {
               >
                 <Button
                   color="danger"
-                  onClick={ setComplete(true) }
+                  onClick={ isComplete }
                 >
                   Finalize o pedido
                 </Button>
                 <h5>{`Total R$ ${totalHandler(cartState)}0` }</h5>
               </Container>
-              { complete ? warning : null }
             </Container>) : <EmptyCard />
         }
       </main>
@@ -96,7 +97,7 @@ const mapStateToProps = (state) => ({
 });
 
 CheckOut.propTypes = {
-  /* dispacth: PropTypes.func.isRequired, */
+  dispatch: PropTypes.func.isRequired,
   cartState: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 

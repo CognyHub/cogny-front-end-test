@@ -9,6 +9,7 @@ export const FETCH_SUCCESSFUL = 'FETCH_SUCCESSFUL';
 export const FETCH_FAIL = 'FETCH_FAIL';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const ITEM_EXISTS_ON_CART = 'ITEM_EXISTS_ON_CART';
+export const CLEAN_CART = 'CLEAN_CART';
 
 export function requestStarted() {
   return { type: START_FETCH_PRODUCTS };
@@ -42,6 +43,12 @@ export function addCartCreator(product) {
   return {
     type: ADD_TO_CART,
     payload: product,
+  };
+}
+
+export function cartCleaner() {
+  return {
+    type: CLEAN_CART,
   };
 }
 
