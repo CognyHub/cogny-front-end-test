@@ -1,5 +1,5 @@
 .product-card {
-  display: inline-block;
+  display: inline-table;
   margin: 10px;
   flex-direction: column;
   color: black;
@@ -9,7 +9,6 @@
   width: 300px;
   height: 442px;
   border-radius: 4px;
-  transition: all 0.3s ease-in-out;
 }
 
 .price-description {

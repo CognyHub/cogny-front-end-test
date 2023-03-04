@@ -1,4 +1,5 @@
 import shoe from '../../icons/shoe.svg'
+import './navbar.css'
 
 export default function Navbar() {
   return (
@@ -6,7 +7,7 @@ export default function Navbar() {
       <div>COGNYSHOES
         <img src={shoe} alt="shoe" />
       </div>
-      <div>Meu carrinho</div>
+      <div className='my-cart'>Meu carrinho</div>
     </div>
   )
 }
