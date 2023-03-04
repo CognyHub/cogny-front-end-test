@@ -14,13 +14,13 @@ function Home() {
         onSnapshot(response,(querySnapshot) => {
             setProducts(querySnapshot.docs.map(doc=>( {
                 data: doc.data()
-            })))
-        })
+            })));
+        });
     },[]);
 
     const handleClick = (product) =>{
         if (!(orders.some((x)=> x.product === product.product))){
-            setOrders((old)=> [...old, {...product, quantity: 1}])
+            setOrders((old)=> [...old, {...product, quantity: 1}]);
          } 
     }
  
@@ -28,10 +28,11 @@ function Home() {
       <section className='main'>
          {products.map((product) => (
             Card(product.data.image,
-                product.data.product,
-                product.data.description,
-                product.data.price.toFixed(2).toString().replace('.', ','),
-                () => handleClick(product.data, product.data.product)
+              product.data.product,
+              product.data.description,
+              product.data.price.toFixed(2).toString().replace('.', ','),
+              () => handleClick(product.data, product.data.product),
+              product.data.product
                 )
          ))}
       </section>
