@@ -40,7 +40,21 @@ img {
   border-radius: 4px;
   border: none;
   font-size: 14px;
+  cursor: pointer;
 }
 
+/* effect on click insert cart button */
+.insert-cart-button:hover {
+  background-color: #ed7a91;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+
+.insert-cart-button:active {
+  transform: scaleX(0.98);
+  transition: 0.2s;
+}
 
 

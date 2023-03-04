@@ -1,6 +1,11 @@
 import './card.css'
 
 export default function ProductCard({data}) {
+
+  function insertCart() {
+    console.log('clicou')
+  }
+
   return (
     <div>
       {data.map((item, index) => (
@@ -10,7 +15,10 @@ export default function ProductCard({data}) {
             <div>{item.description}</div>
             <p>R$ {item.price.toFixed(2).replace('.',',')}</p>
           </div>
-          <button className='insert-cart-button'>ADICIONAR AO CARRINHO</button>
+          <button 
+          className='insert-cart-button'
+          onClick={insertCart}
+          >ADICIONAR AO CARRINHO</button>
         </div>
       ))}
     </div>
