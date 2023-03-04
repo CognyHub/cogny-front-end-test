@@ -13,14 +13,14 @@ function Header() {
           width='50px'
         />
       </div>
-      <nav>
-        {/* <NavLink to="/cart">About</NavLink> */}
-
+      <nav className='nav-container'>
         <button
+          className='nav-button'
           onClick={() => navigate.push('/cart')}
         >
-          Meu Carrinho</button>
-        <span>0</span>
+          Meu Carrinho
+          <span>0</span>
+          </button>
       </nav>
     </header>
   );
