@@ -24,18 +24,12 @@ function App() {
     const shoesCol = collection(db, 'shoes');
     const shoesSnapshot = await getDocs(shoesCol);
     const shoesList = shoesSnapshot.docs.map(doc => doc.data());
+    setShoesList(shoesList)
     return shoesList;
   }
   
-  const dataBase = async () => {
-    const shoesList = await getShoes(db)
-    setShoesList(shoesList)
-    console.log(shoesList);
-    return shoesList;
-  }
-
   useEffect(()=>{
-    dataBase()
+    getShoes(db)
   }, [])
 
   return (
