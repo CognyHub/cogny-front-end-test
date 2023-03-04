@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Context from './context';
+import CartContext from './context';
 
 function Provider({ children }) {
   const [cart, setCart] = useState([]);
@@ -7,9 +7,9 @@ function Provider({ children }) {
   const value = { cart, setCart };
 
   return (
-    <Context.Provider value={ value }>
+    <CartContext.Provider value={ value }>
       {children}
-    </Context.Provider>
+    </CartContext.Provider>
   );
 }
 

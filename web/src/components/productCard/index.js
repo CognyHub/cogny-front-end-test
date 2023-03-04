@@ -1,11 +1,16 @@
 import './card.css'
+import { useContext } from 'react'
+import CartContext from '../../context/context'
 
 export default function ProductCard({data}) {
+  const { cart, setCart } = useContext(CartContext)
 
-  function insertCart() {
-    console.log('clicou')
+  function addToCart(index) {
+    const newCart = cart
+    newCart.push(data[index])
+    setCart(newCart)
   }
-
+  
   return (
     <div>
       {data.map((item, index) => (
@@ -17,7 +22,7 @@ export default function ProductCard({data}) {
           </div>
           <button 
           className='insert-cart-button'
-          onClick={insertCart}
+          onClick={() => addToCart(index)}
           >ADICIONAR AO CARRINHO</button>
         </div>
       ))}
