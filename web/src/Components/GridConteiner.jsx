@@ -1,22 +1,30 @@
 import { useState, useEffect } from "react";
 import styles from "./gridConteiner.module.css";
+import { Firebase } from "../firebase/Firebase";
+import {BsFillCartDashFill,BsFillCartPlusFill} from 'react-icons/bs'
 
-const ShoesApi =
-  "https://api.mercadolibre.com/sites/MLB/search?q=iPhone&limit=20";
 
 function GridConteiner() {
   const [products, setProducts] = useState([]);
-
-  const getShoes = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setProducts(data.results);
-  };
+  const [cart, setCart] = useState([])
 
   useEffect(() => {
-    getShoes(ShoesApi);
+    async function getShoesList() {
+      const shoes = await Firebase();
+      setProducts(shoes);
+    }
+    getShoesList();
   }, []);
+
+  const handleClick = (obj) => {
+    const element = cart.find((e) => e.id === obj.id)
+    if (element) {
+      const arrFilter = cart.filter((e) => e.id !== obj.id);
+      setCart(arrFilter);
+    } else {
+      setCart([...cart, obj]);
+    }
+  };
 
   return (
     <div className={styles.produtsConteiner}>
@@ -31,7 +39,18 @@ function GridConteiner() {
             <h4>{product.title}</h4>
             <p>Preço: {(product.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})}</p>
           </div>
-          <button>Adicionar Carrinho</button>
+            <div className={styles.btnCar}>
+            <button className="button is-danger is-focused" onClick={() => handleClick(product)} >
+              {cart.findIndex((itemCart) => itemCart.id === product.id) !== -1 ? (
+                <div>Remover
+                    <BsFillCartDashFill />
+                </div>
+              ) : (
+                <div>Adicionar
+                  <BsFillCartPlusFill />
+                </div>                
+              )}</button>
+            </div>
         </div>
       ))}
     </div>
