@@ -8,3 +8,8 @@ export type Product = {
 export type ProductCart = Product & {
   quantity: number;
 };
+
+export type FormattedProduct = ProductCart & {
+  priceFormatted: string;
+  subtotal: string;
+};
