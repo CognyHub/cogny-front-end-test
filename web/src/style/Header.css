@@ -16,3 +16,23 @@
   color: white;
   margin-right: 10px;
 }
+
+.nav-container {
+  color: white;
+  margin: auto 0;
+}
+
+.nav-button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  font-weight: 900;
+  flex-direction: column;
+}
+
+.nav-button:hover {
+  background-color: rgb(86, 80, 80);
+  font-size: 18px;
+}
