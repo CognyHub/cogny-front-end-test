@@ -1,7 +1,10 @@
+* {
+  background-color: rgb(46, 46, 46);
+}
 .main {
-    display: flex;
-    margin: 15px auto;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 15px auto;
+  width: 80%;
 }
