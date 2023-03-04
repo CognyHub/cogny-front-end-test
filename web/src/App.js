@@ -1,6 +1,7 @@
 import './App.css';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { useEffect, useState } from 'react';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAzQ6afC5bXqK79p6N5YcIiYFjeoAI1kDo",
@@ -15,18 +16,34 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const getShoes = async (db) => {
-  const shoesCol = collection(db, 'shoes');
-  const shoesSnapshot = await getDocs(shoesCol);
-  const shoesList = shoesSnapshot.docs.map(doc => doc.data());
-  return shoesList;
-}
-
-const 
-
 function App() {
+
+  const [shoesList, setShoesList] = useState('')
+
+  const getShoes = async (db) => {
+    const shoesCol = collection(db, 'shoes');
+    const shoesSnapshot = await getDocs(shoesCol);
+    const shoesList = shoesSnapshot.docs.map(doc => doc.data());
+    return shoesList;
+  }
+  
+  const dataBase = async () => {
+    const shoesList = await getShoes(db)
+    setShoesList(shoesList)
+    console.log(shoesList);
+    return shoesList;
+  }
+
+  useEffect(()=>{
+    dataBase()
+  }, [])
+
   return (
-    <h1>{console.log(getShoes(db))}</h1>
+    <div>
+     <h1>hi</h1>
+     {shoesList && shoesList.map((item, index) => <li key={index}>{item.name}</li>)}
+
+   </div>
   );
 }
 
