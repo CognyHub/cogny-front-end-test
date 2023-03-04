@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "import-assertions"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "rules": {
+    "import-assertions/assertion-arguments": "error"
+  }
+}
