@@ -1,8 +1,15 @@
 import React from 'react';
 import store from './src/store/store';
-import { Provider as PaperProvider, MD3LightTheme as DefaultTheme } from 'react-native-paper';
+import {
+  Provider as PaperProvider,
+  MD3LightTheme as DefaultTheme,
+} from 'react-native-paper';
+import { ToastProvider } from 'react-native-toast-notifications';
 import { Provider } from 'react-redux';
-import Home from './src/pages/Home.jsx';
+import { NavigationContainer } from '@react-navigation/native';
+
+import ProductNavigation from './src/navigation/ProductsNavigation';
+import Header from './src/components/Header.jsx';
 
 const theme = {
   colors: {
@@ -12,12 +19,15 @@ const theme = {
 
 export default function App() {
   return (
-    <>
-      <Provider store={store}>
-        <PaperProvider theme={theme}>
-            <Home />
+    <Provider store={store}>
+      <ToastProvider>
+          <NavigationContainer>
+        <PaperProvider>
+          <Header />
+            <ProductNavigation />
         </PaperProvider>
-      </Provider>
-    </>
+          </NavigationContainer>
+      </ToastProvider>
+    </Provider>
   );
 }
