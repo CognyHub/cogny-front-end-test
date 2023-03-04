@@ -1,7 +1,14 @@
 .card {
+  background-color: white;
   border: 2px solid black;
+  border-radius: 15px;
   margin-bottom: 20px;
   width: 30%;
+}
+
+.product-image {
+  border-radius: 15px;
+  width: 100%; 
 }
 
 .text-card {
@@ -10,6 +17,7 @@
 }
 
 .price {
+  font-size: 20px;
   font-weight: 900;
 }
 
@@ -17,21 +25,47 @@
   content: "R$";
 }
 
+.text-container {
+  height: 80px;
+}
+
 .button-container {
-  align-items: center;
   display: flex;
+  height: 50px;
   justify-content: center;
   margin: 10px 20px;
 }
 
 .button {
+  background-color: rgb(239, 61, 94);
+  border-radius: 0 10px 10px 0;
+  color: white;
+  font-size: 18px;
   height: 40px;
+  border: none;
   width: 80%;
 }
 
+.button:hover {
+  background-color: rgb(243, 44, 81);
+  width: 85%;
+}
+
+.button:active {
+  background-color: rgb(178, 18, 47);
+  width: 85%;
+}
+
 .quantity {
-  background-color: aquamarine;
+  display: flex;
+  background-color: rgb(180, 36, 65);
+  border-radius: 10px 0 0 10px;
   height: 40px;
-  text-align: center;
   width: 15%;
+}
+
+.quantity-number {
+  margin: auto;
+  color: white;
+  font-weight: 900;
 }
