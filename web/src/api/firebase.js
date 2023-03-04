@@ -6,7 +6,7 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyADOqxApUGar0uIR3gEVZEPNGdFJbRiOaI',
+  apiKey: process.env.API_KEY_FIREBASE,
   authDomain: 'cognyshoes-api.firebaseapp.com',
   projectId: 'cognyshoes-api',
   storageBucket: 'cognyshoes-api.appspot.com',

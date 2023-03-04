@@ -67,13 +67,11 @@ function Products() {
               </Card.Text>
               <Button
                 type="button"
+                variant="danger"
                 style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: '',
-                  margin: '10px',
-                  backgroundColor: '#F8375D',
-                  borderRadius: '4px',
+                  width: '215px',
+                  marginLeft: '18px',
+                  background: '#F8375D',
                 }}
                 onClick={() => handleAddToCart(descricao, preco, url_imagem, index)}
               >

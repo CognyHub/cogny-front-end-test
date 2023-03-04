@@ -7,6 +7,7 @@ import { ActivityIndicator, MD2Colors } from 'react-native-paper';
 import { add } from '../features/cart/cartSlice';
 import { ScrollView, StyleSheet, View } from "react-native";
 import { useToast } from "react-native-toast-notifications";
+import formatToMoneyPtBr from "../utils/formatter";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -38,7 +39,7 @@ function Products() {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.parentView}>
       <ScrollView>
         {products.length === 0 ? (
           <ActivityIndicator animating={true} color={MD2Colors.black} />
@@ -46,12 +47,17 @@ function Products() {
           products.map(({ url_imagem, preco, descricao }, index) => (
             <Card style={styles.container} key={index}>
               <Card.Cover source={{ uri: url_imagem }} />
-              <Card.Content>
+              <Card.Content style={styles.content}>
                 <Title>{descricao}</Title>
-                <Paragraph>{preco}</Paragraph>
+                <Paragraph style={styles.paragraph}>
+                  {formatToMoneyPtBr(preco)}
+                </Paragraph>
               </Card.Content>
-              <Card.Actions>
+              <Card.Actions style={styles.cardActionsButton}>
                 <Button
+                  mode="contained"
+                  icon="numeric-1"
+                  buttonColor="#F8375D"
                   onPress={() =>
                     handleAddToCart(descricao, preco, url_imagem, index)
                   }
@@ -68,9 +74,24 @@ function Products() {
 }
 
 const styles = StyleSheet.create({
+  parentView: {
+    flex: 1,
+    backgroundColor: '#191920'
+  },
   container: {
     marginVertical: 8,
     marginHorizontal: 16,
+  },
+  paragraph: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginTop: 13,
+  },
+  content: {
+    marginTop: 20
+  },
+  cardActionsButton: {
+    justifyContent: 'center'
   }
 });
 

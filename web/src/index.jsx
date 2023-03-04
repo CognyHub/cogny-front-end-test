@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import store from './app/store/store';
 import reportWebVitals from './reportWebVitals';
 import Cart from './pages/Cart';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 const router = createBrowserRouter([
   {

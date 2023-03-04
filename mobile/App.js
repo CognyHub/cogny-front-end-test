@@ -12,8 +12,10 @@ import ProductNavigation from './src/navigation/ProductsNavigation';
 import Header from './src/components/Header.jsx';
 
 const theme = {
+  ...DefaultTheme,
   colors: {
-    onBackground: '#141419',
+    ...DefaultTheme.colors,
+    background: '#000000',
   },
 };
 
@@ -21,12 +23,12 @@ export default function App() {
   return (
     <Provider store={store}>
       <ToastProvider>
-          <NavigationContainer>
-        <PaperProvider>
-          <Header />
+        <NavigationContainer>
+          <PaperProvider theme={theme}>
+            <Header />
             <ProductNavigation />
-        </PaperProvider>
-          </NavigationContainer>
+          </PaperProvider>
+        </NavigationContainer>
       </ToastProvider>
     </Provider>
   );
