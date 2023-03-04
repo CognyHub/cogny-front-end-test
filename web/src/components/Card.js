@@ -1,8 +1,8 @@
 import '../style/CardProduct.css'
 
-function Card(img, product, description, price, click) {
+function Card(img, product, description, price, click, key) {
   return (
-   <div className='card'>
+   <div className='card' key={key}>
          <img 
             src={img} 
             width='100%' 
