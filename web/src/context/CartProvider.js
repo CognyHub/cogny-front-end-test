@@ -4,11 +4,14 @@ import CartContext from './CartContext';
 
 function CartProvider({ children }) {
     const [orders, setOrders] = useState([]);
+    const [total, setTotal] = useState();
 
     const contextUser = useMemo(() => ({
       orders,
+      total,
       setOrders,
-    }), [orders]);
+      setTotal
+    }), [orders, total]);
     return (
       <CartContext.Provider value={ contextUser }>
         { children }
