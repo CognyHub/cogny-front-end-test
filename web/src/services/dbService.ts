@@ -1,8 +1,17 @@
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  increment,
+  updateDoc,
+} from 'firebase/firestore';
+import { ProductCart } from './../types/product';
 
 import { db } from './firebase';
 
 import { Product } from '../types/product';
+import { Stock } from '../types/stock';
 
 export const getProductById = async (productId: string) => {
   const productRef = doc(db, 'products', productId);
@@ -19,4 +28,19 @@ export const getProducts = async () => {
     ...doc.data(),
   }));
   return productsWithId as Product[];
+};
+
+type ChangeStockQuantityParams = {
+  stockId: Stock['id'];
+  quantity: ProductCart['quantity'];
+};
+
+export const changeStockQuantity = async ({
+  stockId,
+  quantity,
+}: ChangeStockQuantityParams) => {
+  const stockRef = doc(db, 'stock', stockId);
+  updateDoc(stockRef, {
+    quantity: increment(-quantity),
+  });
 };
