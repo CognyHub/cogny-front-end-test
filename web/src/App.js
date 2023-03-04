@@ -1,5 +1,6 @@
 import Content from "./components/Content";
 import CartProvider from "./context/CartProvider";
+import './style/App.css'
 
 function App() {
   return (
