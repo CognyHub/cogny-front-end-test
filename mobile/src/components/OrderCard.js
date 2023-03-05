@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
-import { Text, View, Image, Pressable, StyleSheet } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { Text, View, Image, TextInput, StyleSheet } from 'react-native';
+import CartContext from '../context/CartContext';
 
-export default function OrderCard(image, description, price, key) {
+export default function OrderCard(image, description, price, key, quant) {
     const [quantity, setQuantity] = useState(quant || 0);
+    const { setTotal } = useContext(CartContext);
+
+    const handleChange = (value, price) => {
+        setQuantity(value)
+        setTotal((old) => old += price)
+    }
     return (
         <View key={key}>
             <Image
@@ -14,6 +21,14 @@ export default function OrderCard(image, description, price, key) {
                 <Text>{description}</Text>
                 <Text >{price}</Text>
             </View>
+            <TextInput
+                style={styles.input}
+                onChangeText={(e) => handleChange(e, price)}
+                value={quantity}
+                keyboardType="numeric"
+            />
+            <Text >{`R$${(quantity * price)?.toFixed(2).toString().replace('.', ',')}`}</Text>
+
         </View>
     );
 }

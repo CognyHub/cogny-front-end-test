@@ -17,7 +17,8 @@ export default function Cart() {
                 product.image,
                 product.description,
                 product.price,
-                product.product
+                product.product,
+                product.quantity
               )
             ))
           }
