@@ -1,4 +1,5 @@
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { formatedValue } from '../../../../utils';
 
 export default function Card({
   link,
@@ -12,8 +13,12 @@ export default function Card({
   return (
     <View style={styles.containerInternal}>
       <Image source={{ uri: link }} style={styles.imageContainer}/>
-      <Text style={styles.description}>{title}</Text>
-      <Text style={styles.price}>{`R$ ${price.toFixed(2).replace('.', ',')}`}</Text>
+      <View style={styles.alignTexts}>
+        <Text style={styles.description}>{title}</Text>
+        <View style={styles.alignTexts}>
+          <Text style={styles.price}>{`R$ ${formatedValue(price)}`}</Text>
+        </View>
+      </View>
       <TouchableOpacity
         style={styles.touchabled}
         onPress={handleSelect}
@@ -30,7 +35,10 @@ const styles = StyleSheet.create({
   containerInternal: {
     backgroundColor: 'white',
     margin: 8,
-    borderRadius: 4
+    borderRadius: 4,
+    display: 'flex',
+    justifyContent: 'center',
+    padding: 32,
   },
   imageContainer: {
     alignSelf: 'center',
@@ -40,14 +48,12 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
-    paddingHorizontal: 32,
-    paddingVertical: 8,
+    marginTop: 12
   },
   price: {
+    width: '100%',
     fontSize: 16,
     fontWeight: 'bold',
-    paddingHorizontal: 32,
-    paddingVertical: 8,
   },
   quantity: {
     backgroundColor: '#c62c4a',
@@ -63,10 +69,10 @@ const styles = StyleSheet.create({
   touchabled: {
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 14,
-    padding: 8,
+    marginTop: 26
   },
   button: {
+    width: 220,
     backgroundColor: '#f8375d',
     borderTopRightRadius: 4,
     borderBottomRightRadius: 4,
@@ -78,4 +84,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 8,
   },
+  alignTexts: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignSelf: 'center'
+  }
 });

@@ -4,7 +4,7 @@ import InfoScreen from '../../../molecules/global/InfoScreen';
 export default function CartInfoScreen({ text }) {
   return (
     <View>
-      <InfoScreen title={text} />
+      <InfoScreen text={text} />
     </View>
   );
 };

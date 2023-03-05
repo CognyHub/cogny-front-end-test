@@ -1,12 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function InfoScreen() {
+export default function InfoScreen({ text }) {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container} >
-      <Text style={{color: 'white', fontSize: 18}}>Seu carrinho está vazio !</Text>
+      <Text style={{color: 'black', fontSize: 18}}>{text}</Text>
 
       <TouchableOpacity
         style={styles.touchabled}
@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     marginTop: 60,
+    backgroundColor: 'white',
+    margin: 36,
+    borderRadius: 4,
+    padding: 12
   },
   button: {
     backgroundColor: '#f8375d',

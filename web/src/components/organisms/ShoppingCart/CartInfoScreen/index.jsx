@@ -1,12 +1,12 @@
 import InfoScreen from '../../../molecules/global/InfoScreen';
 import * as S from './styles';
 
-export default function CartInfoScreen() {
+export default function CartInfoScreen({text}) {
   return (
     <S.Container>
       <InfoScreen
         isPurchaseMade={false}
-        title="Seu carrinho está vazio, vamos as compras!"
+        title={text}
         image="/assets/cartEmpty.png"
         link="/"
       />
