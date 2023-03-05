@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import { View, StyleSheet, ScrollView  } from 'react-native';
 import { db } from '../connection/firebaseConnection';
 import { collection, query, onSnapshot,  } from "firebase/firestore";
+import CartContext from '../context/CartContext';
 import Card from '../components/Card';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const { orders, setOrders } = useContext(CartContext);
   
   useEffect(() =>{
     const response = query(collection(db, 'lojaDB'));
@@ -16,14 +18,22 @@ export default function Home() {
     });
 },[]);
 
+const handleClick = (product) =>{
+  if (!(orders.some((x)=> x.product === product.product))){
+      setOrders((old)=> [...old, {...product, quantity: 1}]);
+   } 
+}
+
     return (
       <ScrollView style={styles.main}>
       <View style={styles.home}>
-        { products.map((x)=> (
+        { products.map((product)=> (
           Card(
-            x?.data?.image,
-            x?.data?.description,
-            x?.data?.price
+            product?.data?.image,
+            product?.data?.description,
+            product?.data?.price,
+            () => handleClick(product.data),
+            product.data.product
             ))
         )} 
       </View>
