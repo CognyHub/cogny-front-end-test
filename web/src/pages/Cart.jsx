@@ -15,6 +15,8 @@ function App() {
   return (
     <BodyStyle>
       <Header />
+      {shoesList
+      && (
       <TableStyle>
         <div className="tableContainer">
           <table style={{ padding: '40px' }}>
@@ -42,6 +44,8 @@ function App() {
           </div>
         </div>
       </TableStyle>
+      )}
+
     </BodyStyle>
 
   );

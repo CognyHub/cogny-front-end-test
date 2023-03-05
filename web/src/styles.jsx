@@ -9,7 +9,7 @@ export const BodyStyle = styled.section`
   padding-top: 100px;
   align-items: center;
   background-color: #000000;
-  padding-bottom: 100px;
+  padding-bottom: 400px;
 
 .divContainer{
   display: flex;
