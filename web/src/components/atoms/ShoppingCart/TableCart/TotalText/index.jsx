@@ -1,11 +1,10 @@
+import { formatedValue } from '../../../../../utils';
 import * as S from './styles';
 
 export default function TotalText({ number }) {
   return (
     <S.TotalTextStyled>
-{`R$ ${number.toLocaleString(
-      'pt-br'
-    )}`}
+{`R$ ${formatedValue(number)}`}
 </S.TotalTextStyled>
   );
 }
