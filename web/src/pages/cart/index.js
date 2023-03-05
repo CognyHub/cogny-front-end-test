@@ -7,14 +7,17 @@ function Cart () {
   return (
     <div>
       <Navbar />
-      <div>Estou na página do carrinho</div>
+      {cart.length === 0 ? <h1>Seu carrinho está vazio</h1> :
+      <div>
       {cart.map((item, index) => (
         <div key={index}>
-          <img width="260" src={item.image} alt={item.description} />
-          <div>{item.description}</div>
+        <img width="260" src={item.image} alt={item.description} />
+        <div>{item.description}</div>
           <p>R$ {item.price.toFixed(2).replace('.',',')}</p>
         </div>
       ))}
+      </div>
+      }
     </div>
   )
 }
