@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const BodyStyle = styled.section`
   position: relative;
   width: 100vmax;
-  height: 100vmax;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 200px;
+  padding-top: 100px;
   align-items: center;
   background-color: #000000;
+  padding-bottom: 100px;
 
 .divContainer{
   display: flex;
@@ -25,7 +26,7 @@ export const BodyStyle = styled.section`
 
 export const HeaderStyles = styled.header`
 width: 100vmax;
-height: 15%;
+height: 10%;
 display: flex;
 position: fixed;
 top: 0;
@@ -43,8 +44,6 @@ z-index:4;
   padding-left: 45px; 
 }
 
-
-
 .logoImg{
 height: 40px;
 }
@@ -53,10 +52,9 @@ height: 40px;
 export const CardStyle = styled.div`
 display: flex;
 flex-wrap: wrap;
-background-color: #FAFAFA;
+background-color: black;
 align-items: center;
 justify-content: center;
-
 
 .card{
   width: 300px;
@@ -71,8 +69,6 @@ justify-content: center;
   background-color: white;
   position: relative;
   padding: 20px;
-
-
 }
 img{
   height: 100%;
@@ -85,7 +81,6 @@ img{
   display: flex;
   justify-content: center;
   margin-top: 1em;
-  
 }
 .divButtons{
   display: flex;
@@ -98,43 +93,26 @@ img{
   width:250px;
   border-radius:5px;
   padding-right: 20px;
-
 }
-input{
-    width: 40px;
-    height:25px;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 8px;
-    color: rgb(51, 51, 51);
-    font-family: Roboto;
-    font-weight: lighter;
-    font-size: 16px;
-    line-height: 20px;
-    padding: 10px;
-    display: flex;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+button{
+  color: white;
+  background-color:#F8375D;
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-  button{
-    color: white;
-    background-color:#F8375D;
-    border: none;
-    height: 40px;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-
-  .number{
-    background-color: #C62C4A;
-    height: 40px;
-    width: 40px;
-    font-weight: lighter;
-    color: white;
-    padding-top:10px;
-    text-align: center;
-    border-radius: 5px 0 0 5px;
-  }
+.number{
+  background-color: #C62C4A;
+  height: 40px;
+  width: 40px;
+  font-weight: lighter;
+  color: white;
+  padding-top:10px;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+}
 
   .price{
     margin-bottom:70px;
