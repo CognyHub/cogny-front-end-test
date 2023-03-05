@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, View, Image, Pressable, StyleSheet } from 'react-native';
 
-export default function Card(image, description, price) {
+export default function Card(image, description, price, click, key) {
     return (
-        <View style={styles.cardContainer}>
+        <View style={styles.cardContainer} key={key}>
             <Image
                 source={{ uri: image }}
                 style={styles.imageCard}
@@ -14,7 +14,7 @@ export default function Card(image, description, price) {
                 <Text style={styles.textPrice}>{price}</Text>
             </View>
 
-            <Pressable style={styles.cardButton} onPress={'onPress'}>
+            <Pressable style={styles.cardButton} onPress={click}>
                 <Text style={styles.textButton}>Adicionar ao Carrinho</Text>
             </Pressable>
         </View>
