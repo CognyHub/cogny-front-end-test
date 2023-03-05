@@ -14,11 +14,15 @@ function NavBar() {
 
   return (
     <HeaderStyles>
-      <img
-        className="logoImg"
-        src={Logo}
-        alt="logo"
-      />
+      <Link
+        to="/"
+      >
+        <img
+          className="logoImg"
+          src={Logo}
+          alt="logo"
+        />
+      </Link>
       <div className="myCarContainer">
         <p className="buttonNav">
           <Link
