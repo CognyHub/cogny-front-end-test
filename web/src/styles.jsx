@@ -144,6 +144,7 @@ input{
   }
   p{
     font-weight: 500;
+    height: 80px;
   }
 
 `;
