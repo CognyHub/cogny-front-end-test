@@ -56,4 +56,4 @@ buck-out/
 web-build/
 dist/
 
-/src/connection/*
+mobile/src/connection/firebaseConnection.js
