@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Switch} from 'react-router-dom'
 import Cart from "./pages/cart";
 import Home from "./pages/home";
@@ -12,6 +11,6 @@ function App() {
       </Switch>
     </>
   );
-}
+};
 
 export default App;

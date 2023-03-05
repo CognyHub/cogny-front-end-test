@@ -41,14 +41,48 @@
 }
 
 .card button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 3px;
   width: 100%;
   padding: 10px 0px;
-  border-radius: 2px;
+  border-radius: 5px;
   background-color: #7159C1;
   color :aliceblue;
   border: none;
-  font-weight: bold
+  font-weight: bold;
+}
+
+.cart-container{
+
+  display: block;
+}
+
+.img-cart {
+  width: 6rem;
+}
+
+/* input */
+.container-btn-input {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-btn-input input {
+  width: 3.8rem;
+  height:  90%;
+  border: none;
+  background-color: #6650ad;
+  margin-top: 3.7px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
 
 }
 

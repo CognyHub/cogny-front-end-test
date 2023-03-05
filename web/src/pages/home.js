@@ -1,33 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext} from 'react';
 import { useState } from "react";
 import { getFirestore, getDocs, collection } from "firebase/firestore";
 import '../App.css';
 import { initializeApp } from "firebase/app";
 import Header from '../components/header';
+import CartContext from '../context/cartContext';
 
 const firebaseConfig = {
-  apiKey: "xxxxxxxxxxxxxxxxxxxxxxx",
-  authDomain: "xxxxxxxxxxxxxxxxxxx",
-  projectId: "xxxxxxxxxxxxxxxxxxxx",
+  apiKey: "sua credenciais firebase",
+  authDomain: "sua credenciais firebase",
+  projectId: "sua credenciais firebase",
 };
 
-  const connection = initializeApp(firebaseConfig);
-  const db = getFirestore(connection);
-  const userCollectionRef = collection(db, 'product');
+const connection = initializeApp(firebaseConfig);
+const db = getFirestore(connection);
+const userCollectionRef = collection(db, 'product');
 
 function Home() {
    const [product, setProducts ] = useState([]);
-   const [productCart, setProductCart] = useState([]);
+   const {cartProduct, setCartProduct} = useContext(CartContext)
 
-   const addCart = (e) => {
+  const addCart = (e) => {
     const element = e.target.parentNode;
-    const product = {
+    const productChosen = {
       img: element.children[0].src,
       description:  element.children[1].textContent,
-      price: element.children[2].textContent,
+      price: element.children[2].textContent.split(" "),
+      qtd: 1
     }
-    setProductCart([...productCart, product]);
-   }
+
+    const result = cartProduct.find((item)=> item.description === productChosen.description)
+    if (result){
+      console.log("item ja adicionado")
+    }else{
+      setCartProduct([...cartProduct, productChosen]);
+    }
+  }
 
    const getProductrs = async () => {
     const data = await getDocs(userCollectionRef);
@@ -41,7 +49,7 @@ function Home() {
 
   return (
     <>
-      <Header itemCart={productCart.length}/>
+      <Header itemCart={cartProduct.length}/>
       <div className="App">
         { product.map((doc) => {
           return <div className="card">

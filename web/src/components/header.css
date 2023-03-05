@@ -9,8 +9,6 @@
   background-color: #141419;
   align-items: center;
   padding-top: 2rem ;
-
-
 }
 
 .header-image {
@@ -23,6 +21,17 @@
   margin-right: 3rem;
 }
 
-@media screen and (min-width: 900px)  {
+.cart span {
+  color:#797575
+}
 
+.header-link{
+  color:aliceblue;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 470px)  {
+  .header-image {
+    width: 13rem;
+  }
 }
