@@ -10,6 +10,7 @@ export default function ProductCard({data}) {
     newCart.push(data[index])
     setCart(newCart)
   }
+
   
   return (
     <div>
