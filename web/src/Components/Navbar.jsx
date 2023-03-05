@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
-import styles from './Navbar.module.css';
-import shoes from '../img/Shoes.png';
+import styles from "./Navbar.module.css";
+import shoes from "../img/Shoes.png";
+import { ItemLocal } from '../firebase/ItemLocal'
+
 
 function Navbar() {
   return (
     <nav className={styles.navbar}>
-     
-      <div className={styles.div}>
-         <Link to="/">
-        <img src={shoes} alt='costs' className={styles.img} />
+      <Link to="/">
+        <img src={shoes} alt="costs" className={styles.img} />
+      </Link>
+      <Link to="/cart">
+        <strong>
+          Meu carrinho
+        <ItemLocal />
+        </strong>
         </Link>
-      <div>
-        <Link to="/cart">
-          <strong>Meu carrinho</strong>
-           <p> 0 itens</p>
-         </Link>  
-      </div>
-      </div>
     </nav>
   );
 }

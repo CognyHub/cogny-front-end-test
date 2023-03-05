@@ -1,0 +1,23 @@
+.CartDashboard{
+    width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    height: 100vh;
+   
+}
+
+.price{
+    background-color: aliceblue;
+    width: 150px;
+    height: auto;
+}
+
+.noItem{
+    min-height: 400px;
+    background-color: aliceblue;
+    text-align: center;
+    overflow: hidden;
+}
+
+

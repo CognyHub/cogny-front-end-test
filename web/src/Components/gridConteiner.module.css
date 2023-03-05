@@ -1,12 +1,12 @@
 .produtsConteiner {
-    height: 904;
+    height: auto;
     width: 940px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: repeat(3, 2fr);
-    overflow: unset;
     grid-gap: 20px;
+    overflow: unset;
 }
 
 .produtsClass {
@@ -32,12 +32,12 @@
     display: flex;
     padding: 10px;
     flex-direction: row;
-    justify-content: end;
     align-items: center;
+    justify-content: center;
 }
 
 .btnCar button{
-    width: 220px;
+    width: 100%px;
     height: 100%;
     color: white;
     font-weight: bold;
@@ -45,6 +45,7 @@
     padding-right: 40px;
     text-align: center;
     justify-content: center;
+    align-items: center;
 }
 .produtsClass div{
     padding-left: 20px;

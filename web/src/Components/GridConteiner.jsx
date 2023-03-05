@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import styles from "./gridConteiner.module.css";
 import { Firebase } from "../firebase/Firebase";
-import {BsFillCartDashFill,BsFillCartPlusFill} from 'react-icons/bs'
+import { getItem, setItem } from "../firebase/LocalStorage";
+import Swal from 'sweetalert2'
 
 
 function GridConteiner() {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(getItem('cart-store') || [])
 
   useEffect(() => {
     async function getShoesList() {
@@ -19,10 +20,23 @@ function GridConteiner() {
   const handleClick = (obj) => {
     const element = cart.find((e) => e.id === obj.id)
     if (element) {
-      const arrFilter = cart.filter((e) => e.id !== obj.id);
-      setCart(arrFilter);
+      Swal.fire({
+        position: 'top-center',
+        icon: 'error',
+        title: 'Este Item já foi adicionado',
+        showConfirmButton: false,
+        timer: 1250
+      })
     } else {
       setCart([...cart, obj]);
+      setItem('cart-store',[...cart,obj])
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Item adicionado',
+        showConfirmButton: false,
+        timer: 1250
+      })
     }
   };
 
@@ -41,20 +55,18 @@ function GridConteiner() {
           </div>
             <div className={styles.btnCar}>
             <button className="button is-danger is-focused" onClick={() => handleClick(product)} >
-              {cart.findIndex((itemCart) => itemCart.id === product.id) !== -1 ? (
-                <div>Remover
-                    <BsFillCartDashFill />
-                </div>
-              ) : (
-                <div>Adicionar
-                  <BsFillCartPlusFill />
-                </div>                
-              )}</button>
+                <div>Adicionar</div>                
+              </button>
             </div>
         </div>
       ))}
     </div>
   );
 }
+
+
+// {cart.findIndex((itemCart) => itemCart.id === product.id) !== -1 ? (
+//   alert('produto ja adicionado')
+// )}
 
 export default GridConteiner;
