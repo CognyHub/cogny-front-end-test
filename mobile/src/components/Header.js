@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Header() {
+    const navigation = useNavigation();
     return (
         <View style={styles.header}>
             <View style={styles.logoContainer}>
@@ -12,8 +14,12 @@ export default function Header() {
                 />
             </View>
             <View>
+            <Pressable
+                onPress={() => navigation.navigate('Cart')}
+            >
                 <Text style={styles.headerText}>Cart</Text>
                 <Text style={styles.headerText}>1</Text>
+            </Pressable>
             </View>
         </View>
     );
