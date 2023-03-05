@@ -22,7 +22,7 @@ const sumProducts = () => {
   return sum;
 };
 
-const getStorageCar = () => JSON.parse(localStorage.getItem('cart')).reverse() || [];
+const getStorageCar = () => JSON.parse(localStorage.getItem('cart')) || [];
 
 module.exports = {
   addSubProducts, carQuantity, getStorageCar, sumProducts,
