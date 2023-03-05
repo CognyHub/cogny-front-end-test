@@ -1,0 +1,11 @@
+version: "3.4"
+services:
+  mobile:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "19000:19000"
+    volumes:
+      - "./:/app"
+    command: npx expo start
