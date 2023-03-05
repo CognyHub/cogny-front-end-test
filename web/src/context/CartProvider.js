@@ -6,14 +6,15 @@ function CartProvider({ children }) {
     const [orders, setOrders] = useState([]);
     const [total, setTotal] = useState();
 
-    const contextUser = useMemo(() => ({
+
+    const contextCart = useMemo(() => ({
       orders,
       total,
       setOrders,
-      setTotal
+      setTotal,
     }), [orders, total]);
     return (
-      <CartContext.Provider value={ contextUser }>
+      <CartContext.Provider value={ contextCart }>
         { children }
       </CartContext.Provider>
     );

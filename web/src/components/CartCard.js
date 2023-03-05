@@ -5,7 +5,7 @@ import '../style/CardCart.css'
 
 function CartCard(img, product, description, price, quant, key) {
   const [quantity, setQuantity] = useState(quant || 0);
-  const { setTotal } = useContext(CartContext);
+  const { setTotal, total } = useContext(CartContext);
   const { orders } = useContext(CartContext);
 
   useEffect(() => {
@@ -16,8 +16,8 @@ function CartCard(img, product, description, price, quant, key) {
   const handleChange = (value) => {
     setQuantity(value)
     setTotal((old) => old += price)
-  }
-
+    }
+  
   return (
     <div className='cart-card' key={key}>
       <div className='left-container'>
@@ -39,7 +39,7 @@ function CartCard(img, product, description, price, quant, key) {
         type='number'
         min='1'
         value={quantity}
-        onChange={(e) => handleChange(e.target.value, price)}
+        onChange={(e) => handleChange(e.target.value, e.target.value * price)}
       />
       <p className='total-price'>
         {`R$${(quantity * price)?.toFixed(2).toString().replace('.', ',')}`}
