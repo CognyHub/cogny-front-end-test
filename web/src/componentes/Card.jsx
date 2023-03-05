@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { CardStyle } from '../styles';
 import { addSubProducts, sumProducts } from '../utils/fuctions';
