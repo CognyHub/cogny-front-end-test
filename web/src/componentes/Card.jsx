@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { CardStyle } from '../styles';
-import { addSubProducts, sumProducts } from '../utils/fuctions';
+import { addSubProducts, carQuantity } from '../utils/fuctions';
 import context from '../context/Context';
 
 function Card({
@@ -16,11 +16,11 @@ function Card({
       price, name, url, description, id,
     };
     addSubProducts(shoes);
-    setTotalCar(sumProducts());
+    setTotalCar(carQuantity());
     setClicked(false);
   };
   useEffect(() => {
-    setTotalCar(sumProducts());
+    setTotalCar(carQuantity());
   }, [totalCar]);
   return (
     <CardStyle>
