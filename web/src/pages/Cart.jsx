@@ -7,7 +7,6 @@ import { getStorageCar, sumProducts } from '../utils/fuctions';
 function App() {
   const [shoesList, setShoesList] = useState('');
   const [sumPrice, setSumPrice] = useState('');
-  console.log(shoesList);
   useEffect(() => {
     setShoesList(getStorageCar());
     setSumPrice(sumProducts());
