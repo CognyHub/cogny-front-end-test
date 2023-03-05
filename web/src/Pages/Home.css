@@ -1,0 +1,26 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+}
+
+.homeTitle{
+padding: 25px;
+background-color: rgb(15, 184, 127);
+border-radius: 5px;
+margin-bottom: 25px;
+justify-content: center;
+display: flex;
+flex-wrap: wrap;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+color:rgb(248, 244, 239);
+}
+
+.subTitle{
+margin-bottom: 25px;
+color:rgb(15, 184, 127);
+justify-content: center;
+display: flex;
+flex-wrap: wrap;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-ser
+}
+
