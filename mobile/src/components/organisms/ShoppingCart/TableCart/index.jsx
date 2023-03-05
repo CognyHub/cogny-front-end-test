@@ -2,6 +2,7 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useShoppingCart } from '../../../../hook/shoppingCart';
+import { formatedValue } from '../../../../utils';
 
 export default function TableCart() {
   const { calculateTotal, products, setProductsSelected, productsSelected } = useShoppingCart();
@@ -10,6 +11,7 @@ export default function TableCart() {
 
   return (
     <ScrollView>
+      <View style={styles.container}>
         {products?.map((product, i) => {
           return (
             <View key={i}>
@@ -18,14 +20,14 @@ export default function TableCart() {
                   <View style={styles.item} key={product.id}>
                     <Image source={{ uri: product.imageUrl }} style={styles.imageContainer}/>
 
-                    <Text style={styles.quantity}>
+                    <Text style={styles.description}>
                       {`${Number(productsSelected.filter((el) => el === product.id)
                       .length)} produtos`}
                     </Text>
 
                     <Text style={styles.quantity}>
-                      {`R$ ${(Number(productsSelected.filter((el) => el === product.id)
-                        .length) * product.price).toFixed(2).replace('.', ',')}`}
+                      {`R$ ${formatedValue(Number(productsSelected.filter((el) => el === product.id)
+                        .length) * product.price)}`}
                     </Text>
 
 
@@ -48,8 +50,9 @@ export default function TableCart() {
         })}
 
         <View style={styles.wapperButtonFinesh}>
-          <Text style={styles.quantity}>
-            {`R$ ${total.toFixed(2).replace('.', ',')}`}
+          <Text>Total</Text>
+          <Text style={styles.total}>
+            {`R$ ${formatedValue(total)}`}
           </Text>
           <TouchableOpacity
             style={styles.touchabled}
@@ -61,11 +64,17 @@ export default function TableCart() {
             <Text style={styles.buttonFinesh}>Finalizar</Text>
           </TouchableOpacity>
         </View>
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+    margin: 36,
+    borderRadius: 4
+  },
   imageContainer: {
     alignSelf: 'center',
     width: 120,
@@ -76,19 +85,37 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingHorizontal: 32,
     paddingVertical: 8,
+    color: 'black'
   },
   price: {
     fontSize: 16,
     fontWeight: 'bold',
     paddingHorizontal: 32,
     paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: 'gray',
+    backgroundColor: 'lightgray',
+    borderRadius: 5,
   },
   quantity: {
+    width: '100%',
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#272626',
     textAlign: 'center',
     padding: 12,
+    borderWidth: 1,
+    borderColor: 'gray',
+    backgroundColor: 'lightgray',
+    padding: 10,
+    borderRadius: 5,
+  },
+  total: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingHorizontal: 32,
+    paddingVertical: 8,
+    borderRadius: 5,
   },
   button: {
     backgroundColor: '#f8375d',
@@ -123,19 +150,20 @@ const styles = StyleSheet.create({
   item: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   wapperButton: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20
+    marginTop: 20,
+    borderBottom: '10px solid ',
   },
   wapperButtonFinesh: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 160
+    marginTop: 20
   }
 });
 
