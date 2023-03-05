@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const BodyStyle = styled.section`
   position: relative;
   width: 100vmax;
+  height: 100vmax;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 200px;
   align-items: center;
   background-color: #000000;
 
@@ -17,8 +18,8 @@ export const BodyStyle = styled.section`
   gap:20px;
   padding-left:150px;
   padding-right:150px;
-  padding: 150px;
 }
+
 
 `;
 
@@ -55,7 +56,6 @@ flex-wrap: wrap;
 background-color: #FAFAFA;
 align-items: center;
 justify-content: center;
-background-color: #000000;
 
 
 .card{
@@ -123,8 +123,6 @@ input{
     height: 40px;
     border-radius: 5px;
     font-weight: bold;
-
-
   }
 
   .number{
@@ -147,4 +145,52 @@ input{
     height: 80px;
   }
 
+`;
+export const TableStyle = styled.div`
+background-color: black;
+align-items: center;
+justify-content: center;
+
+.tableContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color:white;
+  border-radius: 10px;
+}
+
+.closeCart{
+  display: flex;
+  gap:280px;
+  padding: 30px;
+
+}
+
+.totalCart{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.totalCart h3{
+  color: gray;
+}
+
+table{
+  background-color:white;
+}
+th{
+  color:gray;
+}
+button{
+    color: white;
+    background-color:#F8375D;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: normal;
+    padding: 10px;
+    align-content: center;
+  }
 `;
