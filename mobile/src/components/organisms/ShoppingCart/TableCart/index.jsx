@@ -22,7 +22,7 @@ export default function TableCart() {
 
                     <Text style={styles.description}>
                       {`${Number(productsSelected.filter((el) => el === product.id)
-                      .length)} produtos`}
+                      .length)} produto`}
                     </Text>
 
                     <Text style={styles.quantity}>
