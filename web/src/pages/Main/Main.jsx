@@ -1,11 +1,14 @@
 import React from 'react';
-import MainComponent from '../../components/MainComponent';
+import MainComponent from '../../components/MainComponent/MainComponent';
+import Header from '../../components/Header/Header';
 import { DivExterna, MainS } from './Style';
 
 function Main() {
   return (
     <DivExterna>
-      <p>Teste</p>
+      <div id="header">
+        <Header />
+      </div>
       <MainS>
         <MainComponent />
       </MainS>

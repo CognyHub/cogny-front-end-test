@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import ThemeComponent from './ThemeComponent';
-import { HeaderS } from './Style';
+import { HeaderS, BtnMain } from './Style';
 import getCartInfo from '../../helpers/getCartInfo';
+import formatCurrency from '../FormatCurrency';
 
 function Header() {
   const [balance, setBalance] = useState(0);
@@ -16,27 +17,18 @@ function Header() {
 
   const navigate = useNavigate();
 
-  const formatCurrency = (value) => {
-    const currencyOnString = value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-    const currency = `${currencyOnString}`;
-
-    return currency;
-  };
-
   return (
     <HeaderS>
+      <BtnMain
+        type="button"
+        id="mainBtn"
+        onClick={() => navigate('/main')}
+      >
+        {' '}
+        Main
+      </BtnMain>
       <div id="main">
         {/* Cria uma span com o texto Main que encaminha para a página de mesmo nome */}
-        <div id="main">
-          <button
-            type="button"
-            onClick={() => navigate('/main')}
-          >
-            {' '}
-            Main
-          </button>
-
-        </div>
         <span id="name">
           Olá!
         </span>
@@ -50,10 +42,8 @@ function Header() {
           {formatCurrency(balance).replace('.', ',')}
         </span>
       </div>
-      <div id="logouAndThemeDiv">
-        <div id="themeBtn">
-          <ThemeComponent />
-        </div>
+      <div id="themeDiv">
+        <ThemeComponent />
       </div>
     </HeaderS>
   );

@@ -12,7 +12,6 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <div>
         <GlobalStyle />
-        <p>Xablau</p>
         <Content />
       </div>
     </ThemeProvider>

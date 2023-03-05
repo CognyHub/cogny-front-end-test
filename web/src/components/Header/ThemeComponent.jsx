@@ -28,14 +28,15 @@ function ThemeComponent() {
   }, []);
 
   return (
-    <ThemeS>
-      <button type="button" onClick={themeToggler}>
-        <abbr title="Mode">
-          {theme === 'light'
-            ? <MdDarkMode id="modeIconDark" />
-            : <MdLightMode id="modeIcon" />}
-        </abbr>
-      </button>
+    <ThemeS
+      type="button"
+      onClick={themeToggler}
+    >
+      <abbr title="Mode">
+        {theme === 'light'
+          ? <MdDarkMode id="modeIconDark" />
+          : <MdLightMode id="modeIcon" />}
+      </abbr>
     </ThemeS>
   );
 }

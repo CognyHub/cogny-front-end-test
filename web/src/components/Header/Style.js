@@ -2,19 +2,23 @@ import styled from 'styled-components';
 
 export const HeaderS = styled.div`
   border: 1px solid var(--buttonBorder);
-  height: 100px;
+  height: 80px;
   width: 100%;
   background-color: var(--main);
   display: flex;
   align-items: center;
+  padding: 8px 16px;
   box-shadow: 0 1px 3px rgb(145 103 172 / 12%), 0 1px 2px rgb(145 103 172 / 24%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   #main{
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
     width: 100%;
-    padding: 0 20px;
     #name {
       grid-area: n;
       height: 100%;
@@ -24,36 +28,17 @@ export const HeaderS = styled.div`
       justify-content: center;
     }
   }
-  #logouAndThemeDiv {
+  #themeDiv {
     height: 100%;
-    width: 200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    #themeBtn {
-      margin-right: 10px;
-    }
-    #leaveBtn {
-      border: 1px solid var(--buttonBorder);
-      height: 90px;
-      width: 100%;
-      background: var(--secundary);
-      color: var(--buttonText);
-      border-radius: 4px;
-      box-shadow: 0 1px 3px rgb(145 103 172 / 12%), 0 1px 2px rgb(145 103 172 / 24%);
-      margin-right: 7px;
-      &:hover {
-        cursor: pointer;
-        background: var(--extra);
-      }
-    }
   }
 `;
 
-export const ThemeS = styled.div`
-  button {
+export const ThemeS = styled.button`
     border: 1px solid var(--buttonBorder);
-    height: 70px;
+    height: 100%;
     width: 60px;
     background: var(--tertiary);
     color: var(--buttonText);
@@ -75,7 +60,36 @@ export const ThemeS = styled.div`
       cursor: pointer;
       background: var(--extra);
     }
-}
+`;
+
+export const BtnMain = styled.button`
+  height: 100%;
+  width: 200px;
+  background: var(--buttonBackground);
+  border: 1px solid var(--secondary);
+  border-radius: 4px;
+  color: var(--buttonText);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 1px 3px rgb(145 103 172 / 12%), 0 1px 2px rgb(145 103 172 / 24%);
+  &.active {
+    background-color: var(--extraHover);
+    border: 1px solid var(--extraHover);
+  }
+  &:hover:not(:disabled) {
+    background-color: var(--extraHover);
+    filter: brightness(0.9);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    filter: saturate(0);
+  }
 `;
 
 export default HeaderS;
