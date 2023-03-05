@@ -88,7 +88,7 @@ function Cart() {
             <tbody>
               {products.map((product) => (
                 <tr key={product.id} style={{ maxWidth: '200px' }}>
-                  <td style={{ maxWidth: '200px' }}>
+                  <td style={{ maxWidth: '120px' }}>
                     <img
                       style={{ maxWidth: '200px' }}
                       src={product.url_imagem}
