@@ -1,10 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import MyContext from './Context';
-import { sumProducts } from '../utils/fuctions';
+import { carQuantity } from '../utils/fuctions';
 
 function Provider({ children }) {
-  const [totalCar, setTotalCar] = useState(sumProducts());
+  const [totalCar, setTotalCar] = useState(carQuantity());
 
   // useEffect(() => { }, []);
 

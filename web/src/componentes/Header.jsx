@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { HeaderStyles } from '../styles';
 import context from '../context/Context';
 import Logo from './Logo.png';
-import { sumProducts } from '../utils/fuctions';
+import { carQuantity } from '../utils/fuctions';
 
 function NavBar() {
   const { totalCar, setTotalCar } = useContext(context);
 
   useEffect(() => {
-    setTotalCar(sumProducts());
+    setTotalCar(carQuantity());
   }, [totalCar]);
 
   return (
