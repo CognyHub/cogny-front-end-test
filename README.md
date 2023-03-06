@@ -66,10 +66,10 @@ Os usuários terão acesso Desktop e Mobile, onde poderão:
 ## 🎨 Layout
 
 ### Mobile
-<img src="/assets/mobile.jpg"/>
+<img width="200px" src="web/public/assets/mobile.jpg"/>
 
 ### Desktop
-<img src="/assets/web.png"/>
+<img width="400px" src="web/public/assets/web.png"/>
 
 
 🛠 Tecnologias
