@@ -1,0 +1,94 @@
+.products {
+  margin: 30px;
+  height: 60rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.eachProduct{
+  height: 442px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.eachBrand, .eachDescription{
+  color: var(--text-color);
+}
+
+.eachPrice{
+  text-align: justify;
+  height: 25px;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-black);
+  margin-top: 10px;
+}
+
+.eachImage{
+  width: 260px;
+  height: 260px;
+}
+
+.buttonAndInput {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--input-color);
+  border-radius: 5px;
+  /* margin: 10px; */
+  margin-top: 50px;
+  /* align-items: ; */
+}
+
+.eachAddButton{
+  color: white;
+  background-color: var(--button-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  height: 42px;
+  width: 90%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.eachQuantity {
+  width: 50px;
+  margin: 10px;
+  font-weight: 11px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--color-white);
+  font-weight: 16px;
+  font-size: 16px;
+}
+
+
+.eachQuantity::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Aparentemente, algumas margens ainda estão lá, apesar de estar ocultas */
+}
+
+.message{
+  background-color: rgba(255, 0, 0, 0.518);
+  color: black;
+  font-size: 20px;
+  position:fixed;
+  float: inline-start;
+  margin: 30%;
+  text-align: center;
+  border-radius: 5px;
+}
