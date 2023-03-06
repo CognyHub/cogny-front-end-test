@@ -46,3 +46,139 @@ A entrega do código deve ser realizada através do GitHub seguindo as seguintes
 ## Links úteis
 
 - [Guias Firebase](https://firebase.google.com/docs/guides?authuser=2&%3Bhl=pt&hl=pt#acesse-o-firebase-na-sua-plataforma)
+
+
+
+
+#### DESENVOLVIDO:
+
+## 💻 Sobre o projeto
+​
+Esse desafio foi proposto pela empresa COGNYHUB, em que foram requisitadas habilidades necessáiras para desenvolver um projeto **Front-End**. O resultado final é a aplicação em React de uma plataforma para **e-commerce**. 
+​
+Os usuários terão acesso Desktop e Mobile, onde poderão:
+​
+- Listar produtos
+- Adicionar ao carrinho
+- Finalizar compra
+
+​
+## 🎨 Layout
+
+### Mobile
+<img src="/assets/mobile.jpg"/>
+
+### Desktop
+<img src="/assets/web.png"/>
+
+
+🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+* React Js
+* Context API
+* React Router
+* Firebase
+* Docker
+​
+## 🚀 Como executar o projeto
+​
+### Pré-requisitos
+Antes de começar, você vai precisar ter o [Git](https://git-scm.com) instalado em sua máquina.
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
+​
+### 🧭 Rodando a aplicação WEB
+
+### Rodando localmente
+
+```javascript
+  git clone https://github.com/joao966/cogny-front-end-test.git
+```
+
+1. Entre no diretório criado após a clonagem do repositório.
+```javascript
+  cd cogny-front-end-test
+```
+
+2. Entre no diretório mobile
+```javascript
+  cd web
+```
+
+3. Instale as dependencias.
+```javascript
+  npm i
+```
+
+4. Realize o start da Aplicacao.
+```javascript
+  npm start | npx expo start
+```
+
+
+### Rodando com Docker
+
+1. Entre no diretório criado após a clonagem do repositório.
+```javascript
+  cd cogny-front-end-test
+```
+2. Entre no diretório criado após a clonagem do repositório.
+```javascript
+  cd web
+```
+
+3. Instale as dependencias.
+```javascript
+  npm run docker
+```
+
+
+
+### 🧭 Rodando a aplicação MOBILE
+
+### Rodando localmente
+
+```javascript
+  git clone https://github.com/joao966/cogny-front-end-test.git
+```
+
+1. Entre no diretório criado após a clonagem do repositório.
+```javascript
+  cd cogny-front-end-test
+```
+
+2. Entre no diretório mobile
+```javascript
+  cd mobile
+```
+
+3. Instale as dependencias.
+```javascript
+  npm i
+```
+
+4. Realize o start da Aplicacao.
+```javascript
+  npm start | npx expo start
+```
+
+
+### Rodando com Docker
+
+1. Entre no diretório criado após a clonagem do repositório.
+```javascript
+  cd cogny-front-end-test
+```
+
+2. Entre no diretório criado após a clonagem do repositório.
+```javascript
+  cd mobile
+```
+
+3. Instale as dependencias.
+```javascript
+  npm run docker
+```
+
+
+OBS: certifique de ter o docker e o docker-compose intalado em sua maquina.
