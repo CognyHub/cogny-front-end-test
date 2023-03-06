@@ -7,11 +7,21 @@ export default function ProductCard({data}) {
 
   function addToCart(index) {
     const newCart = cart
-    newCart.push(data[index])
-    setCart(newCart)
+    const itemInCart = newCart.find(item => item.description === data[index].description)
+    if (itemInCart) {
+      itemInCart.quantity += 1
+      setCart(newCart)
+    } else {
+      newCart.push({
+        image: data[index].image,
+        description: data[index].description,
+        price: data[index].price,
+        quantity: 1
+      })
+      setCart(newCart)
+    }
   }
 
-  
   return (
     <div>
       {data.map((item, index) => (

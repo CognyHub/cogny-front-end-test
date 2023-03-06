@@ -9,15 +9,14 @@ export default function Navbar() {
   const { cart } = useContext(CartContext)
   const [ cartLength, setCartLength ] = useState(0)
 
-  //update cart.length every time cart changes
   useEffect(() => {
-    const changeCarLength = () => {
-    cart.length === 0 ? setCartLength(0) : setCartLength(cart.length)
-    };
-    changeCarLength();
+    let sum = 0
+    cart.forEach(item => {
+      sum += item.quantity
+    })
+    setCartLength(sum)
   }, [cart])
-
-
+  
   return (
     <div className='nav-bar'>
       <div
