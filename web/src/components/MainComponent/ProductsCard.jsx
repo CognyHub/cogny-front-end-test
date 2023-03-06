@@ -2,8 +2,9 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { ProductsCardS } from './Style';
 import formatCurrency from '../FormatCurrency';
+import addCartItem from '../../helpers/addCartItem';
+// import getCartInfo from '../../helpers/getCartInfo';
 
-/* Responsável por renderizar os elementos do map do componente ProductsComponent */
 function ProductsCard({ product }) {
   return (
     <ProductsCardS>
@@ -13,12 +14,31 @@ function ProductsCard({ product }) {
           alt={product.name}
         />
       </p>
-      <p>
+      <p id="productName">
         {product.name}
       </p>
       <p id="productPrice">
         {formatCurrency(product.price).replace('.', ',')}
       </p>
+      {/* Cria uma div que terá dentro dela 2 elementos, um input
+      exibindo o número 1 e um botão com o texto "ADICIONAR AO CARRINHO" */}
+      <span id="addProduct">
+        <input
+          type="number"
+          value="1"
+          readOnly
+        />
+        <abbr title="Clique para adicionar ao carrinho">
+          <button
+            type="button"
+            onClick={() => {
+              addCartItem(product);
+            }}
+          >
+            ADICIONAR AO CARRINHO
+          </button>
+        </abbr>
+      </span>
     </ProductsCardS>
   );
 }

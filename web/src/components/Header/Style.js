@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const HeaderS = styled.div`
-  border: 1px solid var(--buttonBorder);
+  border-bottom: 1px solid var(--buttonBorder);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
   height: 80px;
   width: 100%;
   background-color: var(--main);
   display: flex;
   align-items: center;
   padding: 8px 16px;
-  box-shadow: 0 1px 3px rgb(145 103 172 / 12%), 0 1px 2px rgb(145 103 172 / 24%);
   position: fixed;
   top: 0;
   left: 0;
