@@ -1,9 +1,9 @@
 import { Box, Card, Flex, Image, Text } from 'native-base';
-import { useEffect, useMemo, useState } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { useCart } from '../../context/CartProvider';
 import { useLiveStore } from '../../hooks/useLiveStore';
 
-export function CartItem({ product }) {
+function CartItem({ product }) {
   const { cart, setCart } = useCart();
   const [liveStock] = useLiveStore();
 
@@ -94,3 +94,5 @@ const styles = {
     objectFit: 'contain',
   },
 };
+
+export default memo(CartItem);
