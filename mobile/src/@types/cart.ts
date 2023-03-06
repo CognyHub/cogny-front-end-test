@@ -10,3 +10,5 @@ export type CartContextData = {
   addProduct: (productId: string) => Promise<void>;
   setCart: (cart: ProductCart[]) => void;
 };
+
+export type SumCartItemsQuantity = { [key: string]: number };
