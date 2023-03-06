@@ -1,15 +1,15 @@
-<h1 align="center">Desafio Cogny - Front End (web) :office: </h1>
+<h1 align="center">Desafio Cogny - Front End (Mobile) :shopping: :shoe: </h1>
 
 
 <div align="center">
 
-![Prévia](https://raw.githubusercontent.com/jefersongjr/cogny-front-end-test/jeferson-gomes-cogny-test-front-end/web/src/imagem/Captura%20de%20tela_2023-03-05_22-48-53.jpg)
+![Prévia](https://raw.githubusercontent.com/jefersongjr/cogny-front-end-test/jeferson-gomes-cogny-test-front-end/mobile/src/assets/preview.jpg)
 
 </div>
 
 <h4 align="center"> 
 	
-	🚧  APP React 🚀 Finalizado...  ::heavy_check_mark::
+	🚧  APP React 🚀 Finalizado!
 </h4>
 
 <p align="center">
@@ -23,12 +23,13 @@
 
 Esse Projeto foi desenvolvido por mim , [Jeferson Gomes](https://www.linkedin.com/in/jefersongjr/)
 na etapa técnica do processo seletivo da empresa [Cogny](https://www.https://www.cognyhub.com/) . <br>
-Foi criado um E-Commerce, utilizando React e Firebase .<br>
+Foi criado um E-Commerce, utilizando React Native, Expo e Firebase .<br>
 
 <h2 id="ferramentas"> 🛠️ Construído com: </h2>
 
-* React
+* React Native
 * Firebase
+* Expo
 * VsCode
 
 <h2 id="requisitos"> 📖 Como Executar: </h2>
@@ -49,14 +50,14 @@ Além disto é bom ter um editor para trabalhar com uma IDE de código como o [V
 $ git clone git@github.com:jefersongjr/cogny-front-end-test.git
 
 # Acesse a pasta do projeto
-$ navegue até a pasta do projeto web
+$ navegue até a pasta do projeto mobile
 
 # Instale as dependências
 $ npm install
 
 # Execute o comando no bash:
 
-$ npm start
+$ expo start
 
 # o app ira iniciar na porta 3000
 
@@ -69,5 +70,5 @@ podendo adicionar produtos no carrinho e mudar sua quantidade antes de efetuar a
 
 Como pode ser visto abaixo: 
 
-![Prévia](https://github.com/jefersongjr/cogny-front-end-test/blob/jeferson-gomes-cogny-test-front-end/web/src/imagem/React%20App.gif)
+![Prévia](https://github.com/jefersongjr/cogny-front-end-test/blob/jeferson-gomes-cogny-test-front-end/mobile/src/assets/video.gif?raw=true)
 
