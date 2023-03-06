@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import shoes from "../img/Shoes.png";
-import { ItemLocal } from '../firebase/ItemLocal'
+import { ItemLocal } from "../firebase/ItemLocal";
 
 
 function Navbar() {

@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import styles from "./gridConteiner.module.css";
 import { Firebase } from "../firebase/Firebase";
 import { getItem, setItem } from "../firebase/LocalStorage";
+import { useButtonReload } from "./Reload";
 import Swal from 'sweetalert2'
 
 
 function GridConteiner() {
+  const handleButtonClick = useButtonReload();
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(getItem('cart-store') || [])
 
@@ -25,8 +27,9 @@ function GridConteiner() {
         icon: 'error',
         title: 'Este Item já foi adicionado',
         showConfirmButton: false,
-        timer: 1250
+        timer: 1500
       })
+ 
     } else {
       setCart([...cart, obj]);
       setItem('cart-store',[...cart,obj])
@@ -35,7 +38,9 @@ function GridConteiner() {
         icon: 'success',
         title: 'Item adicionado',
         showConfirmButton: false,
-        timer: 1250
+        timer: 1500
+      }).then(() => {
+        handleButtonClick()
       })
     }
   };
@@ -63,10 +68,5 @@ function GridConteiner() {
     </div>
   );
 }
-
-
-// {cart.findIndex((itemCart) => itemCart.id === product.id) !== -1 ? (
-//   alert('produto ja adicionado')
-// )}
 
 export default GridConteiner;
