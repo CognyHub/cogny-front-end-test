@@ -19,7 +19,6 @@ function Header() {
           onClick={() => navigate.push('/cart')}
         >
           Meu Carrinho
-          <span>0</span>
           </button>
       </nav>
     </header>
