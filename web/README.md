@@ -38,7 +38,7 @@ Foi criado um E-Commerce, utilizando React e Firebase .<br>
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
 [Git](https://git-scm.com) , [Node](https://nodejs.org/pt-br/download/) ,
-Além disto é bom ter um editor para trabalhar com uma IDE de código como o ![VsCode](https://code.visualstudio.com/).
+Além disto é bom ter um editor para trabalhar com uma IDE de código como o [VsCode](https://code.visualstudio.com/).
 
 
 <h4> 📔 Instruções </h4>
@@ -68,3 +68,6 @@ O app consome uma coleção criada no Firebase FireStore e simula uma loja virtu
 podendo adicionar produtos no carrinho e mudar sua quantidade antes de efetuar a compra
 
 Como pode ser visto abaixo: 
+
+![Prévia](https://github.com/jefersongjr/cogny-front-end-test/blob/jeferson-gomes-cogny-test-front-end/web/src/imagem/React%20App.gif)
+
