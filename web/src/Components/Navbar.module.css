@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    background-color: #191920;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 70rem;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+}
+
+.img {
+    padding-left: 3em;
+    width: 400px;
+    height: 100;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+

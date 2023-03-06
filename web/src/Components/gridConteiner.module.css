@@ -1,0 +1,59 @@
+.produtsConteiner {
+    height: auto;
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-gap: 20px;
+    overflow: unset;
+}
+
+.produtsClass {
+    width: 300px;
+    height: 442px;
+    border-top: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+
+.img {
+    padding: 6px;
+    max-width: 100%;
+    height: 60%;
+}
+
+.btnCar{
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnCar button{
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: bold;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.produtsClass div{
+    padding-left: 20px;
+    
+}
+
+.produtsClass p{
+    font-weight: bold;
+    color: black;
+    padding-top: 5px;
+}
