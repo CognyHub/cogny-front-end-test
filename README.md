@@ -46,3 +46,63 @@ A entrega do código deve ser realizada através do GitHub seguindo as seguintes
 ## Links úteis
 
 - [Guias Firebase](https://firebase.google.com/docs/guides?authuser=2&%3Bhl=pt&hl=pt#acesse-o-firebase-na-sua-plataforma)
+
+# Instruções para instalação e execução do projeto
+
+Primeiramente faça um clone do projeto utilizando o link:
+
+```
+https://github.com/rafaelromanoz/cogny-front-end-test/tree/rafaelromano-cogny-front-end-test
+```
+
+## Rodando o projeto WEB
+
+Entre na pasta web:
+```
+cd web
+```
+Renomeie o nome do arquivo .env.prod para .env e altere o valor do API_KEY_FIREBASE para a sua chave api.
+
+###Instalando as dependências
+
+```
+npm install
+```
+
+Após isso rodar o projeto
+
+```
+npm start
+```
+
+O orojeto estará disponível na na url http://localhost:3000
+
+##Rodando o projeto MOBILE
+
+Entre na pasta mobile:
+```
+cd web
+```
+Renomeie o nome do arquivo .env.prod para .env e altere o valor do API_KEY_FIREBASE para a sua chave api.
+
+###Instalando as dependências
+
+```
+npm install
+```
+
+Após isso rodar o projeto
+
+```
+npm start
+```
+
+Após isso siga essa sequência de passos:
+
+```
+Baixe o aplicativo Expo Go no seu dispositivo móvel.
+
+Escaneie o QRCode gerado no terminal após o npm start.
+
+
+
