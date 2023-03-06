@@ -1,4 +1,4 @@
-<h1 align="center">Desafio Cogny - Front End (web) :office: </h1>
+<h1 align="center">Desafio Cogny - Front End (web) :shopping: :shoe: </h1>
 
 
 <div align="center">
@@ -9,7 +9,7 @@
 
 <h4 align="center"> 
 	
-	🚧  APP React 🚀 Finalizado...  ::heavy_check_mark::
+	🚧  APP React 🚀 Finalizado!
 </h4>
 
 <p align="center">
