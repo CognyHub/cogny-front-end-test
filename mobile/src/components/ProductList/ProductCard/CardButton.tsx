@@ -1,5 +1,6 @@
 import { Button, Flex, Text } from 'native-base';
 import { useMemo } from 'react';
+import { SumCartItemsQuantity } from '../../../@types/cart';
 import { Product } from '../../../@types/product';
 import { useCart } from '../../../context/CartProvider';
 import { useLiveStore } from '../../../hooks/useLiveStore';
@@ -16,7 +17,7 @@ export function CardButton({ product: { id } }: CardButtonProps) {
     return cart.reduce((sumAmount, product) => {
       sumAmount[product.id] = product.quantity;
       return sumAmount;
-    }, {} as { [key: string]: number });
+    }, {} as SumCartItemsQuantity);
   }, [cart, liveStock]);
 
   return (
