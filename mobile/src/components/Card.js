@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Pressable, StyleSheet } from 'react-native';
+import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Card(image, description, price, click, key) {
     return (
@@ -11,12 +11,14 @@ export default function Card(image, description, price, click, key) {
             />
             <View style={styles.textContainer}>
                 <Text>{description}</Text>
-                <Text style={styles.textPrice}>{price}</Text>
+                <Text style={styles.textPrice}>
+                    {`R$${price.toFixed(2).toString().replace('.', ',')}`}
+                    </Text>
             </View>
 
-            <Pressable style={styles.cardButton} onPress={click}>
+            <TouchableOpacity style={styles.cardButton} onPress={click}>
                 <Text style={styles.textButton}>Adicionar ao Carrinho</Text>
-            </Pressable>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
     cardContainer: {
         backgroundColor: 'white',
         border: '1px solid black',
-        height: '30%',
+        height: '10%',
         justifyContent: 'space-between',
         marginBottom: 20,
         width: '90%',

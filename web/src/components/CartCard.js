@@ -5,7 +5,7 @@ import '../style/CardCart.css'
 
 function CartCard(img, product, description, price, quant, key) {
   const [quantity, setQuantity] = useState(quant || 0);
-  const { setTotal, total } = useContext(CartContext);
+  const { setTotal } = useContext(CartContext);
   const { orders } = useContext(CartContext);
 
   useEffect(() => {
