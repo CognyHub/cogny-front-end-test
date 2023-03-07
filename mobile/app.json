@@ -3,9 +3,13 @@
     "name": "mobile",
     "slug": "mobile",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#121214"
+    }
   },
+
   "name": "mobile"
 }

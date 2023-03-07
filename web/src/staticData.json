@@ -1,0 +1,107 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "amount": 10
+    },
+    {
+      "id": 2,
+      "amount": 6
+    },
+    {
+      "id": 3,
+      "amount": 8
+    },
+    {
+      "id": 4,
+      "amount": 3
+    },
+    {
+      "id": 5,
+      "amount": 15
+    },
+    {
+      "id": 6,
+      "amount": 26
+    },
+    {
+      "id": 7,
+      "amount": 8
+    },
+    {
+      "id": 8,
+      "amount": 3
+    },
+    {
+      "id": 9,
+      "amount": 15
+    },
+    {
+      "id": 10,
+      "amount": 26
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Sapatenis Tenis Sapato Polo Energy Masculino",
+      "price": 78.5,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_942248-MLB46354540417_062021-F.webp"
+    },
+    {
+      "id": 2,
+      "title": "Tênis Esportivo Masculino Feminino Para Caminhada Academia",
+      "price": 79.9,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_825270-MLB46008074376_052021-F.webp"
+    },
+    {
+      "id": 3,
+      "title": "Tenis Feminino Branco Casual Sapatenis Feminino Original Top",
+      "price": 59.9,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_602680-MLB45400996050_032021-F.webp"
+    },
+    {
+      "id": 5,
+      "title": "Kit Combo 2 Tenis Feminino Academia Caminhada Corrida Black",
+      "price": 139.9,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_691367-MLB46914291646_072021-F.webp"
+    },
+    {
+      "id": 6,
+      "title": "Sapato Feminino Tenis Chinelo Ortopédico Esporão Facite Top",
+      "price": 99.9,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_998589-MLB53686099844_022023-F.webp"
+    },
+    {
+      "id": 4,
+      "title": "Tênis 12 Molas Sapato Masculino Refletivo",
+      "price": 119.7,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_990010-MLB51701316351_092022-F.webp"
+    },
+    {
+      "id": 7,
+      "title": "Tênis Feminino Casual Sapatenis Feminino Original Top",
+      "price": 59.9,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_602680-MLB45400996050_032021-F.webp"
+    },
+    {
+      "id": 8,
+      "title": "Tênis 12 Molas Sapato Masculino Refletivo",
+      "price": 119.7,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_990010-MLB51701316351_092022-F.webp"
+    },
+
+    {
+      "id": 9,
+      "title": "Kit Combo 2 Tenis Feminino Academia Caminhada Corrida Black",
+      "price": 139.9,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_691367-MLB46914291646_072021-F.webp"
+    },
+    {
+      "id": 10,
+      "title": "Sapato Feminino Tenis Chinelo Ortopédico Esporão Facite Top",
+      "price": 99.9,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_998589-MLB53686099844_022023-F.webp"
+    }
+  ]
+}

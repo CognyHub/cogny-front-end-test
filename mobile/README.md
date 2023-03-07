@@ -40,6 +40,6 @@ Este projeto foi desenvolvido durante um processo seletivo da empresa @Cogny com
 
 Após configurar o Firebase e as variáveis de ambiente, siga os seguintes passos:
 
-1. Abra o terminal na pasta `web` e instale as dependências com o comando `npm install`.
-2. Ainda no terminal, inicie a aplicação com o comando `npm start`.
-3. Pronto! Agora a aplicação será iniciada na porta 3000;
+1. Abra o terminal na pasta `mobile` e instale as dependências com o comando `npm install`.
+2. Ainda no terminal, inicie a aplicação com o comando `npm start` ou `npx expo start`.
+3. Agora a aplicação Expo será iniciada com o QR-Code e o link da aplicação.
