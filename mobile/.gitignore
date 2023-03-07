@@ -19,8 +19,9 @@ xcuserdata
 DerivedData
 *.hmap
 *.ipa
-*.xcuserstate
+*.xcuserstaten
 project.xcworkspace
+.env
 
 # Android/IntelliJ
 #
@@ -54,3 +55,5 @@ buck-out/
 .expo/
 web-build/
 dist/
+
+mobile/src/connection/firebaseConnection.js

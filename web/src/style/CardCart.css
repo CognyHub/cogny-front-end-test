@@ -1,0 +1,38 @@
+.cart-card {
+  display: flex;
+  border-bottom: 2px solid rgb(226, 213, 213);
+  justify-content: space-between;
+}
+
+.image-cart {
+  width: 80px;
+}
+
+.left-container {
+  display: flex;
+  margin-left: 20px;
+}
+
+.right-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-right: 40px;
+}
+
+.text-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+}
+
+.input-cart {
+  height: 30px;
+  width: 30px;
+  margin-right: 20px;
+}
+
+.total-price, .price-cart {
+  font-weight: bold;
+}

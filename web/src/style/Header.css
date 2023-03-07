@@ -1,0 +1,41 @@
+.header {
+  background-color: rgb(46, 46, 46);
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.logo-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.text-logo {
+  color: white;
+  margin-right: 10px;
+}
+
+.nav-container {
+  color: white;
+  margin: auto 0;
+}
+
+.nav-button {
+  background-color: rgb(46, 46, 46);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  font-weight: 900;
+  flex-direction: column;
+}
+
+.nav-button:hover {
+  background-color: rgb(86, 80, 80);
+  font-size: 18px;
+}
