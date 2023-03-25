@@ -19,7 +19,6 @@ export default function Menu() {
       <View
         style={{
           position: 'absolute',
-          top: -5,
           right: 5,
           backgroundColor: 'red',
           borderRadius: 10,
@@ -41,8 +40,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     color: '#fff',
-    marginTop: 36,
     width: '100%',
+    height: 90,
+    marginTop: 60
   },
   text: {
     color: '#fff',

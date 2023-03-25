@@ -14,6 +14,5 @@ export const Wrapper = styled(View)`
   flex-wrap: wrap;
   max-width: 978px;
   margin: 0px 0px;
-  padding-top: 20px;
   padding-bottom: 160px;
 `

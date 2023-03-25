@@ -11,7 +11,7 @@ export default function TableCart() {
   const total = calculateTotal();
 
   return (
-    <View style={{height: '100%'}}>
+    <View style={{ marginTop: -100 }}>
       <Menu />
       <ScrollView style={styles.container}>
         <View >
@@ -76,8 +76,9 @@ export default function TableCart() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    margin: 26,
     borderRadius: 4,
+    marginLeft: 26,
+    marginRight: 26
   },
   imageContainer: {
     alignSelf: 'center',
@@ -144,6 +145,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 8,
     width: '80%',
+    marginBottom: 300
   },
   touchabled: {
     flexDirection: 'row',
