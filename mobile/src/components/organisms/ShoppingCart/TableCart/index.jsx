@@ -3,6 +3,7 @@ import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'rea
 import { useNavigation } from '@react-navigation/native';
 import { useShoppingCart } from '../../../../hook/shoppingCart';
 import { formatedValue } from '../../../../utils';
+import Menu from '../../global/Menu';
 
 export default function TableCart() {
   const { calculateTotal, products, setProductsSelected, productsSelected } = useShoppingCart();
@@ -10,70 +11,73 @@ export default function TableCart() {
   const total = calculateTotal();
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        {products?.map((product, i) => {
-          return (
-            <View key={i}>
-              {productsSelected.filter((el) => el === product.id).length !==
-                0 && (
-                  <View style={styles.item} key={product.id}>
-                    <Image source={{ uri: product.imageUrl }} style={styles.imageContainer}/>
+    <View style={{height: '100%'}}>
+      <Menu />
+      <ScrollView style={styles.container}>
+        <View >
+          {products?.map((product, i) => {
+            return (
+              <View key={i}>
+                {productsSelected.filter((el) => el === product.id).length !==
+                  0 && (
+                    <View style={styles.item} key={product.id}>
+                      <Image source={{ uri: product.imageUrl }} style={styles.imageContainer}/>
 
-                    <Text style={styles.description}>
-                      {`${Number(productsSelected.filter((el) => el === product.id)
-                      .length)} produto`}
-                    </Text>
+                      <Text style={styles.description}>
+                        {`${Number(productsSelected.filter((el) => el === product.id)
+                        .length)} produto`}
+                      </Text>
 
-                    <Text style={styles.quantity}>
-                      {`R$ ${formatedValue(Number(productsSelected.filter((el) => el === product.id)
-                        .length) * product.price)}`}
-                    </Text>
+                      <Text style={styles.quantity}>
+                        {`R$ ${formatedValue(Number(productsSelected.filter((el) => el === product.id)
+                          .length) * product.price)}`}
+                      </Text>
 
 
-                    <View style={styles.wapperButton}>
-                      <TouchableOpacity
-                        style={styles.touchabled}
-                        onPress={() => {
-                          setProductsSelected([
-                            ...productsSelected.filter((el) => el !== product.id)
-                          ])
-                        }}
-                      >
-                        <Text style={styles.button}>Excluir</Text>
-                      </TouchableOpacity>
+                      <View style={styles.wapperButton}>
+                        <TouchableOpacity
+                          style={styles.touchabled}
+                          onPress={() => {
+                            setProductsSelected([
+                              ...productsSelected.filter((el) => el !== product.id)
+                            ])
+                          }}
+                        >
+                          <Text style={styles.button}>Excluir</Text>
+                        </TouchableOpacity>
+                      </View>
                     </View>
-                  </View>
-              )}
-            </View>
-          )
-        })}
+                )}
+              </View>
+            )
+          })}
 
-        <View style={styles.wapperButtonFinesh}>
-          <Text>Total</Text>
-          <Text style={styles.total}>
-            {`R$ ${formatedValue(total)}`}
-          </Text>
-          <TouchableOpacity
-            style={styles.touchabled}
-            onPress={() => {
-              navigation.navigate('Purchasemade');
-              setProductsSelected([]);
-            }}
-          >
-            <Text style={styles.buttonFinesh}>Finalizar</Text>
-          </TouchableOpacity>
+          <View style={styles.wapperButtonFinesh}>
+            <Text>Total</Text>
+            <Text style={styles.total}>
+              {`R$ ${formatedValue(total)}`}
+            </Text>
+            <TouchableOpacity
+              style={styles.touchabled}
+              onPress={() => {
+                navigation.navigate('Purchasemade');
+                setProductsSelected([]);
+              }}
+            >
+              <Text style={styles.buttonFinesh}>Finalizar</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    margin: 36,
-    borderRadius: 4
+    margin: 26,
+    borderRadius: 4,
   },
   imageContainer: {
     alignSelf: 'center',
