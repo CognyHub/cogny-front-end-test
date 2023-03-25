@@ -22,13 +22,13 @@ export default function Menu() {
           right: 5,
           backgroundColor: 'red',
           borderRadius: 10,
-          minWidth: 20,
-          height: 20,
+          minWidth: 35,
+          height: 25,
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        <Text style={{ color: '#fff', fontSize: 12 }}>{productsSelected.length}</Text>
+        <Text style={{ color: '#fff', fontSize: 18 }}>{productsSelected.length}</Text>
       </View>
   </SafeAreaView>
   );
