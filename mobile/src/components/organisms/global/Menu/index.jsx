@@ -15,7 +15,7 @@ export default function Menu() {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('ShoppingCart')}>
         <Icon style={{marginRight: 20}} name="shopping-cart" size={40} color="white" />
-      </TouchableOpacity>
+
       <View
         style={{
           position: 'absolute',
@@ -30,6 +30,7 @@ export default function Menu() {
       >
         <Text style={{ color: '#fff', fontSize: 18 }}>{productsSelected.length}</Text>
       </View>
+       </TouchableOpacity>
   </SafeAreaView>
   );
 };
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     marginTop: 12,
-    marginLeft: 8,
+    marginLeft: 12,
   },
   iconCart: {
     marginRight: '20px'

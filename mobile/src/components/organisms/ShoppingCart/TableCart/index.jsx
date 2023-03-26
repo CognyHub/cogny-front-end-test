@@ -11,10 +11,13 @@ export default function TableCart() {
   const total = calculateTotal();
 
   return (
-    <View style={{ marginTop: -100 }}>
-      <Menu />
+    <View style={{ marginTop: -90 }}>
+      <View style={{ marginRight: 12, marginLeft: 12, marginTop: -4 }}>
+        <Menu />
+      </View>
+
       <ScrollView style={styles.container}>
-        <View >
+        <View style={{ marginTop: 32 }}>
           {products?.map((product, i) => {
             return (
               <View key={i}>
@@ -78,12 +81,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 4,
     marginLeft: 26,
-    marginRight: 26
+    marginRight: 26,
+    marginTop: 12
+
   },
   imageContainer: {
     alignSelf: 'center',
-    width: 120,
-    height: 120,
+    width: 180,
+    height: 200,
     resizeMode: 'contain',
   },
   description: {

@@ -10,7 +10,7 @@ export default function HomeOrganisms() {
 
   return (
     <S.Container>
-        <Menu />
+         <Menu />
       <S.Wrapper>
       {!loading ? (
         <FlatList
