@@ -1,13 +1,14 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORANGE,
-  messagingSenderId: process.env.REACT_APP_MESSA,
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT
+  apiKey: "AIzaSyDkfjoMwnBc19hYHS7piXlV9uiBhiprD38",
+  authDomain: "challenge-cogny.firebaseapp.com",
+  projectId: "challenge-cogny",
+  storageBucket: "challenge-cogny.appspot.com",
+  messagingSenderId: "643516738193",
+  appId: "1:643516738193:web:6bddecf7276a68a9da6d30",
+  measurementId: "G-PHN87DSJWE"
 };
+
 
 export const app = initializeApp(firebaseConfig);
