@@ -1,0 +1,7 @@
+.home-screen {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: #191920;
+    max-width: 1200px;
+}
