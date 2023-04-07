@@ -1,9 +1,11 @@
 import React, { useEffect } from "react"
 import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity } from 'react-native'
 
+import { formatCurrency, getSupportedCurrencies } from "react-native-format-currency"
+
 // firebase
-import { collection, getDocs } from "firebase/firestore";
-import { db } from '../../../firebaseConfig';
+import { collection, getDocs } from "firebase/firestore"
+import { db } from '../../../firebaseConfig'
 
 // store
 import { useShoppingCartStore } from '../../../store/shoppingCart'
@@ -30,22 +32,24 @@ export default function Catalog() {
         fetchProducts()
     }, [])
 
-    const renderItems = ({ item, index }) => {
+    const renderItems = ({ item }) => {
         const quantity = products.find(product => item.id === product.id)?.quantity || 0
+
+        const [valueFormattedWithSymbol, valueFormattedWithoutSymbol, symbol] = formatCurrency({ amount: Number(item.price), code: 'BRL' })
         return (
-            <View key={index} style={styles.card}>
-                <Image source={{uri: item.image}} style={styles.photo} accessibilityLabel={item.product} />
+            <View key={item.id} style={styles.card}>
+                <Image source={{uri: item.image}} style={styles.photo} />
                 <Text style={styles.descriptionProduct}>{item.description}</Text>
-                <Text>{item.price.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</Text>
-                <TouchableOpacity onPress={() => increaseProduct(item)}>
-                    <Text>{quantity}</Text>
-                    <Text>ADICIONAR AO CARRINHO</Text>
+                <Text style={styles.price}>{valueFormattedWithSymbol}</Text>
+                <TouchableOpacity onPress={() => increaseProduct(item)} style={styles.btn}>
+                    <Text style={styles.btnQtd}>{quantity}</Text>
+                    <Text style={styles.btnText}>ADICIONAR AO CARRINHO</Text>
                 </TouchableOpacity>
             </View>
         )
     }
 
-    return <View style={styles.container}>
+    return  <View style={styles.container}>
         <FlatList
             data={listProducts}
             renderItem={renderItems}
@@ -56,26 +60,23 @@ export default function Catalog() {
 
 const styles = StyleSheet.create({
     container: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: "center",
-      padding: 20
+        flexDirection: 'row',
+        padding: 20, 
     },
     descriptionProduct: {
         fontFamily: 'Roboto',
         fontStyle: 'normal',
-        fontWeight: 400,
+        fontWeight: '400',
         fontSize: 16,
         lineHeight: 21,
-        color: '#333333'
+        color: '#333333', 
+        marginLeft: 20, 
+        marginRight: 20, 
+        marginBottom: 15
     }, 
-    logo: {
-        flexDirection: 'row',
-    }, 
-    logoImg: {
-        marginLeft: 5
-    },
     card: {
+        flexDirection: 'column',
+        justifyContent: 'center',
         backgroundColor: '#fff',
         marginBottom: 16,
         borderRadius: 6,
@@ -87,4 +88,40 @@ const styles = StyleSheet.create({
 		marginVertical: 16,
 		marginLeft: 16,
 	},
+    btn: {
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        backgroundColor: '#F8375D', 
+        marginTop: 30, 
+        height: 43, 
+        borderRadius: 6, 
+        width: 330, 
+        margin: 8, 
+        marginBottom: 10
+    }, 
+    btnQtd: {
+        width: 52,
+        height: 43,
+        backgroundColor: '#000000', 
+        opacity: 0.2,
+        fontWeight: "900",
+        textAlign: "center", 
+        color: '#FFFFFF', 
+        fontSize: 14,
+        padding: 10
+    },
+    btnText: {
+        fontWeight: "700", 
+        textAlign: "center", 
+        color: '#fff', 
+        fontSize: 14, 
+        flex: 1
+    }, 
+    price: {
+        fontWeight: '700', 
+        fontSize: 21, 
+        lineHeight: 25, 
+        marginLeft: 20, 
+        marginRight: 20
+    }
 });
