@@ -29,11 +29,6 @@ export default function Header() {
                 <span className="cart-header-title">Meu carrinho</span>
                 <span className="cart-header-items">{products.length} items</span>
             </ConditionalLink>
-
-            {/* <Link className="cart-header" to="/cart" condition={products.length > 0}>
-                <span className="cart-header-title">Meu carrinho</span>
-                <span className="cart-header-items">{products.length} items</span>
-            </Link> */}
         </div>
     )
 }

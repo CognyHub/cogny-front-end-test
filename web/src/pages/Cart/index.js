@@ -22,6 +22,7 @@ export default function Cart() {
     function done() {
         removeAllProducts()
         notify("PEDIDO FINALIZADO!")
+        // add cart to firebase datastore
     }
     
     return (
