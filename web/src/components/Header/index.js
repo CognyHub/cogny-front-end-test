@@ -13,16 +13,27 @@ import { useShoppingCartStore } from '../../store/shoppingCart'
 export default function Header() {
     const products = useShoppingCartStore(state => state.products)
 
+    function ConditionalLink({ children, condition, ...props }) {
+        return !!condition && props.to 
+            ? <Link {...props}>{children}</Link> 
+            : <div className="cart-header">{children}</div>
+    }
+
     return (
         <div className="header">
             <div className="logo">
                 <p className="logo-name">COGNYSHOES</p>
                 <img src={logo} className="logo-img"/>
             </div>
-            <Link className="cart-header" to="/cart">
+            <ConditionalLink to="/cart" condition={products.length > 0} className="cart-header">
                 <span className="cart-header-title">Meu carrinho</span>
                 <span className="cart-header-items">{products.length} items</span>
-            </Link>
+            </ConditionalLink>
+
+            {/* <Link className="cart-header" to="/cart" condition={products.length > 0}>
+                <span className="cart-header-title">Meu carrinho</span>
+                <span className="cart-header-items">{products.length} items</span>
+            </Link> */}
         </div>
     )
 }

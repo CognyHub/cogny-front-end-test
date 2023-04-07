@@ -20,12 +20,8 @@ export default function Cart() {
     const notify = (msg) => toast(msg);
 
     function done() {
-        if (products.length > 0) {
-            removeAllProducts()
-            notify("PEDIDO FINALIZADO!")
-        } else {
-            notify("SEU CARRINHO ESTÁ VAZIO!")
-        }
+        removeAllProducts()
+        notify("PEDIDO FINALIZADO!")
     }
     
     return (
