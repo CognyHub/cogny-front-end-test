@@ -15,6 +15,8 @@ export default function Cart() {
     const products = useShoppingCartStore(state => state.products)
     const removeAllProducts = useShoppingCartStore(state => state.removeAllProducts)
 
+    const alterQuantity = useShoppingCartStore(state => state.alterQuantity)
+
     const returnTotalCart = products.reduce((sum, item) => sum += (parseFloat(item.price) * item.quantity), 0)
 
     const notify = (msg) => toast(msg);
@@ -22,49 +24,67 @@ export default function Cart() {
     function done() {
         removeAllProducts()
         notify("PEDIDO FINALIZADO!")
-        // add cart to firebase datastore
+        // TODO add cart to firebase datastore (challange)
     }
+
+    function updateQuantity(e, product) {
+        const val = e.target.value
+        alterQuantity(product.id, val)
+      }
     
     return (
-        <div className="cart-screen">
+        <>
             <Header />
-            <div className="cart-items">
-                <div className="image-box"></div>
-                <span className="cart-total-label">PRODUTO</span>
-                <span className="cart-total-label">QTD</span>
-                <span className="cart-total-label">TOTAL</span>
-            </div>
+            
 
-            <div>
-                {
-                products.map((product, index) => {
-                    const quantity = products.find(item => item.id === product.id)?.quantity || 0
-                    return (
-                        <div className="cart-items" key={index}>
-                            <img src={product.image} className="image-box"/>
-                            <div className="box-description">
-                                <span className="cart-description">{product.description}</span>
-                                <UINumber format={'pt-br'} children={parseFloat(product.price)} currency={'BRL'}></UINumber>
-                            </div>
-                            <div>{product.quantity}</div>
-                            <UINumber format={'pt-br'} children={parseFloat(product.price * product.quantity)} currency={'BRL'}></UINumber>
-                        </div>
-                    )
-                })
-                }
-            </div>
+            <div className="cart-screen">
+                <div className="table-header">
+                    <div className="row">
+                        <div className="cell-left rowspan2 cart-total-label space">PRODUTO</div>
+                        <div className="cell-left cart-total-label">QTD</div>
+                        <div className="cell-left cart-total-label">TOTAL</div>
+                    </div>
+                </div>
 
-            <div className="footer">
-                <Link className="btn-footer" to="/">
-                    <span className="right-side" onClick={() => done()}>FINALIZAR PEDIDO</span>
-                </Link>
                 <div>
-                    <span className="cart-total-label">TOTAL</span>
-                    <span className="total-price">
-                        {returnTotalCart.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}
-                    </span>
+                    {
+                    products.map((product, index) => {
+                        return (
+                            <div className="cart-items table" key={index}>
+                                <div className="row">
+                                    <img src={product.image} className="image-box"/>
+                                    <div className="cell-left rowspan2">
+                                        <div className="box-description">
+                                            <span className="cart-description">{product.description}</span>
+                                            <UINumber format={'pt-br'} children={parseFloat(product.price)} currency={'BRL'}></UINumber>
+                                        </div>
+                                    </div>
+                                    <div className="cell-left">
+                                        <input className="quantity" type="number" pattern='[0-9]{0,5}' value={product.quantity} onChange={(e) => updateQuantity(e, product)}/>
+                                    </div>
+                                    <div className="cell-left">
+                                        <UINumber format={'pt-br'} children={parseFloat(product.price * product.quantity)} currency={'BRL'}></UINumber>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+
+                <div className="footer">
+                    <Link className="btn-footer" to="/">
+                        <span className="right-side" onClick={() => done()}>FINALIZAR PEDIDO</span>
+                    </Link>
+                    <div>
+                        <span className="cart-total-label">TOTAL</span>
+                        <span className="total-price">
+                            {returnTotalCart.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
+        
     )
 }

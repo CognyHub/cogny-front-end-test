@@ -7,9 +7,11 @@ import Catalog from "../../components/Catalog";
 
 export default function Home() {
     return (
-        <div className="home-screen">
+        <>
             <Header />
-            <Catalog />
-        </div>
+            <div className="home-screen">
+                <Catalog />
+            </div>
+        </>
     )
 }
