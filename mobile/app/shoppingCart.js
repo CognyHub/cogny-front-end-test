@@ -27,7 +27,6 @@ export default function Cart() {
     const returnTotalCart = products.reduce((sum, item) => sum += (parseFloat(item.price) * item.quantity), 0)
 
     const done = async () => {
-        //console.log('oi')
         if (products.length > 0) {
             const shopping = products.reduce((group, item) => {
                 group.push({
@@ -42,10 +41,8 @@ export default function Cart() {
                 products: shopping,
                 total: returnTotalCart,
                 date: new Date(),
+                source: 'mobile'
             }
-
-            //await setDoc(doc(db, "data", "one"), docData);
-            //await db.collection("shopping").add(docData)
 
             const docRef = collection(db, "shopping")
             await addDoc(docRef, docData)

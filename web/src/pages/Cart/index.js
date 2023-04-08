@@ -11,6 +11,10 @@ import UINumber from "../../components/UINumber"
 // store
 import { useShoppingCartStore } from '../../store/shoppingCart'
 
+// firebase
+import { collection, addDoc } from "firebase/firestore"
+import { db } from '../../firebase.config'
+
 export default function Cart() {
     const products = useShoppingCartStore(state => state.products)
     const removeAllProducts = useShoppingCartStore(state => state.removeAllProducts)
@@ -19,12 +23,34 @@ export default function Cart() {
 
     const returnTotalCart = products.reduce((sum, item) => sum += (parseFloat(item.price) * item.quantity), 0)
 
-    const notify = (msg) => toast(msg);
+    const notify = (msg) => toast(msg)
 
-    function done() {
-        removeAllProducts()
-        notify("PEDIDO FINALIZADO!")
-        // TODO add cart to firebase datastore (challange)
+    const done = async () => {
+        if (products.length > 0) {
+            const shopping = products.reduce((group, item) => {
+                group.push({
+                    productId: item.id, 
+                    qtd: item.quantity, 
+                    price: item.price
+                })
+                return group
+            }, [])
+    
+            const docData = {
+                products: shopping,
+                total: returnTotalCart,
+                date: new Date(),
+                source: 'web'
+            }
+    
+            const docRef = collection(db, "shopping")
+            await addDoc(docRef, docData)
+    
+            removeAllProducts()
+            notify("PEDIDO FINALIZADO!")
+        } else {
+            notify("SEU CARRINHO ESTÁ VAZIO!")
+        }
     }
 
     function updateQuantity(e, product) {
