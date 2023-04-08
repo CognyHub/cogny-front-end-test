@@ -30,7 +30,7 @@ export default function Cart() {
     function updateQuantity(e, product) {
         const val = e.target.value
         alterQuantity(product.id, val)
-      }
+    }
     
     return (
         <>

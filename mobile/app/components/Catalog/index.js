@@ -60,6 +60,7 @@ export default function Catalog() {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         flexDirection: 'row',
         padding: 20, 
     },
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
         lineHeight: 21,
         color: '#333333', 
         marginLeft: 20, 
-        marginRight: 20, 
+        marginRight: 20,
         marginBottom: 15
     }, 
     card: {
@@ -95,16 +96,13 @@ const styles = StyleSheet.create({
         marginTop: 30, 
         height: 43, 
         borderRadius: 6, 
-        width: 330, 
-        margin: 8, 
-        marginBottom: 10
+        margin: 8
     }, 
     btnQtd: {
         width: 52,
         height: 43,
         backgroundColor: '#000000', 
         opacity: 0.2,
-        fontWeight: "900",
         textAlign: "center", 
         color: '#FFFFFF', 
         fontSize: 14,
