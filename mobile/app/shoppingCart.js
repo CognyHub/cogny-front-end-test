@@ -4,12 +4,17 @@ import { useRouter } from "expo-router"
 import { StatusBar } from 'expo-status-bar'
 
 import { formatCurrency, getSupportedCurrencies } from "react-native-format-currency"
+import { v4 as uuidv4 } from 'uuid'
 
 // components
 import Header from "./components/Header"
 
 // store
 import { useShoppingCartStore } from '../store/shoppingCart'
+
+// firebase
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from '../firebaseConfig'
 
 export default function Cart() {
     const router = useRouter()
@@ -21,8 +26,30 @@ export default function Cart() {
 
     const returnTotalCart = products.reduce((sum, item) => sum += (parseFloat(item.price) * item.quantity), 0)
 
-    function done() {
+    const done = async () => {
+        //console.log('oi')
         if (products.length > 0) {
+            const shopping = products.reduce((group, item) => {
+                group.push({
+                    productId: item.id, 
+                    qtd: item.quantity, 
+                    price: item.price
+                })
+                return group
+            }, [])
+
+            const docData = {
+                products: shopping,
+                total: returnTotalCart,
+                date: new Date(),
+            }
+
+            //await setDoc(doc(db, "data", "one"), docData);
+            //await db.collection("shopping").add(docData)
+
+            const docRef = collection(db, "shopping")
+            await addDoc(docRef, docData)
+            
             removeAllProducts()
             ToastAndroid.show('PEDIDO FINALIZADO!', ToastAndroid.SHORT)
             router.back()
@@ -31,16 +58,18 @@ export default function Cart() {
         }
     }
     
-    function updateQuantity(qtd, product) {
-        const newQtd = qtd || 0
-        alterQuantity(product.id, parseInt(newQtd))
+    const updateQuantity = (type, product) => {
+        const isValid = type == 'less' && product.quantity == 0
+        if (!isValid) {
+            const newQtd = type == 'less' ? product.quantity - 1 : product.quantity + 1
+            alterQuantity(product.id, parseInt(newQtd))
+        }
     }
 
     const renderItems = ({ item }) => {
         const [valueFormattedWithSymbol, valueFormattedWithoutSymbol, symbol] = formatCurrency({ amount: Number(item.price).toFixed(2), code: 'BRL' })
         const [valueFormattedWithSymbolTotal] = formatCurrency({ amount: Number(item.price * item.quantity).toFixed(2), code: 'BRL' })
 
-        console.log(typeof valueFormattedWithSymbol)
         return (
             <View key={item.id} style={styles.card}>
                 <View style={styles.product}>
@@ -51,24 +80,24 @@ export default function Cart() {
                     </View>
                 </View>
                 <View style={styles.quantity}>
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={(text) => updateQuantity(text, item)}
-                        
-                        value={item.quantity.toString()}
-                        keyboardType="numeric"
-                    />
-                    <View >
-
-                        <Text style={styles.totalValueProduct}>{valueFormattedWithSymbolTotal}</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <TouchableOpacity onPress={() => updateQuantity('less', item)}>
+                            <Text style={styles.addRemove}> - </Text>
+                        </TouchableOpacity>
+                        <Text style={styles.input}>{item.quantity}</Text>
+                        <TouchableOpacity onPress={() => updateQuantity('more', item)}>
+                            <Text style={styles.addRemove}> + </Text>
+                        </TouchableOpacity>
                     </View>
+                    <Text style={styles.totalValueProduct}>{valueFormattedWithSymbolTotal}</Text>
+
                 </View>
             </View>
         )
     }
 
     const foot = () => {
-        const [valueFormattedWithSymbol, valueFormattedWithoutSymbol, symbol] = formatCurrency({ amount: Number(returnTotalCart), code: 'BRL' })
+        const [valueFormattedWithSymbol, valueFormattedWithoutSymbol, symbol] = formatCurrency({ amount: Number(returnTotalCart).toFixed(2), code: 'BRL' })
         return (
             <View style={{marginTop: 15}}>
                 <View style={styles.totalBox}>
@@ -178,16 +207,25 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between', 
         borderRadius: 4,
         height: 43,
-        backgroundColor: '#F2F2F2',
+        backgroundColor: '#EEEEEE',
     },
     input: {
         backgroundColor: '#FFFFFF',
         textAlign: 'center',
-        marginLeft: 30,
         width: 51,
         height: 30,
         borderWidth: 1, 
         borderColor: '#DDDDDD',
         borderRadius: 4,
+        padding: 5
     },
+    addRemove: {
+        fontSize: 20,
+        lineHeight: 23,
+        color: '#7159C1',
+        width: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 4
+    }
 });

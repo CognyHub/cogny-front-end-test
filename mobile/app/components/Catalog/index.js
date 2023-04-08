@@ -1,10 +1,10 @@
-import React, { useEffect } from "react"
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity } from 'react-native'
 
-import { formatCurrency, getSupportedCurrencies } from "react-native-format-currency"
+import { formatCurrency, getSupportedCurrencies } from 'react-native-format-currency'
 
 // firebase
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../../firebaseConfig'
 
 // store
