@@ -12,6 +12,9 @@ import UINumber from "../UINumber";
 import { useShoppingCartStore } from '../../store/shoppingCart'
 import { useListProductsStore } from '../../store/listProducts'
 
+//font
+import "@fontsource/roboto"
+
 export default function Catalog() {
     const increaseProduct = useShoppingCartStore(state => state.increaseProduct)
     const products = useShoppingCartStore(state => state.products)
@@ -46,8 +49,12 @@ export default function Catalog() {
                         <span className="description">{product.description}</span>
                         <UINumber format={'pt-br'} children={parseFloat(product.price)} currency={'BRL'}></UINumber>
                         <div className="btn" onClick={() => increaseProduct(product)}>
-                            <span className="left-side">{quantity}</span>
-                            <span className="right-side">ADICIONAR AO CARRINHO</span>
+                            <div className="left-side">
+                                <span className="left-side-text">{quantity}</span>
+                            </div>
+                            <div className="right-side">
+                                <span className="right-side-text">ADICIONAR AO CARRINHO</span>
+                            </div>
                         </div>
                     </div>
                 )

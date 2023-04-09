@@ -15,6 +15,9 @@ import { useShoppingCartStore } from '../../store/shoppingCart'
 import { collection, addDoc } from "firebase/firestore"
 import { db } from '../../firebase.config'
 
+// font
+import "@fontsource/roboto"
+
 export default function Cart() {
     const products = useShoppingCartStore(state => state.products)
     const removeAllProducts = useShoppingCartStore(state => state.removeAllProducts)
@@ -100,7 +103,7 @@ export default function Cart() {
 
                 <div className="footer">
                     <Link className="btn-footer" to="/">
-                        <span className="right-side" onClick={() => done()}>FINALIZAR PEDIDO</span>
+                        <span className="btn-footer-text" onClick={() => done()}>FINALIZAR PEDIDO</span>
                     </Link>
                     <div>
                         <span className="cart-total-label">TOTAL</span>
