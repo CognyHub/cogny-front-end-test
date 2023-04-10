@@ -107,6 +107,8 @@ const styles = StyleSheet.create({
         color: '#FFFFFF', 
         fontSize: 14,
         padding: 10,
+        borderBottomLeftRadius: 6,
+        borderTopLeftRadius: 6
     },
     btnText: {
         fontWeight: "700", 
