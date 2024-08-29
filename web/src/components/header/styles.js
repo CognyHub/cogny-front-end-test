@@ -2,14 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  /* TODO: ajustar alinhamento header */
-  /* gap: 200px; */
   color: white;
-  top: 0;
   background-color: #191920;
-  width: 100%;
+  width: 49vw;
   padding: 20px 0px;
 
   a {
@@ -25,7 +22,7 @@ export const LogoContainer = styled.div`
 `;
 
 export const HeaderHero = styled.h1`
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 800;
   text-transform: uppercase;
   color: white;
@@ -45,10 +42,10 @@ export const CartContainer = styled.div`
 `;
 
 export const CartText = styled.span`
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 `;
 
 export const CartItemsQty = styled.span`
-  font-size: 10px;
+  font-size: 12px;
 `;

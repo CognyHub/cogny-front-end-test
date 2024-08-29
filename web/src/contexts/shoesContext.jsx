@@ -1,0 +1,43 @@
+import { createContext, useEffect, useState } from 'react';
+
+import getShoes from '../service/getShoes';
+
+const ShoesContext = createContext();
+
+function ShoesProvider({ children }) {
+  const [shoes, setShoes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchShoes = async () => {
+      try {
+        const shoesData = await getShoes();
+        setShoes(shoesData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchShoes();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+
+  return (
+    <ShoesContext.Provider value={{
+      shoes,
+      loading,
+      error
+    }}
+    >
+      {children}
+    </ShoesContext.Provider>
+  );
+}
+
+export { ShoesProvider, ShoesContext };
