@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 
 import getShoes from '../service/getShoes';
+import Loading from '../components/loading';
 
 const ShoesContext = createContext();
 
@@ -24,7 +25,7 @@ function ShoesProvider({ children }) {
     fetchShoes();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>Error: {error.message}</div>;
 
 

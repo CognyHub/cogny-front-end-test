@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import priceFormatter from '../../helpers/priceFormatter';
 
 import {
@@ -13,11 +13,28 @@ import {
 } from './styles';
 import CartRow from './cartRow';
 import { CartContext } from '../../contexts/cartContext';
+import cleanCart from '../../service/cleanCart';
+import Loading from '../loading';
 
 function CartTable({items}) {
   const { totalCartPrice } = useContext(CartContext);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  console.log(totalCartPrice)
+  const handleClick = () => {
+    try {
+      setLoading(true);
+      cleanCart().then(() => window.location.reload());
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) return <Loading />;
+  if (error) return <div>Error: {error.message}</div>;
+
   return (
     <CartContainer>
       <HeaderRow>
@@ -30,7 +47,7 @@ function CartTable({items}) {
       ))}
 
       <FooterRow>
-        <FinalizeButton>finalizar pedido</FinalizeButton>
+        <FinalizeButton onClick={() => handleClick()}>finalizar pedido</FinalizeButton>
         <TotalContainer>
           <TotalLabel>Total</TotalLabel>
           <TotalPrice>{priceFormatter(totalCartPrice)}</TotalPrice>

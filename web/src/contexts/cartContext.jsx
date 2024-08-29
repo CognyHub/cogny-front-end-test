@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import getCartItems from '../service/getCartProducts';
+import Loading from '../components/loading';
 
 const CartContext = createContext();
 
@@ -8,7 +9,6 @@ function CartProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [totalCartPrice, setTotalCartPrice] = useState(0);
-
 
   useEffect(() => {
     const fetchShoes = async () => {
@@ -25,14 +25,14 @@ function CartProvider({ children }) {
     fetchShoes();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
     <CartContext.Provider value={{
       cartItems,
       totalCartPrice,
-      setTotalCartPrice
+      setTotalCartPrice,
     }}
     >
       {children}

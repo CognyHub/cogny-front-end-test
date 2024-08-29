@@ -10,7 +10,7 @@ function ProductCard({product}) {
       <About>
         <Description> {product.description} </Description>
         <Price> {priceFormatter(product.price)} </Price>
-        <AddToCardBtn num='1' />
+        <AddToCardBtn product={product} />
       </About>
     </Container>
   );

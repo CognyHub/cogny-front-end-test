@@ -15,6 +15,7 @@ export const ProductRow = styled.div`
 export const ProductInfo = styled.div`
   display: flex;
   align-items: center;
+  width: 450px;
 `;
 
 export const ProductTextInfo = styled.div`
@@ -43,7 +44,6 @@ export const ProductPrice = styled.div`
 `;
 
 export const Quantity = styled.div`
-  margin-left: 112px;
   text-align: center;
 
   input {
