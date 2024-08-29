@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import ProductCard from './components/productCard';
 import getShoes from './service/getShoes';
+import LayoutBase from './components/layoutBase';
 
 function App() {
   const [shoes, setShoes] = useState([]);
@@ -27,11 +28,10 @@ function App() {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div style={{ height: '100%', margin: 'auto', padding: '20px', backgroundColor: '#191920'}}>
-      {
-        shoes.map((shoe) => ( <ProductCard product={shoe} key={shoe.id} /> ))
-      }
-    </div>
+    <LayoutBase>
+      { shoes.map((shoe) => ( <ProductCard product={shoe} key={shoe.id} /> )) }
+    </LayoutBase>
+
   );
 };
 

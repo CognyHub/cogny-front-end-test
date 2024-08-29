@@ -24,7 +24,7 @@ export const Button = styled.button`
   justify-content: center;
   color: white;
   background-color: #F8375D;
-  /* padding: 13px 18px; */
+  text-transform: uppercase;
   border-radius: 0 4px 4px 0;
   border-color: transparent;
   outline: none;

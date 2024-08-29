@@ -9,11 +9,9 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-`;
-
-export const Alignment = styled.div`
-  padding: 20px;
+  gap: 30px;
 `;
 
 export const ImageURL = styled.img`
@@ -25,6 +23,7 @@ export const ImageURL = styled.img`
 export const About = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   margin-bottom: 20px;
   width: 260px;

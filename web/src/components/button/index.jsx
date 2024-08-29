@@ -5,9 +5,7 @@ function AddToCardBtn({num}) {
   return (
     <Container>
       <Counter> {num} </Counter>
-      <Button>
-        ADICIONAR AO CARRINHO
-      </Button>
+      <Button> adicionar ao carrinho </Button>
     </Container>
   );
 }
