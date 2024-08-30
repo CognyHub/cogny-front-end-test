@@ -3,7 +3,6 @@ import priceFormatter from '../../helpers/priceFormatter';
 import PropTypes from 'prop-types';
 import ProductRow from './productRow';
 import { CartContext } from '../../contexts/cartContext';
-import cleanCart from '../../services/cleanCart';
 import Loading from '../loading';
 import Button from '../button';
 
@@ -18,18 +17,17 @@ import {
 } from './styles';
 
 function CartTable({items}) {
-  const { totalCartPrice, setCartItems } = useContext(CartContext);
+  const { totalCartPrice, removeAllItems } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const handleClick = () => {
     try {
       setLoading(true);
-      cleanCart();
+      removeAllItems();
     } catch (err) {
       setError(err);
     } finally {
-      setCartItems([]);
       setLoading(false);
     }
   };

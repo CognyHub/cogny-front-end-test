@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { ShoesContext } from '../contexts/shoesContext';
 import React from 'react';
 
-function ShoeList() {
+function ProductList() {
   const { shoes } = useContext(ShoesContext);
 
   return (
@@ -14,4 +14,4 @@ function ShoeList() {
   );
 }
 
-export default ShoeList;
+export default ProductList;

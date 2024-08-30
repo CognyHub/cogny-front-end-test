@@ -1,11 +1,15 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
   transform: {
     '^.+\\.(js|jsx)$': 'babel-jest',
   },
-  moduleNameMapper: {
-    '\\.(css|less)$': '<rootDir>/src/__tests__/__mocks__/styleMock.js',
-  },
-  testMatch: ['<rootDir>/src/__tests__/**/*.(test|spec).js'],
+  testMatch: [
+    "**/__tests__/**/*.js?(x)",
+    "**/?(*.)+(spec|test).js?(x)"
+  ],
+  collectCoverage: true,
+  coverageDirectory: "coverage",
+  coverageReporters: ["html", "text", "lcov"],
 };

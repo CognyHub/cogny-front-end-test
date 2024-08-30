@@ -6,6 +6,7 @@ import removeProductFromCart from '../services/removeProductFromCart';
 import updateProductOnCart from '../services/updateProductOnCart';
 import React from 'react';
 import PropTypes from 'prop-types';
+import cleanCart from '../services/cleanCart';
 
 const CartContext = createContext();
 
@@ -77,6 +78,15 @@ function CartProvider({ children }) {
     }
   };
 
+  const removeAllItems = async () => {
+    try {
+      await cleanCart();
+      setCartItems([]);
+    } catch (err) {
+      setError(err);
+    }
+  }
+
   const isProductOnCart = (productId) => {
     return cartItems.find((item) => item.product_id === productId);
   };
@@ -93,6 +103,7 @@ function CartProvider({ children }) {
       addToCart,
       updateItem,
       removeItem,
+      removeAllItems,
       isProductOnCart,
     }}>
       {children}
