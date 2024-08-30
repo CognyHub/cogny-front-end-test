@@ -8,16 +8,16 @@ import { CartProvider } from './contexts/cartContext';
 
 function App() {
   return (
-    <Router>
+    <CartProvider>
       <ShoesProvider>
-      <CartProvider>
-        <Routes>
-          <Route path='/' element={<ShoeList />}/>
-          <Route path='/cart' element={<Cart />}/>
-        </Routes>
-      </CartProvider>
+        <Router>
+            <Routes>
+              <Route path='/' element={<ShoeList />}/>
+              <Route path='/cart' element={<Cart />}/>
+            </Routes>
+        </Router>
       </ShoesProvider>
-    </Router>
+    </CartProvider>
   );
 };
 

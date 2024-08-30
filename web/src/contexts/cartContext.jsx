@@ -1,20 +1,23 @@
 import { createContext, useEffect, useState } from 'react';
 import getCartItems from '../service/getCartProducts';
 import Loading from '../components/loading';
+import addItemToCard from '../service/addItemToCard';
+import removeCartItem from '../service/removeCartItem';
+import updateCartItem from '../service/updateCartItem';
 
 const CartContext = createContext();
 
 function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [totalCartPrice, setTotalCartPrice] = useState(0);
 
   useEffect(() => {
-    const fetchShoes = async () => {
+    const fetchCartItems = async () => {
       try {
-        const shoesData = await getCartItems();
-        setCartItems(shoesData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        const products = await getCartItems();
+        setCartItems(products.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       } catch (err) {
         setError(err);
       } finally {
@@ -22,8 +25,52 @@ function CartProvider({ children }) {
       }
     };
 
-    fetchShoes();
+    fetchCartItems();
   }, []);
+
+  useEffect(() => {
+    const calculateTotalPrice = () => {
+      const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      setTotalCartPrice(totalPrice);
+    };
+
+    calculateTotalPrice();
+  }, [cartItems]);
+
+  const addToCart = async (product) => {
+    try {
+      await addItemToCard(product);
+      setCartItems((prevItems) => [...prevItems, product]);
+    } catch (err) {
+      setError(err);
+    }
+  };
+
+  const updateItem = async (product, changes) => {
+    try {
+      await updateCartItem(product, changes);
+      setCartItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === product.id ? { ...item, ...changes } : item
+        )
+      );
+    } catch (err) {
+      setError(err);
+    }
+  };
+
+  const removeItem = async (product) => {
+    try {
+      await removeCartItem(product);
+      setCartItems((prevItems) => prevItems.filter((item) => item.id !== product.id));
+    } catch (err) {
+      setError(err);
+    }
+  };
+
+  const isProductOnCart = (productId) => {
+    return cartItems.find((item) => item.product_id === productId);
+  };
 
   if (loading) return <Loading />;
   if (error) return <div>Error: {error.message}</div>;
@@ -33,8 +80,11 @@ function CartProvider({ children }) {
       cartItems,
       totalCartPrice,
       setTotalCartPrice,
-    }}
-    >
+      addToCart,
+      updateItem,
+      removeItem,
+      isProductOnCart,
+    }}>
       {children}
     </CartContext.Provider>
   );

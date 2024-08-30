@@ -1,6 +1,6 @@
 import React from 'react';
 import { About, Container, Description, ImageURL, Price } from './styles';
-import AddToCardBtn from '../button';
+import AddToCardBtn from '../addToCartButton';
 import priceFormatter from '../../helpers/priceFormatter';
 
 function ProductCard({product}) {

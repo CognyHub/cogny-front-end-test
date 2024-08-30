@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import priceFormatter from '../../../helpers/priceFormatter';
 
 import {
@@ -12,47 +12,65 @@ import {
   Price
 } from './styles';
 import { CartContext } from '../../../contexts/cartContext';
+import ConfirmRemoveModal from '../../confirmRemoveModal';
 
 function CartRow({ product }) {
-  const { setTotalCartPrice, totalCartPrice } = useContext(CartContext);
-  const [productQuantity, setProductQuantity] = useState(1);
-  const [totalValueItem, setTotalValueItem] = useState(product.price);
+  const { setTotalCartPrice, updateItem, removeItem } = useContext(CartContext);
+  const [totalValueItem, setTotalValueItem] = useState(product.price * product.quantity);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    if (!totalCartPrice) setTotalCartPrice(Number(product.price))
-  }, []);
+  const handleQuantityChange = (newQuantity) => {
+    const numberQuantity = Number(newQuantity);
+    const oldTotalValueItem = totalValueItem;
+    const newTotalValueItem = numberQuantity * product.price;
 
-  const handleQuantityChange = (quantity) => {
-    const newQuantity = parseInt(quantity, 10);
-    const newTotalValueItem = product.price * newQuantity;
+    if (numberQuantity === 0) {
+      setIsModalOpen(true);
+    } else {
+      updateItem(product, { quantity: numberQuantity });
+      setTotalValueItem(newTotalValueItem);
+      setTotalCartPrice((prevTotal) => prevTotal - oldTotalValueItem + newTotalValueItem);
+    }
+  };
 
-    setProductQuantity(newQuantity);
-    setTotalValueItem(newTotalValueItem);
-    
-    const priceDifference = newTotalValueItem - totalValueItem;
-    setTotalCartPrice(totalCartPrice + priceDifference);
-  }
+  const confirmRemoval = () => {
+    removeItem(product);
+    setTotalCartPrice((prevTotal) => prevTotal - totalValueItem);
+    setIsModalOpen(false);
+  };
+
+  const cancelRemoval = () => {
+    setIsModalOpen(false);
+  };
 
   return (
-    <ProductRow>
-      <ProductInfo>
-        <ProductImage src={product.image_url} alt={product.description} />
-        <ProductTextInfo>
-          <ProductDescription>{product.description}</ProductDescription>
-          <ProductPrice>{priceFormatter(product.price)}</ProductPrice>
-        </ProductTextInfo>
-      </ProductInfo>
-      <Quantity>
-        <input
-          type='number'
-          min={1}
-          value={productQuantity}
-          onChange={(e) => handleQuantityChange(e.target.value)}
-        />
-      </Quantity>
-      <Price>{priceFormatter(totalValueItem)}</Price>
-    </ProductRow>
+    <>
+      <ConfirmRemoveModal
+        isOpen={isModalOpen}
+        onClose={cancelRemoval}
+        onConfirm={confirmRemoval}
+      />
+
+      <ProductRow>
+        <ProductInfo>
+          <ProductImage src={product.image_url} alt={product.description} />
+          <ProductTextInfo>
+            <ProductDescription>{product.description}</ProductDescription>
+            <ProductPrice>{priceFormatter(product.price)}</ProductPrice>
+          </ProductTextInfo>
+        </ProductInfo>
+        <Quantity>
+          <input
+            type='number'
+            min={0}
+            value={product.quantity}
+            onChange={(e) => handleQuantityChange(e.target.value)}
+          />
+        </Quantity>
+        <Price>{priceFormatter(totalValueItem)}</Price>
+      </ProductRow>
+    </>
   );
-};
+}
 
 export default CartRow;

@@ -8,13 +8,13 @@ import {
   TotalContainer,
   TotalLabel,
   TotalPrice,
-  FinalizeButton,
   FooterRow,
 } from './styles';
 import CartRow from './cartRow';
 import { CartContext } from '../../contexts/cartContext';
 import cleanCart from '../../service/cleanCart';
 import Loading from '../loading';
+import Button from '../button';
 
 function CartTable({items}) {
   const { totalCartPrice } = useContext(CartContext);
@@ -47,7 +47,7 @@ function CartTable({items}) {
       ))}
 
       <FooterRow>
-        <FinalizeButton onClick={() => handleClick()}>finalizar pedido</FinalizeButton>
+        <Button text='finalizar pedido' onClick={() => handleClick()} />
         <TotalContainer>
           <TotalLabel>Total</TotalLabel>
           <TotalPrice>{priceFormatter(totalCartPrice)}</TotalPrice>
