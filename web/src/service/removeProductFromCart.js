@@ -1,7 +1,7 @@
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from './firebaseConfig';
 
-const removeCartItem = async (cartItem) => {
+const removeProductFromCart = async (cartItem) => {
   try {
     const docRef = doc(db, 'cart', cartItem.id);
     await deleteDoc(docRef)
@@ -12,4 +12,4 @@ const removeCartItem = async (cartItem) => {
   }
 }
 
-export default removeCartItem;
+export default removeProductFromCart;

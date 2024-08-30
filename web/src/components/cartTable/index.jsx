@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import priceFormatter from '../../helpers/priceFormatter';
 import PropTypes from 'prop-types';
-import CartRow from './cartRow';
+import ProductRow from './productRow';
 import { CartContext } from '../../contexts/cartContext';
 import cleanCart from '../../service/cleanCart';
 import Loading from '../loading';
@@ -45,7 +45,7 @@ function CartTable({items}) {
         <HeaderColumn>Preço</HeaderColumn>
       </HeaderRow>
       {items?.map((item) => (
-        <CartRow key={item.product_id} product={item} />
+        <ProductRow key={item.product_id} product={item} />
       ))}
 
       <FooterRow>

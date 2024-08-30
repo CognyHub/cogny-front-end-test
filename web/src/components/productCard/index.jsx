@@ -23,7 +23,6 @@ ProductCard.propTypes = {
     image_url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired,
   }).isRequired,
 };
 

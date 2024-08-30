@@ -25,15 +25,7 @@ function Header({cartItems}) {
 }
 
 Header.propTypes = {
-  cartItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      image_url: PropTypes.string,
-      description: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      quantity: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  cartItems: PropTypes.number.isRequired,
 };
 
 

@@ -3,7 +3,7 @@ import priceFormatter from '../../../helpers/priceFormatter';
 import PropTypes from 'prop-types';
 
 import {
-  ProductRow,
+  CartRow,
   ProductInfo,
   ProductImage,
   ProductTextInfo,
@@ -15,7 +15,7 @@ import {
 import { CartContext } from '../../../contexts/cartContext';
 import ConfirmRemoveModal from '../../confirmRemoveModal';
 
-function CartRow({ product }) {
+function ProductRow({ product }) {
   const { setTotalCartPrice, updateItem, removeItem } = useContext(CartContext);
   const [totalValueItem, setTotalValueItem] = useState(product.price * product.quantity);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,7 +52,7 @@ function CartRow({ product }) {
         onConfirm={confirmRemoval}
       />
 
-      <ProductRow>
+      <CartRow>
         <ProductInfo>
           <ProductImage src={product.image_url} alt={product.description} />
           <ProductTextInfo>
@@ -69,14 +69,14 @@ function CartRow({ product }) {
           />
         </Quantity>
         <Price>{priceFormatter(totalValueItem)}</Price>
-      </ProductRow>
+      </CartRow>
     </>
   );
 }
 
-CartRow.propTypes = {
+ProductRow.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    product_id: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
@@ -84,4 +84,4 @@ CartRow.propTypes = {
   }).isRequired,
 };
 
-export default CartRow;
+export default ProductRow;

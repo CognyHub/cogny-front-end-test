@@ -1,11 +1,11 @@
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from './firebaseConfig';
 
-const addItemToCard = async (product) => {
+const addProductToCart = async (product) => {
   const data = await addDoc(collection(db, "cart"), {
     ...product
   });
   return data;
 };
 
-export default addItemToCard;
+export default addProductToCart;

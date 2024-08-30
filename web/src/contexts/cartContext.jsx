@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
 import getCartItems from '../service/getCartProducts';
 import Loading from '../components/loading';
-import addItemToCard from '../service/addItemToCard';
-import removeCartItem from '../service/removeCartItem';
-import updateCartItem from '../service/updateCartItem';
+import addProductToCart from '../service/addProductToCart';
+import removeProductFromCart from '../service/removeProductFromCart';
+import updateProductOnCart from '../service/updateProductOnCart';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -41,8 +41,13 @@ function CartProvider({ children }) {
 
   const addToCart = async (product) => {
     try {
-      await addItemToCard(product);
-      setCartItems((prevItems) => [...prevItems, product]);
+      const data = await addProductToCart(product);
+
+      const productItem = {
+        ...product, 
+        id: data.id
+      }
+      setCartItems((prevItems) => [...prevItems, productItem]);
     } catch (err) {
       setError(err);
     }
@@ -50,10 +55,12 @@ function CartProvider({ children }) {
 
   const updateItem = async (product, changes) => {
     try {
-      await updateCartItem(product, changes);
+      await updateProductOnCart(product, changes);
       setCartItems((prevItems) =>
         prevItems.map((item) =>
-          item.id === product.id ? { ...item, ...changes } : item
+          {
+            return item.id === product.id ? { ...item, ...changes } : item
+          }
         )
       );
     } catch (err) {
@@ -63,7 +70,7 @@ function CartProvider({ children }) {
 
   const removeItem = async (product) => {
     try {
-      await removeCartItem(product);
+      await removeProductFromCart(product);
       setCartItems((prevItems) => prevItems.filter((item) => item.id !== product.id));
     } catch (err) {
       setError(err);

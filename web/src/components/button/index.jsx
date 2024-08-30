@@ -12,7 +12,7 @@ function Button({ text, color, onClick }) {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
   onClick: PropTypes.func.isRequired,
 };
 

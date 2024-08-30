@@ -1,7 +1,7 @@
 import { updateDoc, doc } from 'firebase/firestore';
 import { db } from './firebaseConfig';
 
-const updateCartItem = async (cartItem, changes) => {
+const updateProductOnCart = async (cartItem, changes) => {
   try {
     const docRef = doc(db, 'cart', cartItem.id);
     await updateDoc(docRef, {...changes});
@@ -12,4 +12,4 @@ const updateCartItem = async (cartItem, changes) => {
   }
 }
 
-export default updateCartItem;
+export default updateProductOnCart;
