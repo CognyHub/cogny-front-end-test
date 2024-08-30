@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
-import getCartItems from '../service/getCartProducts';
+import getCartItems from '../services/getCartProducts';
 import Loading from '../components/loading';
-import addProductToCart from '../service/addProductToCart';
-import removeProductFromCart from '../service/removeProductFromCart';
-import updateProductOnCart from '../service/updateProductOnCart';
+import addProductToCart from '../services/addProductToCart';
+import removeProductFromCart from '../services/removeProductFromCart';
+import updateProductOnCart from '../services/updateProductOnCart';
 import React from 'react';
 import PropTypes from 'prop-types';
 

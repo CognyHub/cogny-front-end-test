@@ -12,6 +12,5 @@
     }
   },
   "plugins": ["react", "react-hooks"],
-  "rules": {
-  }
-}  
+  "rules": {}
+}

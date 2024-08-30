@@ -3,7 +3,7 @@ import priceFormatter from '../../helpers/priceFormatter';
 import PropTypes from 'prop-types';
 import ProductRow from './productRow';
 import { CartContext } from '../../contexts/cartContext';
-import cleanCart from '../../service/cleanCart';
+import cleanCart from '../../services/cleanCart';
 import Loading from '../loading';
 import Button from '../button';
 
@@ -66,7 +66,6 @@ CartTable.propTypes = {
       image_url: PropTypes.string,
       description: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
-      quantity: PropTypes.number.isRequired,
     })
   ).isRequired,
 };

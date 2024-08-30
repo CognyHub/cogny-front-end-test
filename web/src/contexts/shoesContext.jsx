@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import getShoes from '../service/getShoes';
+import getShoes from '../services/getShoes';
 import Loading from '../components/loading';
 
 const ShoesContext = createContext();
