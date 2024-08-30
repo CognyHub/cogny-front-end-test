@@ -82,6 +82,7 @@ function CartProvider({ children }) {
       cartItems,
       totalCartPrice,
       setTotalCartPrice,
+      setCartItems,
       addToCart,
       updateItem,
       removeItem,

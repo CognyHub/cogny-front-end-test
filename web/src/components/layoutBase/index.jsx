@@ -9,7 +9,7 @@ function LayoutBase({children}) {
 
   return (
     <>
-      <Header cartItems={cartItems.length} />
+      <Header cartItems={cartItems?.length} />
       <Container>
         { children }
       </Container>

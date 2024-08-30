@@ -2,10 +2,8 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from './firebaseConfig';
 
 const removeCartItem = async (cartItem) => {
-  console.log(cartItem)
   try {
     const docRef = doc(db, 'cart', cartItem.id);
-
     await deleteDoc(docRef)
 
     console.log('Produto removido do carrinho com sucesso');
