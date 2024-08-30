@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import LayoutBase from '../components/layoutBase';
 import { CartContext } from '../contexts/cartContext';
 import CartTable from '../components/cartTable';
+import React from 'react';
 
 function Cart() {
   const { cartItems } = useContext(CartContext);
@@ -11,6 +12,6 @@ function Cart() {
       <CartTable items={cartItems} />
     </LayoutBase>
   );
-};
+}
 
 export default Cart;

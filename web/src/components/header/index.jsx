@@ -1,6 +1,7 @@
 import React from 'react';
 import { CartContainer, CartItemsQty, CartText, Container, HeaderHero, Logo, LogoContainer } from './styles';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function Header({cartItems}) {
   const itemTextCounter = cartItems === 1 ? 'item' : 'itens'
@@ -22,5 +23,18 @@ function Header({cartItems}) {
     </Container>
   );
 }
+
+Header.propTypes = {
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      image_url: PropTypes.string,
+      description: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      quantity: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
+
 
 export default Header;

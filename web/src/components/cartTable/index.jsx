@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import priceFormatter from '../../helpers/priceFormatter';
+import PropTypes from 'prop-types';
 
 import {
   HeaderRow,
@@ -55,6 +56,18 @@ function CartTable({items}) {
       </FooterRow>
     </CartContainer>
   );
+}
+
+CartTable.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      image_url: PropTypes.string,
+      description: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      quantity: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default CartTable;

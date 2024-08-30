@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Container, Counter } from './styles';
+import PropTypes from 'prop-types';
 import { CartContext } from '../../contexts/cartContext';
 
 const DEFAULT_QUANTITY = 1;
@@ -17,8 +18,6 @@ function AddToCardBtn({product}) {
 
   const counterNumber = isProductOnCart(product.id) ? 1 : 0;
 
-  console.log(isProductOnCart())
-  
   return (
     <Container>
       <Counter> {counterNumber} </Counter>
@@ -26,5 +25,11 @@ function AddToCardBtn({product}) {
     </Container>
   );
 }
+
+AddToCardBtn.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default AddToCardBtn;

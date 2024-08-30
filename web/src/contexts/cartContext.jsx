@@ -4,6 +4,8 @@ import Loading from '../components/loading';
 import addItemToCard from '../service/addItemToCard';
 import removeCartItem from '../service/removeCartItem';
 import updateCartItem from '../service/updateCartItem';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const CartContext = createContext();
 
@@ -89,5 +91,9 @@ function CartProvider({ children }) {
     </CartContext.Provider>
   );
 }
+
+CartProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export { CartProvider, CartContext };

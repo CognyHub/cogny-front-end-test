@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, ModalContent, ButtonsContainer } from './styles';
 import Button from '../button';
+import PropTypes from 'prop-types';
 
 function ConfirmRemoveModal({ isOpen, onClose, onConfirm }) {
   if (!isOpen) return null;
@@ -17,5 +18,11 @@ function ConfirmRemoveModal({ isOpen, onClose, onConfirm }) {
     </Container>
   );
 }
+
+ConfirmRemoveModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+};
 
 export default ConfirmRemoveModal;

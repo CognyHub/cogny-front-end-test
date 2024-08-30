@@ -2,6 +2,7 @@ import React from 'react';
 import { About, Container, Description, ImageURL, Price } from './styles';
 import AddToCardBtn from '../addToCartButton';
 import priceFormatter from '../../helpers/priceFormatter';
+import PropTypes from 'prop-types';
 
 function ProductCard({product}) {
   return (
@@ -15,5 +16,15 @@ function ProductCard({product}) {
     </Container>
   );
 }
+
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    image_url: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default ProductCard;

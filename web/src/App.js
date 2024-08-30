@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
 
 import ShoeList from './pages/ShoeList';
 import Cart from './pages/Cart';
@@ -19,6 +20,6 @@ function App() {
       </ShoesProvider>
     </CartProvider>
   );
-};
+}
 
 export default App;

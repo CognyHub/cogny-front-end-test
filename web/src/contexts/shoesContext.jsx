@@ -1,4 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import getShoes from '../service/getShoes';
 import Loading from '../components/loading';
@@ -40,5 +42,9 @@ function ShoesProvider({ children }) {
     </ShoesContext.Provider>
   );
 }
+
+ShoesProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export { ShoesProvider, ShoesContext };
