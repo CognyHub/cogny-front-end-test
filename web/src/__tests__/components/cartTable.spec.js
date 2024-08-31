@@ -1,10 +1,9 @@
-import { fireEvent, getByText, render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { CartContext } from '../../contexts/cartContext';
 import { BrowserRouter } from 'react-router-dom'
 import { ShoesContext } from "../../contexts/shoesContext";
 import CartTable from "../../components/cartTable";
-import cleanCart from "../../services/cleanCart";
 
 jest.mock("../../services/cleanCart");
 
