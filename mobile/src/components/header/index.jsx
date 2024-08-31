@@ -3,22 +3,27 @@ import { CartContainer, CartCunterContainuer, CartIcon, CartItemsQty, CartText, 
 import PropTypes from 'prop-types';
 import logo from '../../../assets/logo.png';
 import cartIcon from '../../../assets/cartIcon.png';
+import { TouchableOpacity } from 'react-native';
 
-function Header({cartItems}) {
+function Header({cartItems, navigation}) {
   const itemTextCounter = cartItems === 1 ? 'item' : 'itens'
 
   return (
     <Container>
-      <LogoContainer>
-        <HeaderHero>cognyshoes</HeaderHero>
-        <Logo source={logo} alt='logo'/>
-      </LogoContainer>
-      <CartContainer>
-        <CartIcon source={cartIcon} alt='logo'/>
-        <CartCunterContainuer>
-          <CartItemsQty>{cartItems}</CartItemsQty>
-        </CartCunterContainuer>
-      </CartContainer>
+      <TouchableOpacity onPress={() => navigation.navigate('ProductList')}>
+        <LogoContainer>
+            <HeaderHero>cognyshoes</HeaderHero>
+            <Logo source={logo} alt='logo'/>
+        </LogoContainer>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+        <CartContainer>
+            <CartIcon source={cartIcon} alt='logo'/>
+            <CartCunterContainuer>
+              <CartItemsQty>{cartItems}</CartItemsQty>
+            </CartCunterContainuer>
+        </CartContainer>
+      </TouchableOpacity>
     </Container>
   );
 }

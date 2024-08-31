@@ -1,12 +1,12 @@
 import React from "react";
 
 import { Text } from 'react-native';
-import Header from "../components/header";
+import LayoutBase from "../components/layoutBase";
 
-export default function ProductList() {
+export default function ProductList({navigation}) {
   return (
-    <>
-      <Header cartItems={1}/>
-    </>
+    <LayoutBase navigation={navigation}>
+      <Text> hello </Text>
+    </LayoutBase>
   );
 }
