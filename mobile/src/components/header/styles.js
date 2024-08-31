@@ -6,7 +6,8 @@ export const Container = styled.View`
   justify-content: space-between;
   align-items: center;
   background-color: #141419;
-  padding: 70px 30px 22px 30px;
+  width: 100%;
+  padding-bottom: 20px;
 `;
 
 export const LogoContainer = styled.View`

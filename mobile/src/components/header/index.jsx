@@ -1,13 +1,10 @@
 import React from 'react';
-import { CartContainer, CartCunterContainuer, CartIcon, CartItemsQty, CartText, Container, HeaderHero, Logo, LogoContainer } from './styles';
-import PropTypes from 'prop-types';
+import { CartContainer, CartCunterContainuer, CartIcon, CartItemsQty, Container, HeaderHero, Logo, LogoContainer } from './styles';
 import logo from '../../../assets/logo.png';
 import cartIcon from '../../../assets/cartIcon.png';
 import { TouchableOpacity } from 'react-native';
 
-function Header({cartItems, navigation}) {
-  const itemTextCounter = cartItems === 1 ? 'item' : 'itens'
-
+export default function Header({cartItems, navigation}) {
   return (
     <Container>
       <TouchableOpacity onPress={() => navigation.navigate('ProductList')}>
@@ -27,10 +24,3 @@ function Header({cartItems, navigation}) {
     </Container>
   );
 }
-
-Header.propTypes = {
-  cartItems: PropTypes.number.isRequired,
-};
-
-
-export default Header;

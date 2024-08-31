@@ -1,12 +1,14 @@
-import React from "react";
-
-import { Text } from 'react-native';
+import React, { useContext } from "react";
 import LayoutBase from "../components/layoutBase";
+import CartBase from "../components/cartBase";
+import { CartContext } from "../contexts/cartContext";
 
 export default function Cart({navigation}) {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <LayoutBase navigation={navigation}>
-      <Text> hello </Text>
+      <CartBase cartItems={cartItems} navigation={navigation}/>
     </LayoutBase>
   );
 }

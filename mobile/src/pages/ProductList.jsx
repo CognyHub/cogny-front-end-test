@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from 'react';
 
-import { Text } from 'react-native';
-import LayoutBase from "../components/layoutBase";
+import LayoutBase from '../components/layoutBase';
+import ProductCard from '../components/productCard';
+import { ShoesContext } from '../contexts/shoesContext';
 
 export default function ProductList({navigation}) {
+  const { shoes } = useContext(ShoesContext);
+
   return (
     <LayoutBase navigation={navigation}>
-      <Text> hello </Text>
+      { shoes.map((shoe) => (<ProductCard product={shoe} key={shoe.id} />))}
     </LayoutBase>
   );
 }
