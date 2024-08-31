@@ -7,7 +7,6 @@ export default function ProductList() {
   return (
     <>
       <Header cartItems={1}/>
-      <Text> HELLLOOOOO </Text>
     </>
   );
 }

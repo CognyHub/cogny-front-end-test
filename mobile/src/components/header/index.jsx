@@ -1,6 +1,8 @@
 import React from 'react';
-import { CartContainer, CartItemsQty, CartText, Container, HeaderHero, Logo, LogoContainer } from './styles';
+import { CartContainer, CartCunterContainuer, CartIcon, CartItemsQty, CartText, Container, HeaderHero, Logo, LogoContainer } from './styles';
 import PropTypes from 'prop-types';
+import logo from '../../../assets/logo.png';
+import cartIcon from '../../../assets/cartIcon.png';
 
 function Header({cartItems}) {
   const itemTextCounter = cartItems === 1 ? 'item' : 'itens'
@@ -9,11 +11,13 @@ function Header({cartItems}) {
     <Container>
       <LogoContainer>
         <HeaderHero>cognyshoes</HeaderHero>
-        <Logo src='logo.svg' alt='logo'/>
+        <Logo source={logo} alt='logo'/>
       </LogoContainer>
       <CartContainer>
-        <CartText> Meu carrinho </CartText>
-        <CartItemsQty>{`${cartItems} ${itemTextCounter}`}</CartItemsQty>
+        <CartIcon source={cartIcon} alt='logo'/>
+        <CartCunterContainuer>
+          <CartItemsQty>{cartItems}</CartItemsQty>
+        </CartCunterContainuer>
       </CartContainer>
     </Container>
   );
