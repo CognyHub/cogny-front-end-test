@@ -16,6 +16,8 @@ import {
   FooterRow,
 } from './styles';
 
+import EmptyCart from '../emtyCart';
+
 function CartTable({items}) {
   const { totalCartPrice, removeAllItems } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
@@ -37,22 +39,29 @@ function CartTable({items}) {
 
   return (
     <CartContainer>
-      <HeaderRow>
-        <HeaderColumn>Produto</HeaderColumn>
-        <HeaderColumn>Qtd</HeaderColumn>
-        <HeaderColumn>Preço</HeaderColumn>
-      </HeaderRow>
-      {items?.map((item) => (
-        <ProductRow key={item.product_id} product={item} />
-      ))}
-
-      <FooterRow>
-        <Button text='finalizar pedido' onClick={() => handleClick()} />
-        <TotalContainer>
-          <TotalLabel>Total</TotalLabel>
-          <TotalPrice>{priceFormatter(totalCartPrice)}</TotalPrice>
-        </TotalContainer>
-      </FooterRow>
+      {
+        items.length > 0 ? (
+          <>
+            <HeaderRow>
+              <HeaderColumn>Produto</HeaderColumn>
+              <HeaderColumn>Qtd</HeaderColumn>
+              <HeaderColumn>Preço</HeaderColumn>
+            </HeaderRow>
+            {
+              items?.map((item) => (<ProductRow key={item.product_id} product={item} />))
+            }
+            <FooterRow>
+              <Button text='finalizar pedido' onClick={() => handleClick()} />
+              <TotalContainer>
+                <TotalLabel>Total</TotalLabel>
+                <TotalPrice>{priceFormatter(totalCartPrice)}</TotalPrice>
+              </TotalContainer>
+            </FooterRow>
+          </>
+        ) : (
+          <EmptyCart />
+        )
+      }
     </CartContainer>
   );
 }
