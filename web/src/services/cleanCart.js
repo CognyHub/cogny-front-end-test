@@ -1,14 +1,18 @@
-import { deleteDoc, doc } from 'firebase/firestore';
+import { writeBatch, doc } from 'firebase/firestore';
 import db from './firebaseConfig';
 import getCartItems from './getCartProducts';
 
 const cleanCart = async () => {
   try {
     const cartItems = await getCartItems();
+    const batch = writeBatch(db);
 
-    const deletePromises = cartItems.docs.map((document) => deleteDoc(doc(db, 'cart', document.id)));
+    cartItems.docs.forEach((document) => {
+      const docRef = doc(db, 'cart', document.id);
+      batch.delete(docRef);
+    });
 
-    await Promise.all(deletePromises);
+    await batch.commit();
   } catch (error) {
     console.error('Erro ao deletar os documentos: ', error);
   }
