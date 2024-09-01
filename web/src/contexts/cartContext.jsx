@@ -1,11 +1,12 @@
-import { createContext, useEffect, useState } from 'react';
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import getCartItems from '../services/getCartProducts';
 import Loading from '../components/loading';
 import addProductToCart from '../services/addProductToCart';
 import removeProductFromCart from '../services/removeProductFromCart';
 import updateProductOnCart from '../services/updateProductOnCart';
-import React from 'react';
-import PropTypes from 'prop-types';
 import cleanCart from '../services/cleanCart';
 
 const CartContext = createContext();
@@ -45,9 +46,9 @@ function CartProvider({ children }) {
       const data = await addProductToCart(product);
 
       const productItem = {
-        ...product, 
-        id: data.id
-      }
+        ...product,
+        id: data.id,
+      };
       setCartItems((prevItems) => [...prevItems, productItem]);
     } catch (err) {
       setError(err);
@@ -57,13 +58,9 @@ function CartProvider({ children }) {
   const updateItem = async (product, changes) => {
     try {
       await updateProductOnCart(product, changes);
-      setCartItems((prevItems) =>
-        prevItems.map((item) =>
-          {
-            return item.id === product.id ? { ...item, ...changes } : item
-          }
-        )
-      );
+      setCartItems((prevItems) => prevItems.map(
+        (item) => (item.id === product.id ? { ...item, ...changes } : item),
+      ));
     } catch (err) {
       setError(err);
     }
@@ -85,14 +82,19 @@ function CartProvider({ children }) {
     } catch (err) {
       setError(err);
     }
-  }
-
-  const isProductOnCart = (productId) => {
-    return cartItems.find((item) => item.product_id === productId);
   };
 
+  const isProductOnCart = (productId) => cartItems.find((item) => item.product_id === productId);
+
   if (loading) return <Loading />;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) {
+    return (
+      <div>
+        Error:
+        {error.message}
+      </div>
+    );
+  }
 
   return (
     <CartContext.Provider value={{
@@ -105,7 +107,8 @@ function CartProvider({ children }) {
       removeItem,
       removeAllItems,
       isProductOnCart,
-    }}>
+    }}
+    >
       {children}
     </CartContext.Provider>
   );

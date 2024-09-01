@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Btn = styled.button`
+const Btn = styled.button`
   display: flex;
   align-items: center;
   text-transform: uppercase;
@@ -15,3 +15,5 @@ export const Btn = styled.button`
   cursor: pointer;
   background-color: ${({ color }) => color || '#F8375D'};
 `;
+
+export default Btn;

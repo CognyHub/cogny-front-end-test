@@ -1,6 +1,8 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Btn } from './styles';
 import PropTypes from 'prop-types';
+import Btn from './styles';
 
 function Button({ text, color, onClick }) {
   return (
@@ -15,6 +17,5 @@ Button.propTypes = {
   color: PropTypes.string,
   onClick: PropTypes.func.isRequired,
 };
-
 
 export default Button;

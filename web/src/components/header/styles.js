@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -33,7 +33,6 @@ export const Logo = styled.img`
   width: 52px;
   height: 36px;
 `;
-
 
 export const CartContainer = styled.div`
   display: flex;

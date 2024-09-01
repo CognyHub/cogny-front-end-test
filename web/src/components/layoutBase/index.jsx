@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Container } from './styles';
+import PropTypes from 'prop-types';
+import Container from './styles';
 import Header from '../header';
 import { CartContext } from '../../contexts/cartContext';
-import PropTypes from 'prop-types';
 
-function LayoutBase({children}) {
+function LayoutBase({ children }) {
   const { cartItems } = useContext(CartContext);
 
   return (

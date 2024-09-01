@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
@@ -12,10 +13,10 @@ function App() {
     <CartProvider>
       <ShoesProvider>
         <Router>
-            <Routes>
-              <Route path='/' element={<ProductList />}/>
-              <Route path='/cart' element={<Cart />}/>
-            </Routes>
+          <Routes>
+            <Route path="/" element={<ProductList />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
         </Router>
       </ShoesProvider>
     </CartProvider>

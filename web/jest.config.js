@@ -6,10 +6,9 @@ module.exports = {
     '^.+\\.(js|jsx)$': 'babel-jest',
   },
   testMatch: [
-    "**/__tests__/**/*.js?(x)",
-    "**/?(*.)+(spec|test).js?(x)"
+    '**/__tests__/**/*.js?(x)',
+    '**/?(*.)+(spec|test).js?(x)',
   ],
-  collectCoverage: true,
-  coverageDirectory: "coverage",
-  coverageReporters: ["html", "text", "lcov"],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['html', 'text', 'lcov'],
 };

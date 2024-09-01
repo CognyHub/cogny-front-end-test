@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 300px;
@@ -29,7 +29,7 @@ export const About = styled.div`
   width: 260px;
   font-weight: 600;
   color: #333333;
-`
+`;
 
 export const Description = styled.span`
   font-size: 16px;

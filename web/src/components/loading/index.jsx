@@ -1,10 +1,9 @@
 import React from 'react';
-import { SpinnerContainer, Spinner, } from './styles';
-
+import { SpinnerContainer, Spinner } from './styles';
 
 function Loading() {
   return (
-    <SpinnerContainer>
+    <SpinnerContainer data-testid="loading">
       <Spinner />
     </SpinnerContainer>
   );

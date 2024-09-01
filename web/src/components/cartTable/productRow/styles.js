@@ -59,4 +59,3 @@ export const Price = styled.div`
   font-weight: bold;
   color: #333;
 `;
-

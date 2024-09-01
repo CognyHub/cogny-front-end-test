@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+<h2 align="center">
+  Cogny Web Teste | Vitória C. Meinerz
+</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tecnologias
 
-## Available Scripts
+- React
+- Styled Components
+- Firebase
+- Jest
 
-In the project directory, you can run:
+## Descrição
+Segui todos os requisitos, porém fiz algumas adições que julguei interessantes, como:
+- Substirui o alert padrão por um modal customizado, para os casos de o produto já estar no carrinho. (o commit adicionando o alert padrão, como consta nos requisitos está [aqui](https://github.com/CognyHub/cogny-front-end-test/commit/01674c89c27e829ccbbaa62129f9962f6f9c58d7#diff-795189dd0668b9767adac75a6968ec5307fc2fdfe8f83a28b7091877a254f0d1)
+- Adicionei uma regra de negócio que verifica se a quantidade escolhida pelo usuário é 0, se sim, um modal é mostrado, e ao clicar em remover, o produto selecionado é removido do database do carrinho, assim como é removido da listagem de itens do carrinho.
+- Criei um componente que é renderizado quando o carrinho está vazio, informando o usuário que não existem itens e um botão que leva de volta à listagem de produtos, assim como no header.
+- Adicionei testes utilizando jest, para garantir a cobertura do projeto (pelo menos 75% em todos casos e 80% para funções), pois particularmente acho muito necessário e já é uma prática comum no meu fluxo de trabalho.
+
+Se tivesse mais tempo disponível, gostaria de:
+- Testar todas as services criadas
+- Refatorar alguns métodos e nome de variáveis, para deixar o código mais limpo.
+- Também utilizei apenas as imagens, valores e descrições contidas no exemplo do figma, pois não ficou claro se poderia modificar essas informações. Após a entrega do desafio com certeza irei adicionar itens diferentes, pois como está, apesar de os Ids serem distintos, os produtos (imagem, valor e descrição) estão repetidos.
+
+
+Adorei a experiência, pois nunca havia utilizado firebase em meus projetos! Com certeza levarei para meus próximos projetos pessoais! :)
+
+## Resultado:
+
+https://github.com/user-attachments/assets/81fc7d69-0328-46f6-a2d3-7164b4f29484
+
+## Scrips do projeto:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Para rodar o projeto localmente, por padrão na porta 3000 [http://localhost:3000](http://localhost:3000)
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Roda os testes do projeto, utilizando Jest.
+
+### `npm test -- --coverage`
+
+Roda os testes e apresenta a tabela de cobertura dos testes em relação ao projeto.
+
+<img src="https://github.com/user-attachments/assets/4fd1192a-00c2-4d24-98ce-3fe84055b414" alt="test coverage" />
+
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builda o projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contato:
+[LinkedIn](https://www.linkedin.com/in/calvitoria/) | calvi.vitoria@gmail.com | [CV](https://drive.google.com/file/d/1TBSuBKFueBHWvp__iGXrMoVrRq2fBJz6/view?usp=sharing)
