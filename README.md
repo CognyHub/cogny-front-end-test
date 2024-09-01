@@ -1,6 +1,10 @@
 <h2 align="center">
-  Front-end Cogny | Vitória C. Meinerz
+  Cogny Web/Mobile Teste
 </h2>
+
+<p align="center">
+  <img alt="Frontend" src=".github/templates.png" width="100%">
+</p>
 
 ## Tecnologias
 
@@ -25,6 +29,20 @@ Deve-se criar um projeto no Firebase e integrá-lo aos projetos web e mobile dis
 
 <b>Desafio: </b> Criar uma ou mais coleções no Firebase e armazenar os produtos selecionados pelo usuário presentes no carrinho. 
 
-## Contato:
+## Entrega
 
-[LinkedIn](https://www.linkedin.com/in/calvitoria/) | calvi.vitoria@gmail.com | [CV](https://drive.google.com/file/d/1TBSuBKFueBHWvp__iGXrMoVrRq2fBJz6/view?usp=sharing)
+A entrega do código deve ser realizada através do GitHub seguindo as seguintes instruções:
+
+1. Faça fork do projeto.
+2. Crie uma branch para alterações na master.
+3. Faça o que é pedido no teste.
+4. Faça push dessa branch para seu projeto no GitHub
+5. Abra um Pull Request para o proprietário do projeto.
+
+<i>Observação 01.: Não subir as credenciais do Firebase para o GitHub.</i>
+<br/>
+<i>Observação 02.: O candidato deve apresentar aos recrutadores o que foi desenvolvido.</i>
+
+## Links úteis
+
+- [Guias Firebase](https://firebase.google.com/docs/guides?authuser=2&%3Bhl=pt&hl=pt#acesse-o-firebase-na-sua-plataforma)
