@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider, CartContext } from '../../contexts/cartContext';
@@ -27,17 +27,19 @@ const mockCartItems = [
 
 describe('CartProvider', () => {
   test('should render error state when fetch fails', async () => {
-    getCartItems.mockImplementation(() => Promise.reject(new Error('Failed to fetch')));
+    getCartItems.mockRejectedValue(new Error('Failed to fetch cart items'));
 
     render(
       <BrowserRouter>
         <CartProvider>
-          <div>Test</div>
+          <div>Child component</div>
         </CartProvider>
       </BrowserRouter>,
     );
 
-    expect(await screen.findByText(/Error: Failed to fetch/i)).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText((content) => content.includes('Error:') && content.includes('Failed to fetch cart items'))).toBeInTheDocument();
+    });
   });
 
   test('should provide cart items and functions from the context', async () => {

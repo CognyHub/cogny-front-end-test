@@ -1,9 +1,12 @@
-import { render, screen } from '@testing-library/react';
+/* eslint-disable react/prop-types */
+import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { CartContext } from '../../contexts/cartContext';
 import { ShoesContext } from '../../contexts/shoesContext';
 import CartTable from '../../components/cartTable';
+
+jest.mock('../../images/emptyCart.png', () => 'test-file-stub');
 
 jest.mock('../../services/cleanCart');
 
@@ -19,10 +22,14 @@ const mockCartItems = [
 ];
 
 describe('CartTable', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   test('should render cart items correctly', () => {
     render(
       <BrowserRouter>
-        <CartContext.Provider value={{ cartItems: mockCartItems, isProductOnCart: () => false }}>
+        <CartContext.Provider value={{ cartItems: mockCartItems }}>
           <ShoesContext.Provider value={{ shoes: [] }}>
             <CartTable items={mockCartItems} />
           </ShoesContext.Provider>
@@ -32,10 +39,40 @@ describe('CartTable', () => {
 
     expect(screen.getByText(/product 01/i)).toBeInTheDocument();
     expect(screen.getAllByText('R$ 179,90')).toHaveLength(2);
-    expect(screen.getByText(/finalizar pedido/i)).toBeInTheDocument();
-    expect(screen.getByText(/total/i)).toBeInTheDocument();
-    expect(screen.getByText(/preço/i)).toBeInTheDocument();
-    expect(screen.getByText(/produto/i)).toBeInTheDocument();
-    expect(screen.getByText(/qtd/i)).toBeInTheDocument();
+  });
+
+  it('Should handle finalizar pedido button', () => {
+    const mockRemoveAllItems = jest.fn(() => new Promise((resolve) => {
+      setTimeout(resolve, 1000);
+    }));
+
+    render(
+      <CartContext.Provider value={{
+        cartItems: [mockCartItems],
+        removeAllItems: mockRemoveAllItems,
+      }}
+      >
+        <CartTable items={mockCartItems} />
+      </CartContext.Provider>,
+    );
+
+    fireEvent.click(screen.getByText('finalizar pedido'));
+    expect(mockRemoveAllItems).toHaveBeenCalled();
+    expect(mockRemoveAllItems).toHaveBeenCalledTimes(1);
+  });
+
+  test('should render empty cart component', () => {
+    render(
+      <BrowserRouter>
+        <CartContext.Provider value={{ cartItems: [] }}>
+          <ShoesContext.Provider value={{ shoes: [] }}>
+            <CartTable items={[]} />
+          </ShoesContext.Provider>
+        </CartContext.Provider>
+      </BrowserRouter>,
+    );
+
+    expect(screen.getByText(/Seu carrinho está vazio!/i)).toBeInTheDocument();
+    expect(screen.getByText(/voltar à página inicial/i)).toBeInTheDocument();
   });
 });

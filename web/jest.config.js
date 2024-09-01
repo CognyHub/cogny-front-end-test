@@ -9,7 +9,6 @@ module.exports = {
     '**/__tests__/**/*.js?(x)',
     '**/?(*.)+(spec|test).js?(x)',
   ],
-  collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageReporters: ['html', 'text', 'lcov'],
 };

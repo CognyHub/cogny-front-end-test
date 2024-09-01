@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import Cart from '../../pages/Cart.jsx';
 import { CartContext } from '../../contexts/cartContext.jsx';
 
+jest.mock('../../images/emptyCart.png', () => 'test-file-stub');
+
 const mockCartItems = [
   {
     description: 'product 01',

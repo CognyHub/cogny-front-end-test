@@ -1,5 +1,6 @@
-import { createContext, useEffect, useState } from 'react';
-import React from 'react';
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import getShoes from '../services/getShoes';
@@ -28,14 +29,20 @@ function ShoesProvider({ children }) {
   }, []);
 
   if (loading) return <Loading />;
-  if (error) return <div>Error: {error.message}</div>;
-
+  if (error) {
+    return (
+      <div>
+        Error:
+        {error.message}
+      </div>
+    );
+  }
 
   return (
     <ShoesContext.Provider value={{
       shoes,
       loading,
-      error
+      error,
     }}
     >
       {children}

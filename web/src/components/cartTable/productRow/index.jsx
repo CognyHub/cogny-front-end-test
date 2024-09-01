@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
-import priceFormatter from '../../../helpers/priceFormatter';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
+import priceFormatter from '../../../helpers/priceFormatter';
 
 import {
   CartRow,
@@ -10,7 +11,7 @@ import {
   ProductDescription,
   ProductPrice,
   Quantity,
-  Price
+  Price,
 } from './styles';
 import { CartContext } from '../../../contexts/cartContext';
 import ConfirmRemoveModal from '../../confirmRemoveModal';
@@ -62,7 +63,7 @@ function ProductRow({ product }) {
         </ProductInfo>
         <Quantity>
           <input
-            type='number'
+            type="number"
             min={0}
             value={product.quantity}
             onChange={(e) => handleQuantityChange(e.target.value)}

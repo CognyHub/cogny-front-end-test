@@ -1,6 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useContext, useState } from 'react';
-import priceFormatter from '../../helpers/priceFormatter';
 import PropTypes from 'prop-types';
+import priceFormatter from '../../helpers/priceFormatter';
 import ProductRow from './productRow';
 import { CartContext } from '../../contexts/cartContext';
 import Loading from '../loading';
@@ -18,7 +19,7 @@ import {
 
 import EmptyCart from '../emtyCart';
 
-function CartTable({items}) {
+function CartTable({ items }) {
   const { totalCartPrice, removeAllItems } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -35,12 +36,19 @@ function CartTable({items}) {
   };
 
   if (loading) return <Loading />;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) {
+    return (
+      <div>
+        Error:
+        {error.message}
+      </div>
+    );
+  }
 
   return (
     <CartContainer>
       {
-        items.length > 0 ? (
+        items?.length > 0 ? (
           <>
             <HeaderRow>
               <HeaderColumn>Produto</HeaderColumn>
@@ -51,7 +59,7 @@ function CartTable({items}) {
               items?.map((item) => (<ProductRow key={item.product_id} product={item} />))
             }
             <FooterRow>
-              <Button text='finalizar pedido' onClick={() => handleClick()} />
+              <Button text="finalizar pedido" onClick={() => handleClick()} />
               <TotalContainer>
                 <TotalLabel>Total</TotalLabel>
                 <TotalPrice>{priceFormatter(totalCartPrice)}</TotalPrice>
@@ -73,7 +81,7 @@ CartTable.propTypes = {
       image_url: PropTypes.string,
       description: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
-    })
+    }),
   ).isRequired,
 };
 

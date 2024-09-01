@@ -39,6 +39,10 @@ Para rodar o projeto localmente, por padrão na porta 3000 [http://localhost:300
 
 Roda os testes do projeto, utilizando Jest.
 
+### `npm test -- --coverage`
+
+Roda os testes e apresenta a tabela de cobertura dos testes em relação ao projeto.
+
 ### `npm run build`
 
 Builda o projeto
