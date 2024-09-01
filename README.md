@@ -1,48 +1,34 @@
 <h2 align="center">
-  Cogny Web/Mobile Teste
+  Cogny Web Teste | Vitória C. Meinerz
 </h2>
-
-<p align="center">
-  <img alt="Frontend" src=".github/templates.png" width="100%">
-</p>
 
 ## Tecnologias
 
-- [React](https://reactjs.org)
-- [React Native](https://facebook.github.io/react-native/)
+- React
+- Styled Components
 - Firebase
+- Jest
 
 ## Descrição
+Segui todos os requisitos, porém fiz algumas adições que julguei interessantes, como:
+- Substirui o alert padrão por um modal customizado, para os casos de o produto já estar no carrinho. (o commit adicionando o alert padrão, como consta nos requisitos está [aqui](https://github.com/CognyHub/cogny-front-end-test/commit/01674c89c27e829ccbbaa62129f9962f6f9c58d7#diff-795189dd0668b9767adac75a6968ec5307fc2fdfe8f83a28b7091877a254f0d1)
+- Adicionei uma regra de negócio que verifica se a quantidade escolhida pelo usuário é 0, se sim, um modal é mostrado, e ao clicar em remover, o produto selecionado é removido do database do carrinho, assim como é removido da listagem de itens do carrinho.
+- Criei um componente que é renderizado quando o carrinho está vazio, informando o usuário que não existem itens e um botão que leva de volta à listagem de produtos, assim como no header.
+- Adicionei testes utilizando jest, para garantir a cobertura do projeto, pois particularmente acho muito necessário e já é uma prática comum no meu fluxo de trabalho.
 
-Cognyshoes é um e-commerce proposto pela Cogny para avaliar as habilidades de possíveis novos colaboradoes.
+Se tivesse mais tempo disponível, gostaria de:
+- Adicionar ainda mais testes
+- Usar um padrão mais rigoroso com eslint, como o arbnb, por exemplo.
+- Refatorar alguns métodos e nome de variáveis, para deixar o código mais limpo.
+- Também utilizei apenas as imagens, valores e descrições contidas no exemplo do figma, pois não ficou claro se poderia modificar essas informações. Após a entrega do desafio com certeza irei adicionar itens diferentes, pois como está, apesar de os Ids serem distintos, os produtos (imagem, valor e descrição) estão repetidos.
 
-A proposta consiste em desenvolver uma simples aplicação, com versões web e mobile, para listagem de produtos e criação de pedidos, integrando com o Firebase.
 
-Deve-se criar um projeto no Firebase e integrá-lo aos projetos web e mobile disponibilizados nesse teste, fazendo com que compartilhem os mesmos dados para desenvolver os seguintes pontos:
+Adorei a experiência, pois nunca havia utilizado firebase em meus projetos! Com certeza levarei para meus próximos projetos pessoais! :)
 
-1. No Firebase, use o Firestore Database para criar suas coleções. 
-2. Crie uma coleção para armazenar os produtos, cadastrando no mínimo 10 produtos, com Descrição, Preço e Imagem Url.
-3. Siga os estilos propostos nesse Template [Figma](https://www.figma.com/community/file/1210687833751035228) e desenvolva as duas telas em ambos os ambientes.
-4. A tela de listagem de produtos deve consumir os dados criados anteriomente no Firebase.
-5. A tela do carrinho deve conter os produtos selecionados pelo usuário na tela anterior, não deixando o usuário adicionar o mesmo produto mais de uma vez.
-6. Ao finalizar o pedido, deve-se apresentar um alerta para o usuário, informando que o pedido foi finalizado e remover os produtos selecionados, liberando o carrinho para novas compras.
+## Resultado:
 
-<b>Desafio: </b> Criar uma ou mais coleções no Firebase e armazenar os produtos selecionados pelo usuário presentes no carrinho. 
+https://github.com/user-attachments/assets/81fc7d69-0328-46f6-a2d3-7164b4f29484
 
-## Entrega
 
-A entrega do código deve ser realizada através do GitHub seguindo as seguintes instruções:
-
-1. Faça fork do projeto.
-2. Crie uma branch para alterações na master.
-3. Faça o que é pedido no teste.
-4. Faça push dessa branch para seu projeto no GitHub
-5. Abra um Pull Request para o proprietário do projeto.
-
-<i>Observação 01.: Não subir as credenciais do Firebase para o GitHub.</i>
-<br/>
-<i>Observação 02.: O candidato deve apresentar aos recrutadores o que foi desenvolvido.</i>
-
-## Links úteis
-
-- [Guias Firebase](https://firebase.google.com/docs/guides?authuser=2&%3Bhl=pt&hl=pt#acesse-o-firebase-na-sua-plataforma)
+## Contato:
+[LinkedIn](https://www.linkedin.com/in/calvitoria/) | calvi.vitoria@gmail.com | [CV](https://drive.google.com/file/d/1TBSuBKFueBHWvp__iGXrMoVrRq2fBJz6/view?usp=sharing)

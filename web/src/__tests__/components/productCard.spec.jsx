@@ -1,27 +1,27 @@
-import { render, screen } from "@testing-library/react";
-import React from "react";
+import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { CartContext } from '../../contexts/cartContext';
-import { BrowserRouter } from 'react-router-dom'
-import { ShoesContext } from "../../contexts/shoesContext";
-import ProductCard from "../../components/productCard";
+import { ShoesContext } from '../../contexts/shoesContext';
+import ProductCard from '../../components/productCard';
 
 jest.mock('../../services/addProductToCart');
 
 const mockCartItems = [
   {
-    description: 'product 01', 
+    description: 'product 01',
     price: 17990,
     image_url: 'https://github.com/user-attachments/assets/3a23705f-0cb8-45a0-8de9-192b52d022f5',
     id: 'id_1',
     product_id: 'product_id_1',
-    quantity: 1
-  }
+    quantity: 1,
+  },
 ];
 
 const mockProduct = {
-  id: "1",
-  image_url: "http://example.com/image.jpg",
-  description: "Sample product description",
+  id: '1',
+  image_url: 'http://example.com/image.jpg',
+  description: 'Sample product description',
   price: 20000,
 };
 
@@ -34,7 +34,7 @@ describe('ProductCard', () => {
             <ProductCard product={mockProduct} />
           </ShoesContext.Provider>
         </CartContext.Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(screen.getByText(/Sample product description/i)).toBeInTheDocument();

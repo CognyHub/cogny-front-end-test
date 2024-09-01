@@ -1,6 +1,6 @@
 import React from 'react';
-import { Btn } from './styles';
 import PropTypes from 'prop-types';
+import Btn from './styles';
 
 function Button({ text, color, onClick }) {
   return (
@@ -15,6 +15,5 @@ Button.propTypes = {
   color: PropTypes.string,
   onClick: PropTypes.func.isRequired,
 };
-
 
 export default Button;
