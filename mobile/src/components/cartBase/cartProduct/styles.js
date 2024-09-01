@@ -39,13 +39,17 @@ export const About = styled.View`
   gap: 10px;
 `;
 
+export const RemoveItemButton = styled.Image`
+  width: 16px;
+  height: 16px;
+`;
+
 export const QuantityInput = styled.TextInput`
-  /* width: 50px;
-  height: 26px; */
   border: 1px solid #dddddd;
   background-color: white;
   border-radius: 4px;
   padding: 5px 20px;
+  margin-right: -50px;
   height: 25px;
 `;
 

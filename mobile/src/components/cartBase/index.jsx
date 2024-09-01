@@ -3,7 +3,7 @@ import { Btn, BtnText, Container, TotalLabel, TotalPrice } from './styles';
 import { CartContext } from '../../contexts/cartContext';
 import priceFormatter from '../../helpers/priceFormatter';
 import CartProduct from './cartProduct';
-import EmptyCart from '../emtyCart';
+import EmptyCart from '../emptyCart';
 
 export default function CartBase({ cartItems, navigation }) {
   const { setCartItems, totalCartPrice } = useContext(CartContext);

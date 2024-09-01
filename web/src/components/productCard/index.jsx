@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -12,14 +13,10 @@ function ProductCard({ product }) {
       <ImageURL src={product.image_url} />
       <About>
         <Description>
-          {' '}
           {product.description}
-          {' '}
         </Description>
         <Price>
-          {' '}
           {priceFormatter(product.price)}
-          {' '}
         </Price>
         <AddToCardBtn product={product} />
       </About>

@@ -34,7 +34,6 @@ export const About = styled.View`
 
 export const Description = styled.Text`
   font-size: 16px;
-  /* text-align: left; */
   line-break: normal;
   text-align: start;
   text-align-last: right;

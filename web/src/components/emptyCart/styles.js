@@ -1,22 +1,24 @@
-import { TouchableOpacity, Text } from "react-native";
-import styled from "styled-components/native";
+import styled from 'styled-components';
 
-export const Container = styled.View`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 100px;
+  gap: 80px;
   padding: 0px;
-  height: 650px;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
-export const EmtyCartImage = styled.Image`
-  width: 250px;
-  height: 140px;
+export const EmptyCardImage = styled.img`
+  width: 600px;
+  height: 290px;
 `;
 
-export const Btn = styled(TouchableOpacity)`
+export const Btn = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,16 +28,15 @@ export const Btn = styled(TouchableOpacity)`
   border-color: transparent;
   padding: 13px;
   height: 42px;
-`;
-
-export const BtnText = styled(Text)`
   color: white;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
+  width: 400px;
+  cursor: pointer;
 `;
 
-export const TextCart = styled(Text)`
+export const TextCart = styled.span`
   font-size: 20px;
   font-weight: 600;
   text-align: center;

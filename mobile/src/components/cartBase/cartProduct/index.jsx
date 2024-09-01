@@ -1,19 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { About, AboutText, Container, Description, Price, ProductImg, QuantityDetails, QuantityInput, } from './styles';
+import { About, AboutText, Container, Description, Price, ProductImg, QuantityDetails, QuantityInput, RemoveItemButton } from './styles';
 import priceFormatter from '../../../helpers/priceFormatter';
 import { CartContext } from '../../../contexts/cartContext';
-import { Alert } from 'react-native';
+import { Alert, TouchableOpacity } from 'react-native';
+import trashBin from '../../../../assets/trashBin.png';
 
 export default function CartProduct({ product }) {
   const { setTotalCartPrice, updateItem, removeItem } = useContext(CartContext);
   const [totalValueItem, setTotalValueItem] = useState(product.price * product.quantity);
 
-  const onChangeInput = (newQuantity) => {
-    const numberQuantity = Number(newQuantity);
-    const oldTotalValueItem = totalValueItem;
-    const newTotalValueItem = numberQuantity * product.price;
-
-    if (!newQuantity) {
+  const handleOnDelete = () => {
       Alert.alert(
         "Remover item?",
         "tem certeza que deseja remover ítem?",
@@ -22,12 +18,16 @@ export default function CartProduct({ product }) {
           { text: "Remover", onPress: () => removeItem(product) },
         ]
       );
-      return;
-    } else {
-      updateItem(product, { quantity: numberQuantity });
-      setTotalValueItem(newTotalValueItem);
-      setTotalCartPrice((prevTotal) => prevTotal - oldTotalValueItem + newTotalValueItem);
-    }
+  };
+
+  const onChangeInput = (newQuantity) => {
+    const numberQuantity = Number(newQuantity);
+    const oldTotalValueItem = totalValueItem;
+    const newTotalValueItem = numberQuantity * product.price;
+
+    updateItem(product, { quantity: numberQuantity });
+    setTotalValueItem(newTotalValueItem);
+    setTotalCartPrice((prevTotal) => prevTotal - oldTotalValueItem + newTotalValueItem);
   };
 
   return (
@@ -45,6 +45,9 @@ export default function CartProduct({ product }) {
           value={product.quantity}
           onChangeText={(text) => onChangeInput(text)}
         >1</QuantityInput>
+        <TouchableOpacity onPress={handleOnDelete}>
+          <RemoveItemButton source={trashBin} />
+        </TouchableOpacity>
         <Price>{priceFormatter(totalValueItem)}</Price>
       </QuantityDetails>
     </Container>

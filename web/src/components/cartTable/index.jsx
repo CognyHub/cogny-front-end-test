@@ -17,7 +17,7 @@ import {
   FooterRow,
 } from './styles';
 
-import EmptyCart from '../emtyCart';
+import EmptyCart from '../emptyCart';
 
 function CartTable({ items }) {
   const { totalCartPrice, removeAllItems } = useContext(CartContext);

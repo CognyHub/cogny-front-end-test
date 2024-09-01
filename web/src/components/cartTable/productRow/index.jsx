@@ -23,12 +23,13 @@ function ProductRow({ product }) {
 
   const handleQuantityChange = (newQuantity) => {
     const numberQuantity = Number(newQuantity);
-    const oldTotalValueItem = totalValueItem;
-    const newTotalValueItem = numberQuantity * product.price;
 
     if (numberQuantity === 0) {
       setIsModalOpen(true);
     } else {
+      const oldTotalValueItem = totalValueItem;
+      const newTotalValueItem = numberQuantity * product.price;
+
       updateItem(product, { quantity: numberQuantity });
       setTotalValueItem(newTotalValueItem);
       setTotalCartPrice((prevTotal) => prevTotal - oldTotalValueItem + newTotalValueItem);

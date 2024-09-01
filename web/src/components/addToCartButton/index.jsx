@@ -28,11 +28,8 @@ function AddToCardBtn({ product }) {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
-
       <Counter>
-        {' '}
         {counterNumber}
-        {' '}
       </Counter>
       <Button onClick={() => handleClick(product)}> adicionar ao carrinho </Button>
     </Container>
