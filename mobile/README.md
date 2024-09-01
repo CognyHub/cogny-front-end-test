@@ -1,5 +1,5 @@
 <h2 align="center">
-  Cogny Web Teste | Vitória C. Meinerz
+  Cogny Mobile Teste | Vitória C. Meinerz
 </h2>
 
 ## Tecnologias
@@ -24,11 +24,12 @@ Gostei muito de desenvolver esse projeto, pois nunca havia utilizado react nativ
 
 ## Resultado:
 
-
+https://github.com/user-attachments/assets/9de94c19-488e-47ea-8c12-b87a99761fac
 
 ## Scrips do projeto:
 
-### `npx expo start`
+
+## `npx expo start`
 
 Utilizei o app [Expo go](https://expo.dev/go) como ambiente de desenvolvimento
 
