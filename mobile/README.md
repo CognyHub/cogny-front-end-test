@@ -23,8 +23,7 @@ Pontos de melhoria:
 Gostei muito de desenvolver esse projeto, pois nunca havia utilizado react native/expo! Porém gostaria de ter conseguido utilizar o firebase para o app, assim como no web.
 
 ## Resultado:
-
-https://github.com/user-attachments/assets/9de94c19-488e-47ea-8c12-b87a99761fac
+https://github.com/user-attachments/assets/4c460335-cf27-4f7a-bd78-9703af7f5bec
 
 ## Scrips do projeto:
 
