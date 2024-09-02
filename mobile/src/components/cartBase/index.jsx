@@ -4,11 +4,20 @@ import { CartContext } from '../../contexts/cartContext';
 import priceFormatter from '../../helpers/priceFormatter';
 import CartProduct from './cartProduct';
 import EmptyCart from '../emptyCart';
+import { Alert } from 'react-native';
 
 export default function CartBase({ cartItems, navigation }) {
   const { setCartItems, totalCartPrice } = useContext(CartContext);
 
-  const handleOnPress = () => setCartItems([]);
+  const handleOnPress = () => {
+    setCartItems([]);
+
+    Alert.alert(
+      "Pedido realizado com sucesso!",
+      "",
+      [{ text: "Continuar comprando", onPress: () => navigation.navigate('ProductList') }]
+    );
+  };
 
   return (
     <Container>
