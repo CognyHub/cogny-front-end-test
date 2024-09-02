@@ -1,22 +1,23 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, ModalContent, ButtonsContainer } from './styles';
+import Modal from '../modal';
+import ButtonsContainer from './styles';
 import Button from '../button';
 
 function ConfirmRemoveModal({ isOpen, onClose, onConfirm }) {
-  if (!isOpen) return null;
-
   return (
-    <Container>
-      <ModalContent>
-        <p>Tem certeza que quer remover o produto do carrinho?</p>
+    <Modal
+      isOpen={isOpen}
+      title={<p>Remover produto</p>}
+      content={<span>Tem certeza que quer remover o produto do carrinho?</span>}
+      actions={(
         <ButtonsContainer>
           <Button text="Remover produto" onClick={onConfirm} />
           <Button color="#64676d" text="Cancelar" onClick={onClose} />
         </ButtonsContainer>
-      </ModalContent>
-    </Container>
+      )}
+    />
   );
 }
 

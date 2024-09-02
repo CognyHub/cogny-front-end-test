@@ -27,7 +27,7 @@ function CartTable({ items }) {
   const handleClick = () => {
     try {
       setLoading(true);
-      removeAllItems();
+      removeAllItems().then(() => (window.alert('Pedido finalizado com sucesso!')));
     } catch (err) {
       setError(err);
     } finally {

@@ -1,20 +1,22 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, ModalContent, HelpText } from './styles';
+import Modal from '../modal';
 import Button from '../button';
+import HelpText from './styles';
 
 function AlreadyInCartModal({ isOpen, onClose }) {
-  if (!isOpen) return null;
-
   return (
-    <Container>
-      <ModalContent>
-        <p>Oops, este produto já está no carrinho!</p>
-        <HelpText>você pode aumentar a quantidade de itens deste produto no carrinho!</HelpText>
-        <Button color="#64676d" text="Ok" onClick={onClose} />
-      </ModalContent>
-    </Container>
+    <Modal
+      isOpen={isOpen}
+      content={(
+        <>
+          <span>Oops, este produto já está no carrinho!</span>
+          <HelpText>você pode aumentar a quantidade de itens deste produto no carrinho!</HelpText>
+        </>
+      )}
+      actions={<Button color="#64676d" text="Ok" onClick={onClose} />}
+    />
   );
 }
 
