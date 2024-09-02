@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
-import { render, screen, fireEvent } from '@testing-library/react';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { CartContext } from '../../contexts/cartContext';
-import { ShoesContext } from '../../contexts/shoesContext';
 import CartTable from '../../components/cartTable';
 
 jest.mock('../../images/emptyCart.png', () => 'test-file-stub');
-
-jest.mock('../../services/cleanCart');
 
 const mockCartItems = [
   {
@@ -22,6 +21,9 @@ const mockCartItems = [
 ];
 
 describe('CartTable', () => {
+  const mockAddOrder = jest.fn(() => Promise.resolve());
+  const mockRemoveAllItems = jest.fn(() => Promise.resolve());
+
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -30,9 +32,7 @@ describe('CartTable', () => {
     render(
       <BrowserRouter>
         <CartContext.Provider value={{ cartItems: mockCartItems }}>
-          <ShoesContext.Provider value={{ shoes: [] }}>
-            <CartTable items={mockCartItems} />
-          </ShoesContext.Provider>
+          <CartTable items={mockCartItems} />
         </CartContext.Provider>
       </BrowserRouter>,
     );
@@ -41,33 +41,37 @@ describe('CartTable', () => {
     expect(screen.getAllByText('R$ 179,90')).toHaveLength(2);
   });
 
-  it('Should handle finalizar pedido button', () => {
-    const mockRemoveAllItems = jest.fn(() => new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    }));
-
+  test('should handle finalizar pedido button and add order', async () => {
     render(
-      <CartContext.Provider value={{
-        cartItems: [mockCartItems],
-        removeAllItems: mockRemoveAllItems,
-      }}
-      >
-        <CartTable items={mockCartItems} />
-      </CartContext.Provider>,
+      <BrowserRouter>
+        <CartContext.Provider value={{
+          totalCartPrice: 17990,
+          cartItems: mockCartItems,
+          addOrder: mockAddOrder,
+          removeAllItems: mockRemoveAllItems,
+        }}
+        >
+          <CartTable items={mockCartItems} />
+        </CartContext.Provider>
+      </BrowserRouter>,
     );
 
     fireEvent.click(screen.getByText('finalizar pedido'));
-    expect(mockRemoveAllItems).toHaveBeenCalled();
-    expect(mockRemoveAllItems).toHaveBeenCalledTimes(1);
+
+    await waitFor(() => {
+      expect(mockAddOrder).toHaveBeenCalledWith({
+        order_price: 17990,
+        products: mockCartItems.map((item) => item.description).toString(),
+      });
+      expect(mockRemoveAllItems).toHaveBeenCalled();
+    });
   });
 
   test('should render empty cart component', () => {
     render(
       <BrowserRouter>
         <CartContext.Provider value={{ cartItems: [] }}>
-          <ShoesContext.Provider value={{ shoes: [] }}>
-            <CartTable items={[]} />
-          </ShoesContext.Provider>
+          <CartTable items={[]} />
         </CartContext.Provider>
       </BrowserRouter>,
     );

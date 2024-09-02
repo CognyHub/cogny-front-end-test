@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import priceFormatter from '../../helpers/priceFormatter';
 import ProductRow from './productRow';
 import { CartContext } from '../../contexts/cartContext';
@@ -18,16 +19,26 @@ import {
 } from './styles';
 
 import EmptyCart from '../emptyCart';
+import OrderSucessfullyMadeModal from '../orderSucessfullyMadeModal';
 
 function CartTable({ items }) {
-  const { totalCartPrice, removeAllItems } = useContext(CartContext);
+  const { totalCartPrice, removeAllItems, addOrder } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(null);
+  const navigate = useNavigate();
+  const cartItemsDescription = items.map((cartItem) => cartItem.description).toString();
 
   const handleClick = () => {
     try {
       setLoading(true);
-      removeAllItems().then(() => (window.alert('Pedido finalizado com sucesso!')));
+      setIsModalOpen(true);
+      addOrder(
+        {
+          order_price: totalCartPrice,
+          products: cartItemsDescription,
+        },
+      ).then(() => removeAllItems());
     } catch (err) {
       setError(err);
     } finally {
@@ -47,6 +58,11 @@ function CartTable({ items }) {
 
   return (
     <CartContainer>
+      <OrderSucessfullyMadeModal
+        isOpen={isModalOpen}
+        onConfirm={() => navigate('/')}
+      />
+
       {
         items?.length > 0 ? (
           <>

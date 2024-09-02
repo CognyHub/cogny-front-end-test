@@ -8,6 +8,7 @@ import addProductToCart from '../services/addProductToCart';
 import removeProductFromCart from '../services/removeProductFromCart';
 import updateProductOnCart from '../services/updateProductOnCart';
 import cleanCart from '../services/cleanCart';
+import createOrder from '../services/createOrder';
 
 const CartContext = createContext();
 
@@ -84,6 +85,14 @@ function CartProvider({ children }) {
     }
   };
 
+  const addOrder = async (order) => {
+    try {
+      await createOrder(order);
+    } catch (err) {
+      setError(err);
+    }
+  };
+
   const isProductOnCart = (productId) => cartItems.find((item) => item.product_id === productId);
 
   if (loading) return <Loading />;
@@ -103,6 +112,7 @@ function CartProvider({ children }) {
       setTotalCartPrice,
       setCartItems,
       addToCart,
+      addOrder,
       updateItem,
       removeItem,
       removeAllItems,
