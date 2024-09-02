@@ -44,8 +44,6 @@ Roda os testes do projeto, utilizando Jest.
 
 Roda os testes e apresenta a tabela de cobertura dos testes em relação ao projeto.
 
-<img src="https://github.com/user-attachments/assets/4fd1192a-00c2-4d24-98ce-3fe84055b414" alt="test coverage" />
-
 
 ### `npm run build`
 
